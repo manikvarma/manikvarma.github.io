@@ -1,0 +1,381 @@
+<html>
+
+<head>
+  <title>Code for Local Deep Kernel Learning (LDKL) for Efficient Non-linear SVM Prediction</title>
+  <meta name="keyword" content="LDKL, Local Deep Kernel Learning, SVM, non-linear SVM"> 
+</head>
+
+<body>
+<center>
+  <h1><b>LDKL: Local Deep Kernel Learning</b></h1>
+  <hr width=400>
+  <a href="mailto:sujain@microsoft.com">Suraj Jain</a> &bull; <a href="mailto:josevancijo@gmail.com">Cijo Jose</a> &bull; <a href="mailto:prasoongoyal13@gmail.com">Prasoon Goyal</a> &bull; <a href="../../index.html">Manik Varma</a>
+  <hr width=400>
+</center>
+
+<p>
+<h2>Introduction</h2>
+</p>
+
+<P> 
+There has been an explosion in the size of modern day training sets with the advent of big data, cheap crowdsourcing and other techniques for gathering labelled information efficiently. This presents a significant challenge for non-linear SVMs since their cost of prediction can grow linearly with the size of
+ the training set. Thus, even though non-linear SVMs have defined the state-of-the-art on multiple benchmark tasks, their use in real world applications remains limited.
+</P>
+
+<P>
+We develop a Local Deep Kernel Learning (LDKL) technique&nbsp;[<A
+ HREF="./download.html#Jose13">1</A>] for efficient non-linear SVM prediction while maintaining classification accuracy above an acceptable threshold. LDKL learns a tree-based primal feature embedding which is high dimensional and sparse. Primal based classification decouples prediction costs from the number of support vectors and the size of the training set and LDKL’s tree-structured features efficiently encode non-linearities while speeding up prediction exponentially over the state-of-the-art. We develop routines for optimizing over the space of tree-structured features and efficiently scale to problems with more than half a million training points. Experiments on benchmark data sets reveal that LDKL can reduce prediction costs by more than three orders of magnitude in some cases with a moderate sacrifice in classification accuracy as compared to RBF-SVMs. Furthermore, LDKL can achieve better classification accuracies over leading methods for speeding up non-linear SVM 
+prediction. In particular, LDKL is significantly better than kernel approximation techniques, such as Random Fourier Features&nbsp;[<A
+ HREF="./download.html#Rahimi07">2</A>,<A
+ HREF="./download.html#Le13">3</A>] and Nystr&oumlm&nbsp;[<A
+ HREF="./download.html#Vedaldi11">4</A>,<A
+ HREF="./download.html#Yang12">5</A>], as it focusses on the decision boundary rather than modeling the kernel everywhere in space. LDKL can also be much faster than reduced set methods&nbsp;[<A
+ HREF="./download.html#Joachims09">6</A>,<A
+ HREF="./download.html#Keerthi06">7</A>,<A
+ HREF="./download.html#Shalev-Shwartz13">8</A>] as its tree-structured features can be computed in logarithmic time.
+</P>
+
+<p>
+<h2>Results</h2>
+We've made slight modifications to the LDKL implementation so the results reported below are slightly better than those reported in <a href="./download.html#Jose13">our ICML 2013 paper</a>.
+</p>
+
+<p>
+<center>
+<table cellspacing=0>
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="2" align="right">Data Set</th>
+	<th colspan="3">Classification Accuracy (%)</th>
+	<th colspan="2">Training Time (Minutes)</th>
+	<th colspan="2">Prediction Time (Normalized)</th>
+	<th rowspan="2">Prediction Speedup over RBF-SVM</th>
+</tr>
+<tr align=center>
+	<th>Linear SVM</th>
+	<th>RBF-SVM</th>
+	<th>LDKL &nbsp;</th>
+	<th>RBF-SVM</th>
+	<th>LDKL</th>
+	<th>RBF-SVM</th>
+	<th>LDKL</th>
+</tr>
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<td align=right>Banana</td>
+	<td>59.18</td>
+	<td>90.30</td>
+	<td>89.53</td>
+	<td>0.00067</td>
+	<td>0.01017</td>
+	<td>1481.81</td>
+	<td>32.12</td>
+	<td>46.13</td>
+</tr>
+<tr align=center>
+	<td align=right>CIFAR</td>
+	<td>69.16</td>
+	<td>81.62</td>
+	<td>75.89</td>
+	<td>1283.68</td>
+	<td>0.278</td>
+	<td>38094.48</td>
+	<td>5.37</td>
+	<td>7081.60</td>
+</tr>
+<tr align=center>
+	<td align=right>CoverType</td>
+	<td>76.27</td>
+	<td>91.87</td>
+	<td>90.03</td>
+	<td>1369.96</td>
+	<td>7.99</td>
+	<td>229418</td>
+	<td>16.67</td>
+	<td>13757.95</td>
+</tr>
+<tr align=center>
+	<td align=right>IJCNN</td>
+	<td>92.20</td>
+	<td>98.68</td>
+	<td>98.31</td>
+	<td>0.45</td>
+	<td>0.09</td>
+	<td>6684.53</td>
+	<td>12.24</td>
+	<td>546.00</td>
+</tr>
+<tr align=center>
+	<td align=right>Letter</td>
+	<td>73.08</td>
+	<td>98.10</td>
+	<td>96.02</td>
+	<td>0.43</td>
+	<td>2.2</td>
+	<td>11020</td>
+	<td>33.29</td>
+	<td>330.98</td>
+</tr>
+<tr align=center>
+	<td align=right>Magic04</td>
+	<td>79.08</td>
+	<td>86.65</td>
+	<td>86.19</td>
+	<td>0.17</td>
+	<td>0.047</td>
+	<td>9489.79</td>
+	<td>13.26</td>
+	<td>709.92</td>
+</tr>
+<tr align=center>
+	<td align=right>MNIST</td>
+	<td>87.90</td>
+	<td>97.45</td>
+	<td>97.28</td>
+	<td>39.12</td>
+	<td>1.376</td>
+	<td>12130.98</td>
+	<td>9.37</td>
+	<td>1294.42</td>
+</tr>
+<tr align=center>
+	<td align=right>USPS</td>
+	<td>83.65</td>
+	<td>96.96</td>
+	<td>95.63</td>
+	<td>0.75</td>
+	<td>0.09</td>
+	<td>3375</td>
+	<td>8.15</td>
+	<td>413.79</td>
+</tr>
+<tr align=center>
+	<td align=right>RCV1</td>
+	<td>93.18</td>
+	<td>-</td>
+	<td>95.27</td>
+	<td>-</td>
+	<td>0.5</td>
+	<td>-</td>
+	<td>1.18</td>
+	<td>-</td>
+</tr>
+<tr align=center>
+	<td align=right>MNIST 8Million</td>
+	<td>79.24</td>
+	<td>-</td>
+	<td>98.01</td>
+	<td>-</td>
+	<td>65.21</td>
+	<td>-</td>
+	<td>1.16</td>
+	<td>-</td>
+</tr>
+<tr align=center>
+<td colspan=9 align=left>
+<hr>
+Note that the actual prediction times have been normalized by dividing by a linear SVM's prediction time. This gives a sense of how much slower a method is as compared to a linear SVM and is somewhat robust to the actual hardware configuration on which the predictions were carried out.
+</td>
+</tr>
+<caption>
+Table 1: A comparison of LDKL's and RBF-SVM's classification accuracies and prediction times.
+</caption>
+</table>
+</center>
+</p>
+
+<img src="./Image/Plots.png" title="Plot of accuracy vs normalized prediction time" width='100%'>
+<p>
+Figure 1: Plots of prediction time versus prediction accuracy for state-of-the-art methods for speeding up non-linear SVM prediction. LDKL can have significantly higher classification accuracies as compared to the other methods for a given prediction cost. A method's curve not appearing in the plot for a given data set indicates that, for the given prediction cost range, the methods performance was worse than that of a linear SVM.</th>
+</p>
+
+<p>
+<img src="./Image/BarCharts.png" title="Bar charts of prediction accuracy for a fixed prediction cost" width='100%'>
+<center>
+Figure 2: Bar charts of prediction accuracy for a fixed prediction cost.
+</center>
+</p>
+
+<BR>
+
+<p>
+LDKL's classification accuracies are,by and large, within a percent or two of the RBF-SVM's while its prediction time can be two to four orders of magnitude lower. All our experiments were carried out on a single core of a 2.67 GHz Intel Xeon processor with 8GB of RAM.
+</p>
+
+<p>
+<h2>Download</h2> 
+</p>
+<p>
+<a href="LDKL.zip">
+<h4> Download the source code and Windows/Linux binaries</h4></a> 
+<p>
+Please make sure that you have read the license agreement in LICENSE.doc/pdf before installing or using LDKL.
+</p>
+
+<p>
+The code is in C++ and should compile on 32/64 bit Windows/Linux machines. The code also contains a Matlab interface. Please set "#define WINDOWS 1" in "include/Timer.h" when compiling on Windows machines and set the system PATH to include CL.EXE before running Makefile.bat (see the included README for detailed instructions). This code is made available as is for non-commercial research purposes. Please go through the EULA for more details. 
+</p>
+
+<p><a href="https://docs.google.com/uc?export=download&id=0B5E8qFcWFPQOYXg3X29uMDdINU0"><h3> Download the data sets used in the LDKL ICML 2013 paper</h3></a> 
+Please note that these data sets have been preprocessed in some cases (binarized, made zero mean and unit variance, <i>etc</i>.) so they might not match those available on the UCI/LibSVM page. In order to reproduce our results, please download and put all the data sets in the datasets folder. Compile LDKL and locate and run the ReproduceResult script. The learnt models and results will be stored in the Models and Results folders. 
+</p>
+
+<p>
+Please contact <a href="mailto:sujain@microsoft.com">Suraj Jain</a> and <a href="mailto:manik@microsoft.com ">Manik Varma</a> if you have any questions or feedback.
+</P>
+
+<p>
+<h2>Usage</h2>
+</P>
+
+<p>
+<b>Training</b>: The command
+</p>
+
+<p>
+<TT>&gt LDKLTrain [Options] TrainingDataFile [ModelFile]</TT>
+</p>
+
+<p>
+reads in training data from <TT>TrainingDataFile</TT> and saves the learnt LDKL model in <TT>ModelFile</TT> subject to the following options
+
+<UL>
+  <LI><tt>-D</tt> &nbsp : Depth of the LDKL tree.</LI>
+  <LI><tt>-lW</tt> : &#955<sub>W</sub> = regularizer for classifier parameter W &nbsp(try : 0.1, 0.01 or 0.001).</LI>	 
+  <LI><tt>-lT</tt> : &#955<sub>&#952</sub> = regularizer for kernel parameter &#952 &nbsp(try : 0.1, 0.01 or 0.001).</LI>
+  <LI><tt>-lP</tt> : &#955<sub>&#952'</sub> = regularizer for kernel parameters &#952' &nbsp(try : 0.1, 0.01 or 0.001).</LI>
+  <LI><tt>-S</tt> &nbsp : &#963  = parameter for sigmoid sharpness &nbsp(try : 1.0, 0.1 or 0.01).</LI>
+  <LI><tt>-N</tt> &nbsp : [Optional: default 1] Number of times to train LDKL with different random initializations.</LI>
+  <LI><tt>-I</tt> &nbsp : [Optional: default 15000] Number of passes through the dataset.</LI>
+  <LI><tt>TrainingDataFile</tt> : File containing training data.</LI>
+  <LI><tt>ModelFile&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</tt> : [Optional: default  TrainingDataFile.model] Files containing the models learnt by LDKL. For example, given the command <tt>LDKLTrain -N 5 ... banana.train</tt>, LDKL will learn 5 different models and store them in <tt>banana.train.model1</tt>, ..., <tt>banana.train.model5</tt>. </LI>
+</UL>
+Please refer to the included ICML 2013 paper for the parameter definitions and to the included <tt>ReproduceResults</tt> script for common parameter settings.
+</P>
+
+<p>
+<b>Testing</b>: The command
+</p>
+
+<p>
+<TT>&gt LDKLPredict ModelFile TestDataFile [options]</TT>
+</P>
+
+<p>
+applies the learnt LDKL classifier in <TT>ModelFile</TT> to the test data in <TT>TestFile</TT> and saves the predictions subject to the following options
+
+<UL>
+	<LI><tt>ModelFile</tt> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: The base name of the files containing the learnt LDKL models. This argument should be the same as the <tt>ModelFile</tt> argument used during training. For example, if the learnt LDKL models were stored in <tt>banana.train.model1</tt>, ..., <tt>banana.train.model5</tt> then <tt>ModelFile</tt> should be set to <tt>banana.train</tt>.</LI>
+	<LI><tt>TestDataFile</tt> : File containing test data.</LI>
+	<LI><tt>-N</tt> : [Optional: default 1] Number of models over which LDKL's predictions will be averaged. Note that this cannot be greater than the argument used in <tt>-N</tt> during training.</LI>
+	<LI><tt>-R</tt> : [Optional: default Result.txt] Result filename.</LI>
+</UL>
+
+Please refer to the README for more details including information about the file formats.
+</p>
+
+<p>
+<h2>A Toy Example</h2>
+</p>
+
+<p>
+A toy example has been included with the source code and binaries. Unpack the code and try
+</p>
+
+<p>
+<TT> &gt; ToyExample</TT>
+</P>
+
+<p>
+after building the source or copying the binaries from the /bin/OS/ folder to the base folder, where OS is win32 or win64 or linux. This trains the LDKL classifier on the Banana data set. The learnt models will be saved in the <TT>Models</TT> folder and the results will be saved in the <TT>Results</TT> folder. You should expect an accuracy close to 89.2%.
+</P>
+<center>
+<table>
+<tr>
+<th><img src="./Image/Linear.jpg" title="Linear SVM" width='100%'><BR>Linear SVM (59.18%)</th>
+<th><img src="./Image/RBF.jpg" title="RBF-SVM" width='100%'><BR>RBF-SVM (90.65%) </th>
+<th><img src="./Image/LDKL.jpg" title="LDKL" width='100%'><BR>LDKL (89.4%)</th>
+</tr>
+<tr>
+<th><img src="./Image/DT.jpg" title="Fully grown decision tree" width='100%'><BR>Fully grown decision tree (87.23%)</th>
+<th><img src="./Image/PDT.jpg" title="Pruned decision tree" width='100%'><BR>Pruned decision tree (84.23%)</th>
+<th><img src="./Image/BPDT.jpg" title="Multi-feature decision tree" width='100%'><BR>Multi-feature decision tree (88.32%)</th>
+</tr>
+</table>
+</center>
+<p>
+Note that LDKL's decision boundary and classification accuracy on this data set are similar to that of the RBF-SVM. The decision tree results are not so good as typical decision trees are limited to piecewise linear decision boundaries.
+</p> 
+<p>
+<h2> References </h2>
+</H2><DL COMPACT><DD><P></P><DT><A NAME="Jose13">1</A>
+&nbsp &nbsp
+  C.&nbsp;Jose, P.&nbsp;Goyal, P.&nbsp;Aggrwal, and M.&nbsp;Varma, <a href="../../pubs/Jose13.pdf">Local deep kernel learning for
+  efficient non-linear svm prediction</a>, in <EM> ICML, </EM> 2013.
+
+<P></P><DT><A NAME="Rahimi07">2</A>
+&nbsp &nbsp
+A.&nbsp;Rahimi and B.&nbsp;Recht, Random features for large-scale kernel machines, in <em> NIPS,</em> 2007.
+
+<P></P><DT><A NAME="Le13">3</A>
+&nbsp &nbsp
+Q.&nbsp;Le, T.&nbsp;Sarl&oacutes, and A.&nbsp;Smola, Fastfood - computing hilbert space expansions
+  in loglinear time, in <EM> ICML,</EM> 2013.
+
+<P></P><DT><A NAME="Vedaldi11">4</A>
+&nbsp &nbsp
+A.&nbsp;Vedaldi and A.&nbsp;Zisserman, Sparse kernel approximation for efficient classification and detection, in <em> CVPR, </em> 2012.
+
+<P></P><DT><A NAME="Yang12">5</A>
+&nbsp &nbsp
+T.&nbsp;Yang, Y.-F. Li, M.&nbsp;Mahdavi, R.&nbsp;Jin, and Z.-H. Zhou, Nystr&#246;m method vs
+  random fourier features: A theoretical and empirical comparison, in <em> NIPS, </em> 2012.
+
+<P></P><DT><A NAME="Joachims09">6</A>
+&nbsp &nbsp
+T.&nbsp;Joachims and C.-N.&nbsp;J. Yu, Sparse kernel SVMs via cutting-plane
+  training, <EM> MLJ, </EM> vol.&nbsp;76, 2009.
+
+<P></P><DT><A NAME="Keerthi06">7</A>
+&nbsp &nbsp
+S.&nbsp;S. Keerthi, O.&nbsp;Chapelle, and D.&nbsp;DeCoste, Building support vector machines
+  with reduced classifier complexity, <EM> JMLR, </EM> vol.&nbsp;7, Dec. 2006.
+
+<P></P><DT><A NAME="Shalev-Shwartz13">8</A>
+&nbsp &nbsp
+A.&nbsp;Cotter, S.&nbsp;Shalev-shwartz, and N.&nbsp;Srebro, Learning optimally sparse
+  support vector machines, in <EM> ICML, </EM> 2013.
+</DL>
+<BR><HR>
+
+<TABLE width=778><TBODY>
+<TR>
+<TD><a href="../../index.html#ICML13">Manik's Home Page</a>
+</TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1450">Contact us</A></TD>
+<TD>| </TD>
+<TD><A href="http://go.microsoft.com/fwlink/?LinkID=286687">Privacy and Cookies</A></TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1452">Terms of use</A></TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1453">Trademarks</A></TD>
+<TD>| </TD>
+<TD>  </TD>
+<TD>©2013 Microsoft</TD>
+<TD>  </TD> 
+<TD><a href="http://research.microsoft.com/c/1456"><img alt="Microsoft" src="http://research.microsoft.com/a/i/c/ms-logo.png" border="0"></a></TD>
+</TR>
+</TBODY></TABLE>
+
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<html>
+
+<head>
+  <title>CSL 864</title>
+  <meta name="keyword" content="manik, varma, teaching IIT CSL 864"> 
+</head>
+
+<body>
+<center><h1><b>CSL 864 - Special Topics in AI: Classification</b></h1></center>
+
+<p> 
+This is an introductory course on machine learning focusing on
+classification. The course has three major objectives. First, to
+familiarize students with basic classification methods so that these
+can be used as tools to tackle practical machine learning
+problems. Second, to equip students with the mathematical skills
+needed to theoretically analyze these methods and modify and extend
+them to tackle new problems. Finally, students will be introduced to
+basic optimization techniques so that they can start writing their own
+code for these methods.
+</p>
+
+<ul type="circle">
+  <li> Lecture 1: Introduction to supervised learning, over fitting,
+  probability theory and decision theory. </li>
+  <li> Lecture 2: Generative Methods and Na&iuml;ve Bayes. </li>
+  <li> Lecture 3: Toy example. </li>
+  <li> Lecture 4: Discriminative Methods and Logistic
+  Regression. Equivalence to Na&iuml;ve Bayes.</li>
+  <li> Lecture 5: Logistic Regression optimization and
+  extensions. </li> 
+  <li> Lecture 6: Support Vector Machines. </li>
+  <li> Lecture 7: SVMs continued - Kernels.  </li>
+  <li> Lecture 8: Multi-Class SVMs. Digression on  VC dimension. </li>
+  <li> Lecture 9: SVM optimization </li>
+  <li> Lecture 10: Kernel learning and optimization </li>
+  <li> Lecture 11: Boosting </li>
+  <li> Lecture 12: Boosting continued </li>
+</ul>
+
+<p>
+<font size=5 color="red"><b>Slides</b></font>
+</p>
+
+<ul type="circle">
+  <li><a href="Slides/Slides.pptx">Manik's slides</a></li>
+  <li><a href="Slides/MKLTutorial.pptx">Manik's Multiple Kernel
+  Learning Tutorial</a></li>
+  <li><a href="Slides/VCDimension.pdf">VC Dimension</a> (slides by <a
+  href="http://www.autonlab.org/tutorials/vcdim.html">Andrew
+  Moore</a>)</li>  
+</ul>
+
+<p>
+<font size=5 color="red"><b>Code</b></font>
+</p>
+
+<p>
+Most code was written five minutes before the start of each lecture
+and comes with no guarantees, comments or documentation. In
+particular, no attempt has been made to bulletproof the code. For
+instance, if there is no feasible solution for your parameter settings
+then the figure plotting subroutines will crash (the LR and SVM
+learning routines should be stable). In any case, run the code at your
+own peril. 
+</p>
+
+<ul type="circle">
+  <li><a href="Code/COMTools.tgz">Some common MATLAB tools needed for
+  the demos</a> (you'll need the Optimization Toolbox ver 4.2 or
+  higher for fmincon.LBFGS for Logistic Regression)</li> 
+  <li><a href="Code/LRNdemos.tgz">MATLAB code for demos</a>
+    <ul type="circle">
+      <li>Na&iuml;ve Bayes</li>
+      <li>Regularized Logistic Regression (code is kernelized and
+      displays dual weights)</li>  
+      <li>Na&iuml;ve Bayes vs Logistic Regression</li>
+      <li>Multi-class Logistic Regression (Multinomial, 1-vs-All,
+      1-vs-1 DAG, 1-vs-1 majority vote)</li>
+      <li>Linear SVMs vs Logistic Regression</li>
+      <li>Non-linear SVMs</li>
+      <li>Multi-class SVMs (multi-class hinge loss, Multinomial Logistic Regression, 1-vs-All SVM, 1-vs-1 DAG SVM, 1-vs-1 majority vote SVM)</li>
+    </ul>
+  </li> 
+</ul>
+
+<p>
+Links to code by other people can be found in the slides.
+</p>
+
+<p>
+<font size=5 color="red"><b>Recommended Reading</b></font>
+</p>
+
+<ul type="circle">
+  <li> 
+    D.&nbsp;Bertsekas.
+    <a href="http://www.athenasc.com/nonlinbook.html"><em>Nonlinear Programming</em></a>.
+    Athena Scientific, 1999.
+  </li>
+
+  <li> 
+    C.&nbsp;M. Bishop.
+    <a href="http://research.microsoft.com/~cmbishop/PRML/index.htm"><em>Pattern Recognition and Machine Learning</em></a>.
+    Springer, 2006.
+  </li>
+
+  <li> 
+    S.&nbsp;Boyd and L.&nbsp;Vandenberghe.
+    <a href="http://www.stanford.edu/~boyd/cvxbook/"><em>Convex Optimization</em></a>.
+    Cambridge University Press, 2004.
+  </li>
+
+  <li> 
+    N.&nbsp;Cristianini and J.&nbsp;Shawe-Taylor.
+    <a href="http://www.support-vector.net/"><em>An Introduction to Support Vector Machines and
+    Other Kernel-based Learning Methods</em></a>. 
+    Cambridge University Press, 2000.
+  </li>
+
+  <li> 
+    R.&nbsp;O. Duda, P.&nbsp;E. Hart, and D.&nbsp;G. Stork.
+    <a href="http://as.wiley.com/WileyCDA/WileyTitle/productCd-0471056693.html"><em>Pattern Classification</em></a>.
+    John Wiley and Sons, second edition, 2001.
+  </li>
+
+  <li> 
+    T.&nbsp;Hastie, R.&nbsp;Tibshirani, and J.&nbsp;Friedman.
+    <a
+    href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/"><em>The
+    Elements of Statistical Learning</em></a>.
+    Springer, second edition, 2009.
+  </li>
+
+  <li> 
+    T.&nbsp;Mitchell.
+    <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html"><em>Machine Learning</em></a>.
+    McGraw Hill, 1997.
+  </li>
+
+  <li> 
+    B.&nbsp;Scholkopf and A.&nbsp;Smola.
+    <a href="http://www.learning-with-kernels.org/"><em>Learning with Kernels</em></a>.
+    MIT Press, 2002.</dd>
+  </li>
+</ul>
+
+<p>
+Please see the slides for links to relevant research papers.
+</p>
+
+<hr>
+<a href="../../index.html">Back to Manik's Home Page</a>
+
+</body>
+
+</html>
+
+

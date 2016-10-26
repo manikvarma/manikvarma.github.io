@@ -1,0 +1,19 @@
+We study the problem of estimating the illuminant's direction from
+images of textured surfaces. Given an isotropic, Gaussian random
+surface with constant albedo, Koenderink and Pont [JOSA 03] developed
+a theory for recovering the illuminant's azimuthal angle from a single
+image of the texture formed under a Lambertian model. In this paper,
+we extend the theory to deal with cases of spatially varying albedo.
+
+First, we generalise the theory to explain why their method should work
+even for certain types of spatially varying albedo. Our generalisation
+also predicts that the coherence of the structure tensor should lie
+below 0.8 in such non-constant albedo cases and accurately predicts
+the ``deviation'' from the true value observed by Koenderink and Pont
+on the Columbia-Utrecht (CUReT) texture database. Next, we extend the
+theory to account for arbitrarily varying albedo. We also investigate
+local, rather than global, estimates of the direction, and demonstrate
+our theory on the CUReT and the Heriot-Watt TextureLab databases where
+estimated directions are compared to ground truth.
+
+

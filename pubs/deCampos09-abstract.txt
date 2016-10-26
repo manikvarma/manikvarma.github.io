@@ -1,0 +1,14 @@
+This paper tackles the problem of recognizing characters in images of
+natural scenes. In particular, we focus on recognizing characters in
+situations that would traditionally not be handled well by OCR
+techniques.  We present an annotated database of images containing
+English and Kannada characters.  The database comprises of images of
+street scenes taken in Bangalore, India using a standard camera.  The
+problem is addressed in an object cateogorization framework based on a
+bag-of-visual-words representation. We assess the performance of
+various features based on nearest neighbour and SVM classification. It
+is demonstrated that the performance of the proposed method, using as
+few as 15 training images, can be far superior to that of commercial
+OCR systems. Furthermore, the method can benefit from synthetically
+generated training data obviating the need for expensive data
+collection and annotation.

@@ -1,0 +1,1446 @@
+<html>
+
+<head>
+ <title>The Extreme Classification Repository</title>
+  <meta name="keyword" content="Extreme Classification, extreme classification repository, extreme multilabel repository,  Multilabel, multilabel datasets, multilabel learning code, SLEEC, M3L, FastXML, WikiLSHTC, RCV1X, delicious, bibtex">
+
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+</head>
+
+<body>
+<center>
+  <h1>The Extreme Classification Repository: Multi-label Datasets &amp; Code</h1>
+  <hr width=400>
+
+  <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> &bull; <a href="mailto:himanshu.j689@gmail.com">Himanshu Jain</a> &bull; <a href = "http://research.microsoft.com/en-us/people/prajain/">Prateek Jain </a> &bull; <a href="http://research.microsoft.com/en-us/um/people/manik/">Manik Varma</a>
+  <hr width=400>
+</center>
+
+<p>
+  The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets and code that can be used for evaluating the performance of extreme multi-label algorithms.
+</p>
+
+<p>
+	<h2>Download Datasets</h2>
+</p>
+<p>
+	These multi-label datasets have been processed from their original source to create train/test splits ensuring that the test set contains as many training labels as possible. This yields more realistic train/test splits as compared to uniform sampling which can drop many of the infrequently occurring, and hard to classify, labels from the test set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been dropped from our test set. Results computed on the train/test splits provided on this page are therefore not comparable to results computed on the original sources or through uniform sampling. Please cite both the original source as well as the reference mentioned in the citation column in Table1 to avoid any ambiguity about which train/test split was used.
+Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download.
+</p>
+<p>
+<a href="XMLDatasetRead.zip">View the README for the dataset file format and download a sample script for reading the data into Matlab</a>
+</p>
+
+<p>
+<center>
+<table style="width:1300px;">
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="2" align="right" style="width: 150px;">Dataset</th>
+	<th rowspan="2" style="width: 250px;">Download</th>
+  	<th rowspan="1" style="width: 130px;">Feature</th>
+	<th rowspan="1" style="width: 130px;">Label</th>
+  	<th rowspan="1" style="width: 100px;">Number of</th>
+  	<th rowspan="1" style="width: 100px;">Number of</th>
+  	<th rowspan="1" style="width: 100px;">Avg. Points </th>
+  	<th rowspan="1" style="width: 100px;">Avg. Labels </th>
+  	<th rowspan="2" style="width: 100px;">Citations</th>
+</tr>
+
+<tr align=center>
+  	<th>Dimensionality</th>
+	<th rowspan="1">Dimensionality</th>
+  	<th rowspan="1">Train Points</th>
+  	<th rowspan="1">Test Points</th>
+  	<th rowspan="1">per Label</th>
+  	<th rowspan="1">per Point</th>
+</tr>
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+  
+<tr align=center>
+<td align=right>Mediamill</td>
+<td><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGY3B4TXRmZnZBTkk">Download</a></td>
+<td>120</td>
+<td>101</td>
+<td>30993</td>
+<td>12914</td>
+<td>1902.15</td>
+<td>4.38</td>
+<td><a href = "#Prabhu14">[2]</a> + <a href = "#Snoek06">[19]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Bibtex</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM">Download</a></td>
+<td>1836</td>
+<td>159</td>
+<td>4880</td>
+<td>2515</td>
+<td>111.71</td>
+<td>2.40</td>
+<td><a href = "#Prabhu14">[2]</a> + <a href = "#Katakis08">[20]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU">Download</a></td>
+<td>500</td>
+<td>983</td>
+<td>12920</td>
+<td>3185</td>
+<td>311.61</td>
+<td>19.03</td>
+<td><a href = "#Prabhu14">[2]</a> + <a href = "#Tsoumakas08">[21]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>RCV1-2K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdnEzRWZWQWJMRnc">Download</a></td>
+<td>47236</td>
+<td>2456</td>
+<td>623847</td>
+<td>155962</td>
+<td>1218.56</td>
+<td>4.79</td>
+<td><a href = "#Prabhu14">[2]</a> + <a href = "#RCV1">[26]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>EURLex-4K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGU0VTR1pCejFpWjg">Download</a></td>
+<td>5000</td>
+<td>3993</td>
+<td>15539</td>
+<td>3809</td>
+<td>25.73</td>
+<td>5.31</td>
+<td><a href = "#Bhatia15">[1]</a> + <a href = "#Eurlex">[27]</a></td>
+</tr>
+
+
+<tr align=center>
+<td align=right>AmazonCat-13K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGa2tMbVJGdDNSMGc">Download</a></td>
+<td>203882</td>
+<td>13330</td>
+<td>1186239</td>
+<td>306782</td>
+<td>448.57</td>
+<td>5.04</td>
+<td><a href = "#Julian13">[28]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>AmazonCat-14K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGaDFqU2E5U0dxS00">Download Dataset</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGSG5tZ2hVc29NZzg">Download Feature Vector and Label Meta-data</a></td>
+<td>597540</td>
+<td>14588</td>
+<td>4398050</td>
+<td>1099725</td>
+<td>1330.1</td>
+<td>3.53</td>
+<td><a href = "#Julian15a">[29]</a> + <a href = "#Julian15b">[30]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Wiki10-31K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGaDdOeGliWF9EOTA">Download</a></td>
+<td>101938</td>
+<td>30938</td>
+<td>14146</td>
+<td>6616</td>
+<td>8.52</td>
+<td>18.64</td>
+<td><a href = "#Bhatia15">[1]</a> + <a href = "#Zubiaga09">[23]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious-200K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGR3lBWWYyVlhDLWM">Download</a></td>
+<td>782585</td>
+<td>205443</td>
+<td>196606</td>
+<td>100095</td>
+<td>72.29</td>
+<td>75.54 </td>
+<td><a href = "#Bhatia15">[1]</a> + <a href = "#Wetzker08">[24]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>WikiLSHTC-325K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGSHE1SWx4TVRva3c">Download</a></td>
+<td>1617899</td>
+<td>325056</td>
+<td>1778351</td>
+<td>587084</td>
+<td>17.46</td>
+<td>3.19</td>
+<td><a href = "#Prabhu14">[2]</a> + <a href = "#WikiLSHTC">[25]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Wikipedia-500K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c">Download Dataest</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGd2pFcTRDQVh5bDg" >Download Feature Vector and Label Meta-data</a></td>
+<td>2381304</td>
+<td>501070</td>
+<td>1813391</td>
+<td>783743</td>
+<td>24.75</td>
+<td>4.77</td>
+<td>-</td>
+</tr>  
+
+<tr align=center>
+<td align=right>Amazon-670K</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdUJwRzltS1dvUVk">Download</a></td>
+<td>135909</td>
+<td>670091</td>
+<td>490449</td>
+<td>153025</td>
+<td>3.99</td>
+<td>5.45</td>
+<td><a href = "#Bhatia15">[1]</a> + <a href = "#Julian13">[28]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Ads-1M</td>
+<td >-</td>
+<td>164592</td>
+<td>1082898</td>
+<td>3917928</td>
+<td>1563137</td>
+<td>7.07</td>
+<td>1.95</td>
+<td><a href = "#Prabhu14">[2]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Amazon-3M</td>
+<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGUEd4eTRxaWl3YkE">Download Dataset</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGd2U3VHB0Wkk4cGM" >Download Feature Vector and Label Meta-data</a></td>
+<td>337067</td>
+<td>2812281</td>
+<td>1717899</td>
+<td>742507</td>
+<td>31.64</td>
+<td>36.17</td>
+<td><a href = "#Julian15a">[29]</a> + <a href = "#Julian15b">[30]<a/></td>
+</tr>
+
+<tr align=center>
+<td align=right>Ads-9M</td>
+<td >-</td>
+<td>2082698</td>
+<td>8838461</td>
+<td>70455530</td>
+<td>22629136</td>
+<td>14.32</td>
+<td>1.79</td>
+<td><a href = "#Prabhu14">[2]</a></td>
+</tr>
+
+
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<caption>
+Table 1:  Dataset statistics & download
+</caption>
+</table>
+</center>
+</p>
+
+<p>
+We have followed the naming convention of appending the number of labels to the dataset name so as to disambiguate various versions of the datasets. Thus, DeliciousLarge has been renamed to Delicious-200K, RCV1-X to RCV1-2K, <i>etc</i>.
+</p>
+
+<p>
+Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like to contribute a dataset.
+</p>
+<p>
+	<h2>Download Code</h2>
+	
+</p>
+
+
+
+<p>
+<a href="../../code/SLEEC/download.html">Download the SLEEC source code in Matlab</a>
+</p>
+
+<p>
+<a href="../../code/FastXML/download.html">Download the FastXML source code in C and Matlab as well as precompiled Windows/Linux binaries</a>
+</p>
+
+<p>
+<a href="../../code/M3L/download.html">Download the M3L source code in C as well as precompiled Windows/Linux binaries for an efficient implementation of the linear/kernelized 1-vs-All algorithm</a>
+</p>
+
+<p>
+Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like us to provide a link to your code.
+</p>
+
+
+<p>
+<h2>Benchmark Results</h2>
+</p>
+
+<p>
+Tables 2 and 3 present comparative results of various algorithms on the small scale datasets. Tables 4 and 5 present results on the larger datasets. If an algorithm cannot scale to a dataset then its results are either not shown or reported as "-". Classification accuracy is evaluated according to Precision$@k$ and nDCG$@k$ defined for a predicted score vector $\hat{\mathbf y} \in {\cal{R}}^{L}$ and ground truth label vector $\mathbf y \in \left\lbrace 0, 1 \right\rbrace^L$ as
+\[
+\text{P}@k := \frac{1}{k} \sum_{l\in \text{rank}_k (\hat{\mathbf y})} \mathbf y_l
+\]
+
+\[
+\text{DCG}@k := \sum_{l\in {\text{rank}}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{\log(l+1)}
+\]
+\[
+\text{nDCG}@k := \frac{{\text{DCG}}@k}{\sum_{l=1}^{\min(k, \|\mathbf y\|_0)} \frac{1}{\log(l+1)}}
+\]
+where, $\text{rank}_k(\mathbf y)$ returns the $k$ largest indices of $\mathbf{y}$ ranked in descending order.
+<p>
+It is recommended that you use the following script to compute Precision and nDCG so as to be consistent with the results reported in Tables 2-5.
+</p>
+
+<p>
+<a href="XMLPerf.zip">Download sample Matlab script to compute Precision and nDCG</a>
+</p>
+
+<p>
+<center>
+<table style="width:1600px;table-layout:fixed">
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="2" align="right">Dataset</th>
+  <th rowspan="2">Precision@k</th>
+	<th colspan="6">Embedding Based</th>
+	<th colspan="2">Tree Based</th>
+	<th colspan="2">Other</th>
+</tr>
+<tr align=center>
+	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
+	<th>LEML <a href = "#Yu14">[5]</a></th>
+	<th>WSABIE <a href = "#Weston11">[11]</a></th>
+	<th>CPLST <a href = "#Chen12">[9]</a></th>
+	<th>CS <a href = "#Hsu09">[6]</a></th>
+	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
+	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
+  <th>LPSR <a href = "#Weston13">[4]</a></th>
+  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
+  <th>kNN</th>
+</tr>
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right style="width: 120px;">Bibtex</td>
+<td style="width: 200px;">P@1</td>
+<td style="width: 120px;">65.57</td>
+<td style="width: 120px;">62.53</td>
+<td style="width: 120px;">54.77</td>
+<td style="width: 120px;">62.38</td>
+<td style="width: 120px;">58.87</td>
+<td style="width: 120px;">44.98</td>
+<td style="width: 120px;">63.73</td>
+<td style="width: 120px;">62.09</td>
+<td style="width: 120px;">61.83</td>
+<td style="width: 120px;">57.00</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>40.02</td>
+<td>38.40</td>
+<td>32.38</td>
+<td>37.83</td>
+<td>33.53</td>
+<td>30.42</td>
+<td>39.00</td>
+<td>36.69</td>
+<td>36.44</td>
+<td>36.32</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>29.30</td>
+<td>28.21</td>
+<td>23.98</td>
+<td>27.62</td>
+<td>23.72</td>
+<td>23.53</td>
+<td>28.54</td>
+<td>26.58</td>
+<td>26.46</td>
+<td>28.12</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious</td>
+<td>P@1</td>
+<td>68.42</td>
+<td>65.66</td>
+<td>64.12</td>
+<td>65.31</td>
+<td>61.35</td>
+<td>63.03</td>
+<td>69.44</td>
+<td>65.00</td>
+<td>65.01</td>
+<td>64.95</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>61.83</td>
+<td>60.54</td>
+<td>58.13</td>
+<td>59.84</td>
+<td>56.45</td>
+<td>56.26</td>
+<td>63.62</td>
+<td>58.97</td>
+<td>58.90</td>
+<td>58.90</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>56.80</td>
+<td>56.08</td>
+<td>53.64</td>
+<td>55.31</td>
+<td>52.06</td>
+<td>50.15</td>
+<td>59.10</td>
+<td>53.46</td>
+<td>53.26</td>
+<td>54.12</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Mediamill</td>
+<td>P@1</td>
+<td>87.09</td>
+<td>84.00</td>
+<td>81.29</td>
+<td>83.34</td>
+<td>83.82</td>
+<td>78.94</td>
+<td>84.24</td>
+<td>83.57</td>
+<td>83.57</td>
+<td>83.46</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>72.44</td>
+<td>67.19</td>
+<td>64.74</td>
+<td>66.17</td>
+<td>67.31</td>
+<td>60.93</td>
+<td>67.39</td>
+<td>65.78</td>
+<td>65.50</td>
+<td>67.91</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>58.45</td>
+<td>52.80</td>
+<td>49.82</td>
+<td>51.45</td>
+<td>52.80</td>
+<td>44.27</td>
+<td>53.14</td>
+<td>49.97</td>
+<td>48.57</td>
+<td>54.24</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<!-- <tr align=center>
+<td align=right>Eurlex</td>
+<td>P@1</td>
+<td>80.17</td>
+<td>61.28</td>
+<td>70.87</td>
+<td>69.93</td>
+<td>60.18</td>
+<td>56.84</td>
+<td>68.69</td>
+<td>73.01</td>
+<td>74.96</td>
+<td>77.2</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>65.39</td>
+<td>48.66</td>
+<td>56.62</td>
+<td>56.18</td>
+<td>48.01</td>
+<td>45.4</td>
+<td>57.73</td>
+<td>60.36</td>
+<td>62.92</td>
+<td>61.46</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>53.75</td>
+<td>39.91</td>
+<td>46.2</td>
+<td>45.74</td>
+<td>38.46</td>
+<td>35.84</td>
+<td>48</td>
+<td>50.46</td>
+<td>53.42</td>
+<td>50.45</td>
+</tr> -->
+
+
+
+<tr align=center>
+<td colspan=12 align=left>
+
+</td>
+</tr>
+<caption>
+Table 2: Precision@k on the small scale datasets
+</caption>
+</table>
+</center>
+</p>
+
+
+<p>
+<center>
+<table style="width:1600px;table-layout:fixed">
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="2" align="right">Dataset</th>
+  <th rowspan="2">nDCG@k</th>
+	<th colspan="6">Embedding Based</th>
+	<th colspan="2">Tree Based</th>
+	<th colspan="2">Other</th>
+</tr>
+<tr align=center>
+	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
+	<th>LEML <a href = "#Yu14">[5]</a></th>
+	<th>WSABIE <a href = "#Weston11">[11]</a></th>
+	<th>CPLST <a href = "#Chen12">[9]</a></th>
+	<th>CS <a href = "#Hsu09">[6]</a></th>
+	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
+	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
+  <th>LPSR <a href = "#Weston13">[4]</a></th>
+  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
+  <th>kNN</th>
+</tr>
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right style="width: 120px;">Bibtex</td>
+<td style="width: 200px;">nDCG@1</td>
+<td style="width: 120px;">64.49</td>
+<td style="width: 120px;">63.10</td>
+<td style="width: 120px;">55.03</td>
+<td style="width: 120px;">61.99</td>
+<td style="width: 120px;">59.60</td>
+<td style="width: 120px;">56.86</td>
+<td style="width: 120px;">63.78</td>
+<td style="width: 120px;">62.98</td>
+<td style="width: 120px;">62.62</td>
+<td style="width: 120px;">57.81</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>59.90</td>
+<td>58.84</td>
+<td>50.26</td>
+<td>57.66</td>
+<td>53.08</td>
+<td>52.54</td>
+<td>59.73</td>
+<td>57.11</td>
+<td>59.44</td>
+<td>52.36</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>62.29</td>
+<td>61.06</td>
+<td>52.33</td>
+<td>59.71</td>
+<td>53.74</td>
+<td>54.81</td>
+<td>61.72</td>
+<td>58.76</td>
+<td>61.73</td>
+<td>54.57</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious</td>
+<td>nDCG@1</td>
+<td>67.41</td>
+<td>64.96</td>
+<td>63.67</td>
+<td>65.65</td>
+<td>61.26</td>
+<td>63.96</td>
+<td>69.92</td>
+<td>64.46</td>
+<td>64.90</td>
+<td>64.80</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>62.46</td>
+<td>61.80</td>
+<td>59.47</td>
+<td>61.52</td>
+<td>57.85</td>
+<td>59.07</td>
+<td>65.91</td>
+<td>60.47</td>
+<td>60.94</td>
+<td>60.71</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>59.02</td>
+<td>58.42</td>
+<td>56.37</td>
+<td>58.00</td>
+<td>54.44</td>
+<td>54.86</td>
+<td>62.20</td>
+<td>56.19</td>
+<td>56.54</td>
+<td>57.02</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+
+<tr align=center>
+<td align=right>Mediamill</td>
+<td>nDCG@1</td>
+<td>86.61</td>
+<td>83.99</td>
+<td>79.86</td>
+<td>83.79</td>
+<td>83.97</td>
+<td>83.21</td>
+<td>83.73</td>
+<td>83.65</td>
+<td>83.67</td>
+<td>82.59</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>80.04</td>
+<td>75.23</td>
+<td>72.51</td>
+<td>74.44</td>
+<td>75.29</td>
+<td>72.67</td>
+<td>74.84</td>
+<td>74.12</td>
+<td>73.90</td>
+<td>75.62</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>77.71</td>
+<td>71.96</td>
+<td>69.34</td>
+<td>70.49</td>
+<td>71.99</td>
+<td>65.05</td>
+<td>71.66</td>
+<td>69.12</td>
+<td>67.75</td>
+<td>72.76</td>
+</tr>
+
+<tr align=center>
+<td colspan=12>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td colspan=12 align=left>
+
+</td>
+</tr>
+<caption>
+Table 3: nDCG@k on the small scale datasets
+</caption>
+</table>
+</center>
+</p>
+
+<p>
+<center>
+<table style="width:800px;table-layout:fixed">
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="1" align="right">Dataset</th>
+  <th rowspan="1">Precision@k</th>
+	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
+  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
+  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
+  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right style="width: 180px;">Wiki10-31K</td>
+<td style="width: 100px;">P@1</td>
+<td style="width: 100px;">85.54</td>
+<td style="width: 100px;">73.50</td>
+<td style="width: 100px;">82.56</td>
+<td style="width: 100px;">72.71</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>73.59</td>
+<td>62.38</td>
+<td>66.67</td>
+<td>58.51</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>63.10</td>
+<td>54.30</td>
+<td>56.70</td>
+<td>49.40</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious-200K</td>
+<td>P@1</td>
+<td>47.03</td>
+<td>40.30</td>
+<td>42.81</td>
+<td>18.59</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>41.67</td>
+<td>37.76</td>
+<td>38.76</td>
+<td>15.43</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>38.88</td>
+<td>36.66</td>
+<td>36.34</td>
+<td>14.07</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>WikiLSHTC-325K</td>
+<td>P@1</td>
+<td>55.57</td>
+<td>19.82</td>
+<td>49.35</td>
+<td>27.43</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>33.84</td>
+<td>11.43</td>
+<td>32.69</td>
+<td>16.38</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>24.07</td>
+<td>8.39</td>
+<td>24.03</td>
+<td>12.01</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Amazon-670K</td>
+<td>P@1</td>
+<td>35.05</td>
+<td>8.13</td>
+<td>33.36</td>
+<td>28.65</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>31.25</td>
+<td>6.83</td>
+<td>29.30</td>
+<td>24.88</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>28.56</td>
+<td>6.03</td>
+<td>26.12</td>
+<td>22.37</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Ads-1M</td>
+<td>P@1</td>
+<td>21.84</td>
+<td>-</td>
+<td>23.11</td>
+<td>17.08</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>14.30</td>
+<td>-</td>
+<td>13.86</td>
+<td>11.38</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>11.01</td>
+<td>-</td>
+<td>10.12</td>
+<td>8.83</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+<td align=right>Ads-9M</td>
+<td>P@1</td>
+<td>-</td>
+<td>-</td>
+<td>15.26</td>
+<td>-</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@3</td>
+<td>-</td>
+<td>-</td>
+<td>9.37</td>
+<td>-</td>
+</tr>
+
+<tr align=center>
+<td align=right> </td>
+<td>P@5</td>
+<td>-</td>
+<td>-</td>
+<td>6.94</td>
+<td>-</td>
+</tr>
+
+
+<tr align=center>
+<td colspan=6 align=left>
+<hr>
+</td>
+</tr>
+<caption>
+Table 4: Precision@k on the large scale datasets
+</caption>
+</table>
+</center>
+</p>
+</p>
+
+<p>
+<center>
+<table style="width:800px;table-layout:fixed">
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="1" align="right">Dataset</th>
+  <th rowspan="1">nDCG@k</th>
+	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
+  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
+  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
+  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right style="width: 180px;">Wiki10-31K</td>
+<td style="width: 100px;">nDCG@1</td>
+<td style="width: 100px;">86.14</td>
+<td style="width: 100px;">73.47</td>
+<td style="width: 100px;">81.71</td>
+<td style="width: 100px;">72.72</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>76.11</td>
+<td>64.92</td>
+<td>69.12</td>
+<td>61.71</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>68.15</td>
+<td>58.69</td>
+<td>61.46</td>
+<td>54.63</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Delicious-200K</td>
+<td>nDCG@1</td>
+<td>47.53</td>
+<td>40.73</td>
+<td>43.34</td>
+<td>18.59</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>43.33</td>
+<td>38.44</td>
+<td>39.78</td>
+<td>16.17</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>41.19</td>
+<td>37.01</td>
+<td>37.80</td>
+<td>15.13</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>WikiLSHTC-325K</td>
+<td>nDCG@1</td>
+<td>54.81</td>
+<td>19.82</td>
+<td>49.37</td>
+<td>27.43</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>47.23</td>
+<td>14.52</td>
+<td>44.89</td>
+<td>23.04</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>46.14</td>
+<td>13.73</td>
+<td>44.43</td>
+<td>22.54</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Amazon-670K</td>
+<td>nDCG@1</td>
+<td>34.77</td>
+<td>8.13</td>
+<td>34.24</td>
+<td>28.65</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>32.74</td>
+<td>7.30</td>
+<td>32.09</td>
+<td>26.40</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>31.53</td>
+<td>6.85</td>
+<td>30.48</td>
+<td>25.03</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td align=right>Ads-1M</td>
+<td>nDCG@1</td>
+<td>21.75</td>
+<td>-</td>
+<td>23.31</td>
+<td>17.95</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@3</td>
+<td>23.67</td>
+<td>-</td>
+<td>24.06</td>
+<td>19.50</td>
+</tr>
+<tr align=center>
+<td align=right> </td>
+<td>nDCG@5</td>
+<td>25.06</td>
+<td>-</td>
+<td>24.71</td>
+<td>20.65</td>
+</tr>
+
+
+
+<tr align=center>
+<td colspan=6 align=left>
+<hr>
+</td>
+</tr>
+<caption>
+Table 5: nDCG@k on the large scale datasets
+</caption>
+</table>
+</center>
+</p>
+</p>
+
+<!-- 
+
+<h3> Variation of Precision@1 with varying Model Size on large scale benchmark datasets</h3>
+<center>
+<table >
+  <caption>
+
+  </caption>
+
+<tr>
+<th><img src="wikiLSHTC_p1.PNG" width='80%' hspace = 20></th>
+<th><img src="del-large_p1.PNG" width='80%' hspace = 20></th>
+<th><img src="amazon_p1.PNG"  width='80%' hspace = 20></th>
+<th><img src="wiki10_p1.PNG"  width='80%' hspace = 20></th>
+
+</tr>
+</table>
+</center> -->
+<!-- <p>
+	<h2>Usage</h2>
+</p>
+
+<p>
+The SLEEC code works with Matlab on Linux and Windows. Please note that the current version has multi-threading support only on Windows.<br>
+Please <a href="http://in.mathworks.com/help/matlab/matlab_external/changing-default-compiler.html">setup mex</a> before executing the following commands. Before running SLEEC, add the prcpy folder (with its subfolders) in sleec_train to your matlab path. <br>Enter the extracted SLEEC folder and run make_SLEEC.m
+</p>
+
+To use SLEEC, run the command [result] = SLEEC(data, alg); The result structure would vary depending on the algorithm used.
+<pre>
+	data : structure containing the complete (obtained using readData.m)
+	data.X : sparse n x d matrix containng train features
+	data.Xt : sparse nt x d matrix containng test features
+	data.Y : sparse n x l matrix containng train labels
+	data.Yt : sparse n x l matrix containng test labels
+
+	alg = 'SLEEC'
+</pre>
+
+<p>
+Depending on the dataset that you are running on, please modify the load_SLEECparams.m file accordingly.<br><br>
+
+SLEEC Parameters
+<pre>
+	SLEECparams.num_learners: number of SLEEC learners in ensemble (default 10)
+	SLEECparams.num_clusters: Initial number of clusters (default 300)
+	SLEECparams.num_threads: Number of threads for parallelization (default 32)
+	SLEECparams.SVP_neigh: Number of nearest neighbours to be preserved (default 15)
+	SLEECparams.out_Dim: embedding dimensions (default 50)
+	SLEECparams.w_thres: 1-w_thresh is the sparsity of regressors w (default 0.7)
+	SLEECparams.sp_thresh: 1-sp_thresh is the sparsity of embeddings (default 0.7)
+	SLEECparams.cost: liblinear cost coefficient (default 0.1)
+	SLEECparams.NNtest: number of nearest neighbours to consider while testing (default 10)
+	SLEECparams.normalize: 1 for normalized data, 2 for unnormalized data (only for mediamill)
+	SLEECparams.fname: filename for logging purposes
+</pre>
+</p>
+
+<h3>Output for SLEEC</h3>
+<p>
+<pre>
+	result.clusterCenters : cluster centers for the different learners
+	result.tim_clus : time taken for clustering
+	result.SVPModel : model for different learners containing embeddings and regressors
+	result.SVPtime_mat : time taken for performing SVP for each learner
+	result.regressiontime_mat : time taken for learning regressors
+	result.precision : precision accuracy per test point
+	result.predictAcc : overall precision accuracy
+	result.predictLabels : Top-k labels predicted per test point
+	result.tim_test : time taken for the testing procedure
+	result.test_KNN : kNN Matrix for the test points
+</pre>
+</p> -->
+<!-- <p>
+	<h2> Citing xClass</h2>
+</p>
+
+<p>
+<ul type="circle">
+
+  <a name="NIPS15">
+  <li>
+    K. Bhatia, H. Jain, P. Kar, M. Varma and P. Jain.
+    <b> Sparse local embeddings for extreme multi-label classification. </b> 
+    In <i>Advances in Neural Information Processing Systems, Montreal, Canada</i>, December 2015.<br>
+    <a href="pubs\selfbib.html#Bhatia15">Bibtex source</a> | 
+    <a href="pubs\bhatia15-abstract.txt" target="_blank">Abstract</a> | 
+    Download in <a href="pubs\bhatia15.pdf">pdf</a> format |
+    <a href="">Code</a>
+  </li>
+  <br><br>
+
+  <a name="KDD14a">
+  <li>
+    Y. Prabhu and M. Varma.
+    <b> FastXML: A fast, accurate and stable tree-classifier for extreme multi-label learning. </b> 
+    In <i> Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining, New York, New York</i>, August 2014.<br>
+    <a href="pubs\selfbib.html#Prabhu14">Bibtex source</a> | 
+    <a href="pubs\prabhu14-abstract.txt" target="_blank">Abstract</a> | 
+    Download in <a href="pubs\prabhu14.pdf">pdf</a> format |
+    <a href="code/FastXML/download.html">Code</a> |
+    <a href="talks/KDD14.pdf">Slides</a> |
+    <a href="http://resnet/resnet/fullvideo.aspx?id=36293">Talk on Extreme Classification &amp; FastXML</a>
+  </li>
+  </ul>
+</p>
+ -->
+
+ <p>
+<h2> References </h2>
+</p>
+<DL COMPACT><DD>
+<P></P><DT><A NAME="Bhatia15">[01]</A>
+&nbsp; &nbsp;
+K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma, and P.&nbsp;Jain, <a href='http://arxiv.org/pdf/1507.02743v1.pdf'>Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em> NIPS,</em> 2015.
+
+<P></P><DT><A NAME="Prabhu14">[02]</A>
+&nbsp; &nbsp;
+Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="http://research.microsoft.com/en-us/um/people/manik/pubs/prabhu14.pdf">FastXML: A Fast, Accurate and Stable Tree-classifier for
+eXtreme Multi-label Learning</a>, in <em> KDD, </em> 2014.
+
+
+<P></P><DT><A NAME="Agrawal13">[03]</A>
+&nbsp; &nbsp;
+R.&nbsp;Agrawal, A.&nbsp;Gupta , Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="http://research.microsoft.com/en-us/um/people/manik/pubs%5Cagrawal13.pdf">Multi-Label Learning with Millions of Labels: Recommending Advertiser Bid Phrases for Web Pages</a>, in <em> WWW,</em> 2013.
+
+<P></P><DT><A NAME="Weston13">[04]</A>
+&nbsp; &nbsp;
+J.&nbsp;Weston, A.&nbsp;Makadia, and H.&nbsp;Yee, <a href = "http://www.thespermwhale.com/jaseweston/papers/label_partitioner.pdf">Label Partitioning For Sublinear Ranking</a>, in <em> ICML,</em> 2013.
+
+<P></P><DT><A NAME="Yu14">[05]</A>
+&nbsp; &nbsp;
+H.&nbsp;Yu, P.&nbsp;Jain, P.&nbsp;Kar, and I.&nbsp;Dhillon, <a href="http://jmlr.org/proceedings/papers/v32/yu14.pdf">Large-scale Multi-label Learning with Missing Labels</a>, in <em> ICML,</em> 2014.
+
+<P></P><DT><A NAME="Hsu09">[06]</A>
+&nbsp; &nbsp;
+D.&nbsp;Hsu, S.&nbsp;Kakade, J.&nbsp;Langford, and T.&nbsp;Zhang, <a href = "http://www.cs.columbia.edu/~djhsu/papers/mlcs.pdf">Multi-Label Prediction via Compressed Sensing </a>, in <em> NIPS,</em> 2009.
+
+<P></P><DT><A NAME="Tai12">[07]</A>
+&nbsp; &nbsp;
+F.&nbsp;Tai, and H.&nbsp;Lin, <a href = "http://ntur.lib.ntu.edu.tw/retrieve/188514/18.pdf"> Multi-label Classification with Principle Label Space Transformation </a>, in <em> Neural Computation,</em> 2012.
+
+<P></P><DT><A NAME="Bi13">[08]</A>
+&nbsp; &nbsp;
+W.&nbsp;Bi, and J.&nbsp;Kwok, <a href = "http://jmlr.csail.mit.edu/proceedings/papers/v28/bi13.pdf">Efficient Multi-label Classification with Many Labels </a>, in <em> ICML,</em> 2013.
+
+<P></P><DT><A NAME="Chen12">[09]</A>
+&nbsp; &nbsp;
+Y.&nbsp;Chen, and H.&nbsp;Lin, <a href = "http://ntur.lib.ntu.edu.tw/retrieve/188489/02.pdf">Feature-aware Label Space Dimension Reduction for Multi-label Classification </a>, in <em> NIPS,</em> 2012.
+
+<P></P><DT><A NAME="Ferng11">[10]</A>
+&nbsp; &nbsp;
+C.&nbsp;Ferng, and H.&nbsp;Lin, <a href = "http://jmlr.org/proceedings/papers/v20/ferng11/ferng11.pdf">Multi-label Classification with Error-correcting Codes</a>, in <em> ACML,</em> 2011.
+
+<P></P><DT><A NAME="Weston11">[11]</A>
+&nbsp; &nbsp;
+J.&nbsp;Weston, S.&nbsp;Bengio, and N.&nbsp;Usunier, <a href = "http://www.thespermwhale.com/jaseweston/papers/wsabie-ijcai.pdf"> WSABIE: Scaling Up To Large Vocabulary Image Annotation </a>, in <em> IJCAI,</em> 2011.
+
+<P></P><DT><A NAME="Ji08">[12]</A>
+&nbsp; &nbsp;
+S.&nbsp;Ji, L.&nbsp;Tang, S.&nbsp;Yu, and J.&nbsp;Ye, <a href = "http://www.cs.odu.edu/~sji/resources/multilabel/paper/JiTangYuYe-KDD08.pdf"> Extracting Shared Subspaces for Multi-label Classification </a>, in <em> KDD,</em> 2008.
+
+<P></P><DT><A NAME="Lin14">[13]</A>
+&nbsp; &nbsp;
+Z.&nbsp;Lin, G.&nbsp;Ding, M.&nbsp;Hu, and J.&nbsp;Wang, <a href = "http://jmlr.org/proceedings/papers/v32/linc14.pdf"> Multi-label Classification via Feature-aware Implicit Label Space Encoding </a>, in <em> ICML,</em> 2014.
+
+<P></P><DT><A NAME="Mineiro15">[14]</A>
+&nbsp; &nbsp;
+P.&nbsp;Mineiro, and N.&nbsp;Karampatziakis, <a href = "http://arxiv.org/pdf/1412.6547v7.pdf">Fast Label Embeddings via Randomized Linear Algebra</a>, <em> Preprint,</em> 2015.
+
+<P></P><DT><A NAME="Karampatziakis15">[15]</A>
+&nbsp; &nbsp;
+N.&nbsp;Karampatziakis, and P.&nbsp;Mineiro, <a href = "http://arxiv.org/pdf/1502.02710v2.pdf">Scalable Multilabel Prediction via Randomized Methods</a>, <em> Preprint,</em> 2015.
+
+<P></P><DT><A NAME="Balasubramanian12">[16]</A>
+&nbsp; &nbsp;
+K.&nbsp;Balasubramanian, and G.&nbsp;Lebanon, <a href = "http://theanalysisofdata.com/gl/moplms.pdf">The Landmark Selection Method for Multiple Output Prediction </a>, <em> Preprint,</em> 2012.
+
+<P></P><DT><A NAME="Cisse13">[17]</A>
+&nbsp; &nbsp;
+M.&nbsp;Cisse, N.&nbsp;Usunier, T.&nbsp;Artieres, and P.&nbsp;Gallinari, <a href = "http://papers.nips.cc/paper/5083-robust-bloom-filters-for-large-multilabel-classification-tasks.pdf">Robust Bloom Filters for Large Multilabel Classification Tasks </a>, in <em> NIPS,</em> 2013.
+
+<P></P><DT><A NAME="Hariharan12">[18]</A>
+&nbsp; &nbsp;
+ B.&nbsp;Hariharan, S.&nbsp;Vishwanathan, and M.&nbsp;Varma, <a href="http://research.microsoft.com/pubs/140910/paper.pdf">Efficient max-margin multi-label classification with applications to zero-shot learning</a>, in <em> Machine Learning Journal,</em> 2012.
+
+<P></P><DT><A NAME="Snoek06">[19]</A>
+&nbsp; &nbsp;
+C.&nbsp;Snoek, M.&nbsp;Worring, J.&nbsp;van&nbsp;Gemert, J.-M.&nbsp;Geusebroek, and A.&nbsp;Smeulders, <a href="https://ivi.fnwi.uva.nl/isis/mediamill/pub/snoek-challenge-acm2006.pdf">The challenge problem for automated detection of 101 semantic concepts in multimedia</a>, in <em> ACM Multimedia,</em> 2006.
+
+<P></P><DT><A NAME="Katakis08">[20]</A>
+&nbsp; &nbsp;
+I.&nbsp;Katakis, G.&nbsp;Tsoumakas, and I.&nbsp;Vlahavas, <a href = "http://lpis.csd.auth.gr/publications/katakis_ecmlpkdd08_challenge.pdf">Multilabel text classification for automated tag suggestion</a>, in <em> ECML/PKDD Discovery Challenge,</em> 2008.
+
+<P></P><DT><A NAME="Tsoumakas08">[21]</A>
+&nbsp; &nbsp;
+G.&nbsp;Tsoumakas, I.&nbsp;Katakis, and I.&nbsp;Vlahavas, <a href = "http://lpis.csd.auth.gr/publications/tsoumakas-mmd08.pdf">Effective and efficient multilabel classification in domains with large number of labels</a>, in <em> ECML/PKDD 2008 Workshop on Mining Multidimensional Data</em>, 2008. 
+
+<P></P><DT><A NAME="Leskovec14">[22]</A>
+&nbsp; &nbsp;
+J.&nbsp;Leskovec and A.&nbsp;Krevl, <a href = "http://snap.stanford.edu/data/">SNAP Datasets: Stanford large network dataset collection</a>, 2014.
+
+<P></P><DT><A NAME="Zubiaga09">[23]</A>
+&nbsp; &nbsp;
+A.&nbsp;Zubiaga, <a href = "http://arxiv.org/ftp/arxiv/papers/1202/1202.5469.pdf">Enhancing navigation on wikipedia with social tags</a>, <em>Preprint</em>, 2009. 
+
+<P></P><DT><A NAME="Wetzker08">[24]</A>
+&nbsp; &nbsp;
+R.&nbsp;Wetzker, C.&nbsp;Zimmermann, and C.&nbsp;Bauckhage, <a href = "http://www.aot.tu-berlin.de/fileadmin/files/publications/wetzker_delicious_ecai2008_final.pdf">Analyzing social bookmarking systems: A del.icio.us cookbook</a>, in <em> Mining Social Data (MSoDa) Workshop Proceedings, ECAI</em>, 2008.
+
+<P></P><DT><A NAME="WikiLSHTC">[25]</A>
+&nbsp; &nbsp;
+I.&nbsp;Partalas, A&nbsp;Kosmopoulos, N&nbsp;Baskiotis, T&nbsp;Artieres, G&nbsp;Paliouras, E&nbsp;Gaussier, I&nbsp;Androutsopoulos, M.-R.&nbsp;Amini and P&nbsp;Galinari, <a href="http://arxiv.org/pdf/1503.08581v1.pdf">LSHTC: A Benchmark for Large-Scale Text Classification</a>, <em> Preprint </em>, 2015
+
+<P></P><DT><A NAME="RCV1">[26]</A>
+&nbsp; &nbsp;
+D.&nbsp;D.&nbsp;Lewis, Y.&nbsp;Yang, T.&nbsp;Rose, and F.&nbsp;Li, <a href = "http://www.jmlr.org/papers/volume5/lewis04a/lewis04a.pdf">RCV1: A New Benchmark Collection for Text Categorization Research</a> in <em> Journal of Machine Learning Research</em>, 2004.
+
+<P></P><DT><A NAME="Eurlex">[27]</A>
+&nbsp; &nbsp;
+E.&nbsp;L.&nbsp;Mencia, and J.&nbsp;Furnkranz, <a href = "https://pdfs.semanticscholar.org/07f0/bb4c4ce5ac6f65383c742e54c892a18e8555.pdf">Efficient pairwise multilabel classification for large-scale problems in the legal domain</a> in <em> ECML/PKDD</em>, 2008.
+
+<P></P><DT><A NAME="Julian13">[28]</A>
+&nbsp; &nbsp;
+J.&nbsp;McAuley, and J.&nbsp;Leskovec, <a href="http://i.stanford.edu/~julian/pdfs/recsys_extended.pdf"> Hidden factors and hidden topics: understanding rating dimensions with review text </a> in <em> Proceedings of the 7th ACM conference on Recommender systems ACM</em>, 2013.
+
+<P></P><DT><A NAME="Julian15a">[29]</A>
+&nbsp; &nbsp;
+J.&nbsp;McAuley, C.&nbsp;Targett, Q.&nbsp;Shi, and A.&nbsp;v.&nbsp;d.&nbsp;Hengel, <a href="http://cseweb.ucsd.edu/~jmcauley/pdfs/sigir15.pdf"> Image-based Recommendations on Styles and Substitutes</a> in <em> International ACM SIGIR Conference on Research and Development in Information Retrieval</em>, 2015.
+
+<P></P><DT><A NAME="Julian15b">[30]</A>
+&nbsp; &nbsp;
+J.&nbsp;McAuley, R.&nbsp;Pandey, and J.&nbsp;Leskovec, <a href="http://arxiv.org/pdf/1506.08839v1.pdf"> Inferring networks of substitutable and complementary products</a> in <em> KDD</em>, 2015.
+
+<BR><HR>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=10786705; 
+var sc_invisible=0; 
+var sc_security="84e8c309"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web counter"
+href="http://statcounter.com/free-hit-counter/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/10786705/0/84e8c309/0/"
+alt="web counter"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+</body>
+
+</html>

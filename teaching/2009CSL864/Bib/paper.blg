@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: paper.aux
+The style file: plain.bst
+Database file #1: /cygdrive/C/Data/CommonCode/Latex/COMTools//longstrings.bib
+Database file #2: /cygdrive/C/Data/CommonCode/Latex/COMTools//references.bib
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            819 strings with 13090 characters,
+and the built_in function-call counts, 1710 in all, are:
+= -- 149
+> -- 78
+< -- 0
++ -- 32
+- -- 24
+* -- 81
+:= -- 306
+add.period$ -- 21
+call.type$ -- 7
+change.case$ -- 27
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 84
+empty$ -- 155
+format.name$ -- 24
+if$ -- 358
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 14
+newline$ -- 38
+num.names$ -- 14
+pop$ -- 60
+preamble$ -- 1
+purify$ -- 26
+quote$ -- 0
+skip$ -- 45
+stack$ -- 0
+substring$ -- 36
+swap$ -- 7
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 14
+warning$ -- 0
+while$ -- 14
+width$ -- 8
+write$ -- 73

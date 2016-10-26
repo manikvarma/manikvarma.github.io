@@ -1,0 +1,179 @@
+<html>
+
+<head>
+ <title>SLEEC</title>
+  <meta name="keyword" content="Extreme Classification, SLEEC, X1, Recommendation, Ranking">
+</head>
+
+<body>
+<center>
+  <h1><b>SLEEC: Sparse Local Embeddings for Extreme multi-label Classification</b></h1>
+  <hr width=525>
+
+  <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> &bull; <a href="mailto:himanshu.j689@gmail.com">Himanshu Jain</a> &bull; <a href = "http://research.microsoft.com/en-us/people/prajain/">Prateek Jain </a> &bull; <a href = "http://www.cse.iitk.ac.in/users/purushot/">Purushottam Kar</a> &bull; <a href="http://research.microsoft.com/en-us/um/people/manik/">Manik Varma</a>
+  <hr width=525>
+</center>
+
+<p>
+  The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label space. Traditional embedding based approaches make training and prediction tractable by projecting the high dimensional label vectors onto low dimensional linear subspaces. Embedding approaches have many advantages including simplicity, ease of implementation, strong theoretical foundations, the ability to handle label correlations and the ability to adapt to online and incremental scenarios. Unfortunately, the low rank assumption on the label matrix is violated in most real world applications. For example, in the WikiLSHTC dataset, only 10% of the label matrix can be reconstructed using a 500 dimensional subspace. SLEEC addresses these problems by learning embeddings which preserve pairwise distances between only nearest label vectors. SLEEC can be used for large-scale problems with efficient training and prediction times, small model size and good accuracy.
+</p>
+
+<p>
+	<h2>Download SLEEC</h2>
+	
+</p>
+
+
+<p>
+<a href="SLEECcode.zip">Download SLEEC source code in Matlab</a>
+</p>
+
+<p>
+Please make sure that you have read the license agreement in LICENSE.doc/pdf. Please do not install or use SLEEC unless you agree to the terms of the license.
+</p>
+<p>
+The code for SLEEC is written in Mex (Matlab) and should compile on 32/64 bit Windows/Linux machines. Please note that the current version has multi-threading support only on Windows. Installation and usage instructions will be found in Readme.txt. This code is made available as is for non-commercial research purposes. 
+The zip file containing the code also contains the parameters for the benchmark datasets.<br><br>
+	Please contact <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> and <a href="mailto:manik@microsoft.com">Manik Varma</a> if you have any questions or feedback.
+</p>
+
+<p>
+<h2>Experimental Results and Datasets</h2>
+</p>
+
+<p>
+	Please visit the <a href="http://research.microsoft.com/en-us/um/people/manik/downloads/XC/XMLRepository.html">Extreme Classification Repository</a> to download the benchmark datasets and compare SLEEC's performance to baseline algorithms.
+</p>
+
+<!-- 
+
+<h3> Variation of Precision@1 with varying Model Size on large scale benchmark datasets</h3>
+<center>
+<table >
+  <caption>
+
+  </caption>
+
+<tr>
+<th><img src="wikiLSHTC_p1.PNG" width='80%' hspace = 20></th>
+<th><img src="del-large_p1.PNG" width='80%' hspace = 20></th>
+<th><img src="amazon_p1.PNG"  width='80%' hspace = 20></th>
+<th><img src="wiki10_p1.PNG"  width='80%' hspace = 20></th>
+
+</tr>
+</table>
+</center> -->
+<p>
+	<h2>Usage</h2>
+</p>
+
+<p>
+The SLEEC code works with Matlab on Linux and Windows. Please <a href="http://in.mathworks.com/help/matlab/matlab_external/changing-default-compiler.html">setup mex</a> before executing the following commands.
+</p>
+To compile SLEEC, run the following command on the Matlab prompt<br>
+<tt> > make_SLEEC </tt>
+
+<p>
+
+SLEEC training and prediction code have been combined with the SLEEC functions. To run SLEEC, try<br>
+<tt> > load data.mat<br> </tt>
+<tt> > SLEECparams<br> </tt> 
+<tt> > [result] = SLEEC(data, params);<br><br><br> </tt> 
+
+The following explains the matlab structure for the data, parameters and the output result
+
+<h4> SLEEC Data </h4>
+<pre>
+	data    : structure containing the complete dataset
+	data.X  : sparse n x d matrix containing train features
+	data.Xt : sparse m x d matrix containing test features
+	data.Y  : sparse n x L matrix containing train labels
+	data.Yt : sparse m x L matrix containing test labels
+</pre>
+
+<p>
+
+<h4> SLEEC Parameters</h4>
+<pre>
+	params.num_learners : number of SLEEC learners in ensemble (default 10)
+	params.num_clusters : Initial number of clusters (default 300)
+	params.num_threads  : Number of threads for parallelization (default 32)
+	params.SVP_neigh    : Number of nearest neighbours to be preserved (default 15)
+	params.out_Dim      : embedding dimensions (default 50)
+	params.w_thres      : 1-w_thresh is the sparsity of regressors w (default 0.7)
+	params.sp_thresh    : 1-sp_thresh is the sparsity of embeddings (default 0.7)
+	params.cost         : liblinear cost coefficient (default 0.1)
+	params.NNtest       : number of nearest neighbours to consider while testing (default 10)
+	params.normalize    : 1 for normalized data, 2 for unnormalized data (only for mediamill)
+	params.fname        : filename for logging purposes
+</pre>
+</p>
+
+
+<h4>SLEEC Result</h4>
+<p>
+<pre>
+	result.clusterCenters     : cluster centers for the different learners
+	result.tim_clus           : time taken for clustering
+	result.SVPModel           : model for different learners containing embeddings and regressors
+	result.SVPtime_mat        : time taken for performing SVP for each learner
+	result.regressiontime_mat : time taken for learning regressors
+	result.precision          : overall precision accuracy
+	result.predictAcc         : precision accuracy per test point
+	result.predictLabels      : Top-k labels predicted per test point
+	result.tim_test           : time taken for the testing procedure
+	result.test_KNN           : kNN Matrix for the test points
+</pre>
+</p>
+
+<p>
+<h2>Toy Example</h2>
+</p>
+
+<p>
+The zip file containing the source code also includes the BibTeX dataset as a toy example. The following are the instructions to run SLEEC on the BibTeX dataset
+</p>
+
+<p>
+<tt> > cd Toy_Example <br> </tt>
+<tt> > load bibtex.mat <br> </tt>
+<tt> > bibtexParams <br> </tt>
+<tt> > cd .. <br> </tt>
+<tt> > [result] = SLEEC(data, params); <br> <br></tt>
+ To verify that you have run the code successfully, please compare the precision that you obtain with the result structure that has been provided in the Toy_Example folder.
+
+ <p>
+<h2> References </h2>
+</p>
+<DL COMPACT><DD>
+<P></P><DT><A NAME="Bhatia15">[01]</A>
+&nbsp; &nbsp;
+K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma, and P.&nbsp;Jain, <a href='https://papers.nips.cc/paper/5969-sparse-local-embeddings-for-extreme-multi-label-classification'>Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em> NIPS,</em> 2015.
+
+
+
+<BR><HR>
+
+<TABLE width=778><TBODY>
+<TR>
+<TD><a href="http://research.microsoft.com/en-us/um/people/manik/">Manik's Home Page</a>
+</TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1450">Contact us</A></TD>
+<TD>| </TD>
+<TD><A href="http://go.microsoft.com/fwlink/?LinkID=286687">Privacy and Cookies</A></TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1452">Terms of use</A></TD>
+<TD>| </TD>
+<TD><A href="http://research.microsoft.com/c/1453">Trademarks</A></TD>
+<TD>| </TD>
+<TD></TD>
+<TD>2015 Microsoft</TD>
+<TD> </TD>
+<TD><a href="http://research.microsoft.com/c/1456"><img alt="Microsoft" src="http://research.microsoft.com/a/i/c/ms-logo.png" border="0"></a></TD>
+</TR>
+</TBODY></TABLE>
+
+</body>
+
+</html>

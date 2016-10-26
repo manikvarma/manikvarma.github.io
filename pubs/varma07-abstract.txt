@@ -1,0 +1,29 @@
+In this paper, we investigate material classification from single
+images obtained under unknown viewpoint and illumination.  It is
+demonstrated that materials can be classified using the joint
+distribution of intensity values over extremely compact neighbourhoods
+(starting from as small as 3x3 pixels square), and that this
+can outperform classification using filter banks with large support. It
+is also shown that the performance of filter banks is inferior to that
+of image patches with equivalent neighbourhoods.
+
+We develop novel texton based representations which are suited to
+modelling this joint neighbourhood distribution for MRFs.  The
+representations are learnt from training images, and then used to
+classify novel images (with unknown viewpoint and lighting) into
+texture classes. Three such representations are proposed, and their
+performance is assessed and compared to that of filter banks.
+
+The power of the method is demonstrated by classifying 2806 images of
+all 61 materials present in the Columbia-Utrecht database. The
+classification performance surpasses that of recent state of the art
+filter bank based classifiers such as Leung and Malik (IJCV 01), Cula
+and Dana (IJCV 04), and Varma and Zisserman (IJCV 05). We also
+benchmark performance by classifying all the textures present in the
+UIUC, Microsoft Textile and the San Francisco outdoor datasets.
+
+We conclude with discussions on why features based on compact
+neighbourhoods can correctly discriminate between textures with large
+global structure and why the performance of filter banks is not
+superior to that of the source image patches from which they were
+derived.

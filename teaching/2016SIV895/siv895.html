@@ -1,0 +1,233 @@
+<html>
+
+<head>
+  <title>SIV 895</title>
+  <meta name="keyword" content="manik, varma, teaching IIT SIV 895"> 
+</head>
+
+<body>
+<center><h1><b>SIV 895 - Machine Learning for the Internet of Things</b></h1></center>
+
+<hr size=4>
+<table>
+<tr>
+  <td>Instructor</td>
+  <td><a href="../../index.html">Manik Varma</a></td>
+</tr>
+<tr>
+  <td>Co-ordinator</td>
+  <td><a href="http://www.cse.iitd.ac.in/~mbala/">M. Balakrishnan</a></td>
+</tr>
+<tr>
+  <td>Teaching Assistants &nbsp; &nbsp; &nbsp; &nbsp;</td>
+  <td>Saurabh Goyal abd Dilpreet Kaur</td>
+</tr>
+<tr>
+  <td>Credits</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>Classroom</td>
+  <td>SIT Seminar Room</td>
+</tr>
+<tr>
+  <td>Timings</td>
+  <td>12:30 - 2:00 PM on Tuesdays and Fridays</td>
+</tr>
+
+</table>
+<hr size=4><br>
+
+<p> 
+Conservative estimates put the number of IoT devices to be around 50 billion by the year 2020. Most of these devices will be continuously sensing their environment and making decisions. Such decisions will often need to be made on the device itself, rather than being deferred to the cloud, due to latency, bandwidth, privacy and security concerns. However, most of these devices will be severely constrained in terms of processing, storage and power availability and therefore unable to run state-of-the-art algorithms for intelligent decision making.
+</p>
+
+<p> 
+This course will introduce the area of resource constrained machine learning to students with the objective of studying algorithms that are orders of magnitude more efficient at run time while maintaining prediction accuracy above an acceptable threshold. The course will cover pruning and compression techniques for machine learning models such as trees, neural networks, support vector machines and k-nearest neighbour classifiers as well as hybrid models for greater efficiency. Students are expected to be familiar with introductory machine learning (tress, neural nets, k-NN, SVMs, etc.), linear algebra and probability and statistics. Some familiarity with optimization and signal processing techniques will be helpful.
+</p>
+
+<p>
+This will be a discussion based course with a significant self-study component. Students will be expected to have read a research paper before each lecture and come prepared to class for a discussion on the paper and related topics. Students will be assessed based on how well their code performs on benchmark machine learning tasks. The course will have an optional lab component where students will be expected to build an end-to-end real world machine learning application using an Arduino/Raspberry Pi + sensors.
+</p>
+
+<h2>Lectures</h2>
+
+<table width="100%">
+<tr>
+  <td>Lecture 1 (31-08-2016)<br>
+      Introduction &nbsp;
+  </td>
+  <td>
+    <a href="http://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwirj5WMnPfOAhVEv48KHc4PCdAQFggtMAI&url=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fcburges%2Fpapers%2Fsvmtutorial.pdf&usg=AFQjCNGGw3XoESTE4O0C5vC0AW5bsAZO4Q&bvm=bv.131783435,d.c2I">An SVM tutorial by Chris Burges</a>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 2 (06-09-2016)<br>
+      Local Deep Kernel Learning &nbsp;
+  </td>
+  <td>
+    <a href="../../pubs/jose13.pdf">Paper</a><br>
+    <a href="../../talks/ICML13.pdf">Slides</a><br>
+    <a href="Notes/lec2.mht">Lecture 2 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 3 (09-09-2016)<br>
+      ML algorithms on the Arduino &nbsp;
+  </td>
+  <td>
+    <a href="../../code/LDKL/download.html">LDKL training code</a><br>
+    <a href="Notes/sketch_aug31a_LDKL_INT.rar">LDKL Arduino sketch for prediction</a><br>
+    <a href="Notes/NN_Sparse.rar">Neural Network training code and Arduino prediction sketch</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 4 (16-09-2016)<br>
+      Optimization basics &nbsp;
+  </td>
+  <td>
+    <a href="Notes/lec4.mht">Lecture 4 notes</a><br><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 5 (20-09-2016)<br>
+      Compressing deep neural networks &nbsp;
+  </td>
+  <td>
+    <a href="http://arxiv.org/pdf/1510.00149v5.pdf">Deep Compression paper</a><br>
+    <a href="Notes/lec5.mht">Lecture 5 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 6 (27-09-2016)<br>
+      L0 and L1 regularized linear classifiers &nbsp;
+  </td>
+  <td>
+    <a href="http://arxiv.org/abs/1410.5137">An analysis of L0 methods</a><br>
+    <a href="http://www.cs.ubc.ca/cgi-bin/tr/2009/TR-2009-19.pdf">An L1 tutorial by Mark Schmidt</a><br>
+    <a href="http://www.csie.ntu.edu.tw/~cjlin/papers/l1.pdf">An L1 tutorial by Chih-Jen Lin</a><br>
+    <a href="Notes/lec6.mht">Lecture 6 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 7 (04-10-2016)<br>
+      Stochastic Neighbor Compression &nbsp;
+  </td>
+  <td>
+    <a href="http://jmlr.org/proceedings/papers/v32/kusner14.pdf">Paper</a><br>
+    <a href="Notes/lec7.mht">Lecture 7 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 8 (14-10-2016)<br>
+      Cost Sensitive Feature Selection&nbsp;
+  </td>
+  <td>
+    <a href="http://www.cse.wustl.edu/~kilian/papers/ICML2013_CSTC.pdf">CSTC</a><br>
+    <a href="http://www1.cse.wustl.edu/~kilian/papers/greedymiser.pdf">Greedy Miser</a><br>
+    <a href="Notes/lec8.mht">Lecture 8 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 9 (18-10-2016)<br>
+      Model Compression &nbsp;
+  </td>
+  <td>
+    <a href="https://www.cs.cornell.edu/~caruana/compression.kdd06.pdf">Model Compression</a><br>
+    <a href="http://papers.nips.cc/paper/5484-do-deep-nets-really-need-to-be-deep.pdf">Do Deep Nets Need to be Deep?</a><br>
+    <a href="Notes/lec9.mht">Lecture 9 notes</a><br><br>
+  </td>
+</tr>
+
+<tr>
+  <td>Lecture 10 (21-10-2016)<br>
+      Face detection &nbsp;
+  </td>
+  <td>
+    <a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0ahUKEwjdv__xuOjPAhWLN48KHbRgDXoQFggwMAM&url=https%3A%2F%2Fwww.cs.cmu.edu%2F~efros%2Fcourses%2FLBMV07%2FPapers%2Fviola-cvpr-01.pdf&usg=AFQjCNH5-b9M78VDxR0nifMF-F9VZDVLug&bvm=bv.136499718,d.c2I">Viola and Jones</a><br>
+    <a href="Notes/lec10.mht">Lecture 10 notes</a><br><br>
+  </td>
+</tr>
+
+
+
+</table>
+
+<h2>Recommended Reading</h2>
+
+<ul type="circle">
+  <li> 
+    D.&nbsp;Bertsekas.
+    <a href="http://www.athenasc.com/nonlinbook.html"><em>Nonlinear Programming</em></a>.
+    Athena Scientific, 1999.
+  </li>
+
+  <li> 
+    C.&nbsp;M. Bishop.
+    <a href="http://research.microsoft.com/~cmbishop/PRML/index.htm"><em>Pattern Recognition and Machine Learning</em></a>.
+    Springer, 2006.
+  </li>
+
+  <li> 
+    S.&nbsp;Boyd and L.&nbsp;Vandenberghe.
+    <a href="http://www.stanford.edu/~boyd/cvxbook/"><em>Convex Optimization</em></a>.
+    Cambridge University Press, 2004.
+  </li>
+
+  <li> 
+    N.&nbsp;Cristianini and J.&nbsp;Shawe-Taylor.
+    <a href="http://www.support-vector.net/"><em>An Introduction to Support Vector Machines and
+    Other Kernel-based Learning Methods</em></a>. 
+    Cambridge University Press, 2000.
+  </li>
+
+  <li> 
+    R.&nbsp;O. Duda, P.&nbsp;E. Hart and D.&nbsp;G. Stork.
+    <a href="http://as.wiley.com/WileyCDA/WileyTitle/productCd-0471056693.html"><em>Pattern Classification</em></a>.
+    John Wiley and Sons, second edition, 2001.
+  </li>
+
+  <li> 
+    I.&nbsp;Goodfelow, Y.&nbsp;Bengio and A.&nbsp;Courville.
+    <a
+    href="http://www.deeplearningbook.org/"><em>Deep Learning</em></a>.
+    MIT Press 2016.
+  </li>
+
+  <li> 
+    T.&nbsp;Hastie, R.&nbsp;Tibshirani and J.&nbsp;Friedman.
+    <a
+    href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/"><em>The
+    Elements of Statistical Learning</em></a>.
+    Springer, second edition, 2009.
+  </li>
+
+  <li> 
+    T.&nbsp;Mitchell.
+    <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mitchell/ftp/mlbook.html"><em>Machine Learning</em></a>.
+    McGraw Hill, 1997.
+  </li>
+
+  <li> 
+    B.&nbsp;Scholkopf and A.&nbsp;Smola.
+    <a href="http://www.learning-with-kernels.org/"><em>Learning with Kernels</em></a>.
+    MIT Press, 2002.</dd>
+  </li>
+</ul>
+
+<hr>
+<a href="../../index.html">Back to Manik's Home Page</a>
+
+</body>
+
+</html>
+
+

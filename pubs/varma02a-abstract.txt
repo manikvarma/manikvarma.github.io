@@ -1,0 +1,18 @@
+The objective of this paper is texture classification from a single
+image acquired under unknown viewpoint and illumination.  The method
+is based on the statistical distribution of filter responses in a low
+dimensional space.
+
+We compare two methods of representing the filter response
+distribution.  The first is to store the entire response as a PDF, the
+second is to learn representative texture elements (\emph{textons}) by
+clustering, and represent the texture by their distribution. This
+effectively compares the PDF approach of Konishi and Yuille (CVPR
+2000), to the texton approach of Cula and Dana (CVPR 2001) and Varma
+and Zisserman (ECCV 2002). The methods are assessed by classifying the
+material images present in the Columbia-Utrecht database, and very
+accurate results are obtained. 
+
+We also describe preliminary results on estimating orientation
+co-occurrence statistics. These statistics may be used to augment
+the texton representation and improve classification performance.

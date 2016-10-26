@@ -1,0 +1,34 @@
+  The goal in multi-label classification is to tag a data point with
+  the subset of relevant labels from a pre-specified set. Given a set
+  of $L$ labels, a data point can be tagged with any of the $2^L$
+  possible subsets. The main challenge therefore lies in optimising
+  over this exponentially large label space subject to label
+  correlations.
+
+  Our objective, in this paper, is to design efficient algorithms for
+  multi-label classification when the labels are densely
+  correlated. In particular, we are interested in the zero-shot
+  learning scenario where the label correlations on the training set
+  might be significantly different from those on the test set.
+
+  We propose a max-margin formulation where we model prior label
+  correlations but do not incorporate pairwise label interaction terms
+  in the prediction function. We show that the problem complexity can
+  be reduced from exponential to linear while modelling dense pairwise
+  prior label correlations. By incorporating relevant correlation
+  priors we can handle mismatches between the training and test set
+  statistics. Our proposed formulation generalises the effective
+  1-vs-All method and we provide a principled interpretation of the
+  1-vs-All technique.
+
+  We develop efficient optimisation algorithms for our proposed
+  formulation. We adapt the Sequential Minimal Optimisation (SMO)
+  algorithm to multi-label classification and show that, with some
+  book-keeping, we can reduce the training time from being
+  super-quadratic to almost linear in the number of
+  labels. Furthermore, by effectively re-utilizing the kernel cache and
+  jointly optimising over all variables, we can be orders of magnitude
+  faster than the competing state-of-the-art algorithms. We also
+  design a specialised algorithm for linear kernels based on dual
+  co-ordinate ascent with shrinkage that lets us effortlessly train on
+  a million points with a hundred labels.

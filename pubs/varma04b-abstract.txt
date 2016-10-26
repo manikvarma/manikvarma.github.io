@@ -1,0 +1,21 @@
+The objective of this paper is to examine statistical approaches to
+the classification of textured materials from a single image obtained
+under unknown viewpoint and illumination. The approaches investigated
+here are based on the joint probability distribution of filter
+responses.
+
+We review previous work based on this formulation and make two
+observations. First, we show that there is a correspondence between
+the two common representations of filter outputs - textons and binned
+histograms. Second, we show that two classification methodologies,
+nearest neighbour matching and Bayesian classification, are equivalent
+for particular choices of the distance measure. We describe the pros
+and cons of these alternative representations and distance measures,
+and illustrate the discussion by classifying all the materials in the
+Columbia-Utrecht (CUReT) texture database.
+
+These equivalences allow us to perform direct comparisons between the
+texton frequency matching framework, best exemplified by the
+classifiers of Leung and Malik [IJCV 2001], Cula and Dana [CVPR 2001],
+and Varma and Zisserman [ECCV 2002], and the Bayesian framework most
+closely represented by the work of Konishi and Yuille [CVPR 2000].

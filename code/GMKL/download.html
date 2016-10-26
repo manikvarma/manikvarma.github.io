@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>Code for Generalized Multiple Kernel Learning</title>
+  <meta name="keyword" content="manik, varma, manik varma"> 
+</head>
+
+<body>
+<center><h1><b>Generalized Multiple Kernel Learning Code</b></h1></center>
+
+<p> 
+The following code will learn general kernel combinations based on
+gradient descent optimization and standard SVM solvers. The code is in
+Matlab and uses <a
+href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">LIBSVM</a> as the
+internal SVM solver. The code is quite flexible and you can plug in
+your own kernel function and regularizer. I've included examples of
+functions to compute sums and products of base kernels subject to
+l<sub>1</sub> or l<sub>2</sub> regularization. It is also possible to
+use precomputed base kernel matrices. The code computes a common set
+of kernel parameters across the entire training data set. It is fairly
+straight forward to modify the code to compute a different set of
+kernel parameters per training data point.
+</p>
+
+<p>
+The function for performing gradient descent is COMPGDoptimize.m while
+GMKLwrapper.m shows how to call the function. Please go through the
+comments in both files before running the code. By setting the
+parameters in GMKLwrapper you can tackle various problems such as
+classification, regression, <i>etc</i>.
+</p>
+
+<p>
+This code is made available as is for non-commercial research
+purposes. Please make sure you go through the licenses. The LIBSVM
+source has been modified to return the value of the objective function
+at the optiumum.
+</p>
+
+<a href="gmkl.tgz">Download GMKL code in Matlab</a> <br>
+<a href="libsvm-2.84.tgz">Download modified LIBSVM source code and
+pre-compiled binaries</a>
+
+<p>
+Please send all feedback to Manik Varma [manik@microsoft.com].
+</p>
+
+<h3> References </h3> 
+<a name="Refs"> 
+<ul type="circle"> 
+  <a name="ICML09">
+  <li>
+    M. Varma and B. R. Babu.
+    <b> More generality in efficient multiple kernel learning. </b>
+    In <i> Proceedings of the International Conference on Machine
+    Learning, Montreal, Canada</i>, June 2009.<br>
+    Download in <a href="../../pubs/varma09.pdf">pdf</a> format
+  </li>
+  <br><br>
+  
+  <a name="ICCV07b"> 
+  <li> M. Varma and D. Ray.
+    <b> Learning the discriminative power-invariance trade-off.</b>
+    <i> International Conference on Computer Vision</i>, October 2007. <br>
+        Download in <a href="../../pubs/varma07c.pdf">pdf</a> format.
+  </li>
+</ul>
+
+<a href="../../index.html#ICML09">Home Page</a>
+
+</body>
+
+</html>
+
+

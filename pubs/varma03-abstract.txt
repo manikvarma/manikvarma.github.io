@@ -1,0 +1,18 @@
+We question the role that large scale filter banks have
+traditionally played in texture classification. It is demonstrated
+that textures can be classified using the joint distribution of
+intensity values over extremely compact neighbourhoods (starting from
+as small as $3\times 3$ pixels square), and that this outperforms
+classification using filter banks with large support.
+
+We develop a novel texton based representation which is suited to
+modelling this joint neighbourhood distribution for MRFs.  The
+representation is learnt from training images, and then used to
+classify novel images (with unknown viewpoint and lighting) into
+texture classes.
+
+The power of the method is demonstrated by classifying over 2800
+images of all 61 textures present in the Columbia-Utrecht database.
+The classification performance surpasses that of recent
+state-of-the-art filter bank based classifiers such as Leung & Malik
+[IJCV 01], Cula & Dana [CVPR 01], and Varma & Zisserman [ECCV 02].

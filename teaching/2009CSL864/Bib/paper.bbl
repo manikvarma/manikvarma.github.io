@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{Bertsekas99}
+D.~Bertsekas.
+\newblock {\em Nonlinear Programming}.
+\newblock Athena Scientific, 1999.
+
+\bibitem{Bishop06}
+C.~M. Bishop.
+\newblock {\em Pattern Recognition and Machine Learning}.
+\newblock Springer, 2006.
+
+\bibitem{Boyd04}
+S.~Boyd and L.~Vandenberghe.
+\newblock {\em Convex Optimization}.
+\newblock Cambridge University Press, 2004.
+
+\bibitem{Cristianini00}
+N.~Cristianini and J.~Shawe-Taylor.
+\newblock {\em An Introduction to Support Vector Machines and Other
+  Kernel-based Learning Methods}.
+\newblock Cambridge University Press, 2000.
+
+\bibitem{Duda01}
+R.~O. Duda, P.~E. Hart, and D.~G. Stork.
+\newblock {\em Pattern Classification}.
+\newblock John Wiley and Sons, second edition, 2001.
+
+\bibitem{Mitchell97}
+T.~Mitchell.
+\newblock {\em Machine Learning}.
+\newblock McGraw Hill, 1997.
+
+\bibitem{Scholkopf02}
+B.~Scholkopf and A.~Smola.
+\newblock {\em Learning with Kernels}.
+\newblock MIT Press, 2002.
+
+\end{thebibliography}

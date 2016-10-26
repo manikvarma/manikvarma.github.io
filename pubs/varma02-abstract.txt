@@ -1,0 +1,19 @@
+In this paper we present a new approach to material classification
+under unknown viewpoint and illumination. Our texture model is based on
+the statistical distribution of clustered filter responses.  However,
+unlike previous 3D texton representations, we use rotationally
+invariant filters and cluster in an extremely low dimensional space.
+
+Having built a texton dictionary, we present a novel method of
+classifying a single image without requiring any a priori knowledge
+about the viewing or illumination conditions under which it was
+photographed. We argue that using rotationally invariant filters while
+clustering in such a low dimensional space improves classification
+performance and demonstrate this claim with results on all 61 textures
+in the Columbia-Utrecht database. We then proceed to show how texture models
+can be further extended by compensating for viewpoint changes using
+weak isotropy.
+
+The new clustering and classification methods are compared to those of
+Leung and Malik (ICCV 1999), Schmid (CVPR 2001) and Cula and Dana
+(CVPR 2001), which are the current state-of-the-art approaches.

@@ -1,0 +1,14 @@
+Geographic maps have existed from early stages of human
+civilization. Various styles of visualizing the geographic information
+have evolved depending on the nature of information and the technology
+available for visualization. This has led to innumerable map
+styles. In this work we develop a technique to create maps by
+combining two-dimensional and three-dimensions information such that
+the resulting maps are both functional and aesthetically
+appealing. Our technique requires geographical information in vector
+form and aerial images as inputs. We use computer vision based
+approaches and user defined inputs to augment the vector data with
+information that is required to create stylized maps. We define
+procedural graphics methods to generate a range of geographic elements
+that can be composed together into a stylized map. We demonstrate our
+technique by generating example maps of a region in Las Vegas.

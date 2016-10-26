@@ -1,0 +1,27 @@
+Our objective is to obtain a state-of-the art object category detector
+by employing a state-of-the-art image classifier to search for the
+object in all possible image sub-windows. We use multiple kernel
+learning of Varma and Ray (ICCV 2007) to learn an optimal combination
+of exponential chi-squared kernels, each of which captures a different
+feature channel. Our features include the distribution of edges, dense
+and sparse visual words, and feature descriptors at different levels
+of spatial organization.
+
+Such a powerful classifier cannot be tested on all image sub-windows
+in a reasonable amount of time. Thus we propose a novel three-stage
+classifier, which combines linear, quasi-linear, and non-linear kernel
+SVMs. We show that increasing the non-linearity of the kernels
+increases their discriminative power, at the cost of an increased
+computational complexity. Our contributions include (i) showing that a
+linear classifier can be evaluated with a complexity proportional to
+the number of sub-windows (independent of the sub-window area and
+descriptor dimension); (ii) a comparison of three efficient methods of
+proposing candidate regions (including the jumping window classifier
+of~Chum and Zisserman (CVPR 2007) based on proposing windows from
+scale invariant features); and (iii) introducing overlap-recall curves
+as a mean to compare and optimize the performance of the intermediate
+pipeline stages. 
+
+The method is evaluated on the PASCAL Visual Object Detection
+Challenge, and exceeds the performances of previously published
+methods for most of the classes.

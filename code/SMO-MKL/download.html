@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <title>SMO-MKL Code for Efficient Multiple Kernel Learning</title>
+  <meta name="keyword" content="SMO-MKL, SMO, MKL, Multiple Kernel Learning, Sequential Minimal Optimisation"> 
+</head>
+
+<body>
+<center>
+  <h1><b>SMO-MKL</b></h1>
+</center>
+
+
+<p> 
+The objective in Multiple Kernel Learning (MKL) is to jointly learn
+both kernel and SVM parameters. We focus on the case where the kernel
+is learnt to be a linear combination of given base kernels with
+non-negative weights. The kernel weights are regularised using
+the <i>p</i>-norm where <i>p</i> is strictly greater than one. Choose
+values of <i>p</i> close to one, such as 1.1 or 1.33, if you'd like to
+learn sparse linear kernel combinations. The formulation can also
+handle certain Bregman divergences.
+</p>
+
+<p>
+The following is very efficient code for training <i>p</i>-norm MKL
+using Sequential Minimal Optimization (SMO). The code has been built
+on top of the LibSVM code base and therefore has very similar
+usage. Please go through the included README file for detailed usage
+instructions as well as the LibSVM FAQ and COPYRIGHT. Using standard
+hardware, our code can be used to train on Sonar with a hundred
+thousand kernels in less than seven minutes for pre-computed RBF
+kernels and in less than thirty minutes for kernels computed on the
+fly. Similarly, training on the Adult data set with fifty thousand
+training points and fifty kernels computed on the fly takes less than
+half an hour.
+</p>
+
+</p>
+<h3><a href="smo-mkl.zip">Download source code</a> &nbsp &nbsp (now includes 32/64 bit precompiled Windows binaries, support for regression, a substantially improved README and illustrative toy examples. Many minor bugs have also been fixed.)</h3>
+</p>
+
+<p>
+The code is in C++ and should compile on 32/64 bit Windows/Linux
+machines. This code is made available as is for non-commercial
+research purposes. Please contact Manik Varma [manik@microsoft.com] and
+S. V. N. Vishwanathan [vishy@stat.purdue.edu] if you have any
+questions or feedback.
+</p>
+
+<h2> References </h2>
+<ul type="circle">
+  <a name="NIPS10">
+  <li>
+    S. V. N. Vishwanathan, Z. Sun, N. Theera-Ampornpunt and M. Varma.
+    <b> Multiple kernel learning and the SMO algorithm. </b> 
+    In <i>Advances in Neural Information Processing Systems,
+    Vancouver, B. C., Canada</i>, December 2010.<br>
+    <a href="..\..\pubs\selfbib.html#Vishy10">Bibtex source</a> | 
+    <a href="..\..\pubs\vishy10-abstract.txt" target="_blank">Abstract</a> | 
+    Download in <a href="..\..\pubs\vishy10.pdf">pdf</a> format
+  </li>
+</ul>
+
+<a href="../../index.html#NIPS10">Home Page</a>
+
+<table height="72%">
+  <tr valign="bottom">
+    <td> &nbsp </td>
+  </tr>
+</table>
+
+</body>
+
+</html>
+
+
