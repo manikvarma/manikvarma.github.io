@@ -30,7 +30,7 @@
 								<div class="inline-block timezone_text">
 									<ul class="navlinks first-of-type" >
 										<li   >
-											<a class="yui3-menu-label" title="Home" role="menuitem" href="./index.html"  tabindex="-1">Home</a>
+											<a class="yui3-menu-label" title="Home" role="menuitem" href="index.html"  tabindex="-1">Home</a>
 										</li>
 										<!--
 										<li >
@@ -38,10 +38,10 @@
 										</li>
 										-->
 										<li >
-											<a style="color:#00aeef"class="yui3-menu-label" title="Schedule" role="menuitem" href="./schedule.html"  tabindex="-1">Schedule</a>
+											<a style="color:#00aeef"class="yui3-menu-label" title="Schedule" role="menuitem" href="schedule.html"  tabindex="-1">Schedule</a>
 										</li>
 										<li >
-											<a class="yui3-menu-label" title="Links" role="menuitem" href="./links.html"  tabindex="-1">Links</a>
+											<a class="yui3-menu-label" title="Links" role="menuitem" href="links.html"  tabindex="-1">Links</a>
 										</li>
 									</ul>
 								</div>    
@@ -71,16 +71,7 @@
 								<div class="yui3-u-3-4" style="">
 							
 					    	<div class="chart-box" align="justify">
-<o>
-TBD
-<!--Please click on the talk title to access the slides presented at the workshop.
-</p>
-
-<p>
-The workshop venue is Room 511f on level 5 of the NIPS convention centre. Participants at this year's workshop will have an option of staying back during the lunch break for John Langford's Vowpal Wabbit 8.1 tutorial from 13:15 - 14:15. This is an additional feature not directly related to the workshop, though John might touch upon extreme multi-class algorithms, and participants are free to choose between lunch and the tutorial (fast eaters can choose both!)
-<br><br>
-</p>
-	
+<h3> Introduction</h3>
 <table width="1200" cellspacing="0" cellpadding="0">
 	<tr>
 		<th style="width:12%"></th>
@@ -88,13 +79,17 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		<th style="width:65%"></th>
 	</tr>
 	<tr>
-		<td>08:00 - 08:10</td>
-		<td align="left">Introduction</td>
-		<td align="left"><a href="http://research.microsoft.com/~manik" target="_blank">Manik Varma</a> and <a href="https://mine.kaust.edu.sa/Pages/cisse.aspx" target="_blank">Moustapha Cisse</a></td>
+		<td>09:00 - 09:05</td>
+		<td><a href="http://bengio.abracadoudou.com" target="_blank">Samy Bengio</a> (Google)</td>
+        <td align="left">Introduction</td>
 	</tr>
+    <tr>
+        <td>09:05 - 09:35</td>
+        <td><a href="https://www.cs.cornell.edu/people/tj/" target="_blank">Thorsten Joachims</a> (Cornell)</td><td align="left">Label Ranking with Biased Partial Feedback</td>
+    </tr>
 </table>
 
-<h3> Extreme Multi-class Classification</h3>
+<h3> Extreme Models with Linear Prediction Costs</h3>
 
 <table width="1200" cellspacing="0" cellpadding="0">
 	<tr>
@@ -102,26 +97,22 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		<th style="width:23%"></th>
 		<th style="width:65%"></th>
 	</tr>
+	
 	<tr>
-		<td>08:10 - 08:40</td>
-		<td><a href="http://bengio.abracadoudou.com/" target="_blank">Samy Bengio</a> (Google)</td>
-		<td align="left"><a href="Slides/samy.pdf">Sharing is Caring in the Land of The Long Tail</a></td>
+		<td>09:35 - 09:50</td>
+		<td>Maximilian Alber (TU Berlin)</td>
+		<td align="left">Distributed Optimization of Multi-Class SVMs</a></td>
 	</tr>
 	<tr>
-		<td>08:40 - 09:10</td>
-		<td><a href="http://www.cs.cmu.edu/~./yiming/" target="_blank">Yiming Yang</a> (CMU)</td>
-		<td align="left"><a href="Slides/yiming.pdf">Large-scale Structured Learning for Statistical Classification</a></td>
+		<td>09:50 - 10:05</td>
+		<td><a href="https://sites.google.com/site/rohitbabbar/" target="_blank"> Rohit Babbar</a> (MPI)</td>
+		<td align="left">DiSMEC - Distributed Sparse Machines for Extreme Multi-label Classification</td>
 	</tr>
-	<tr>
-		<td>09:10 - 09:40</td>
-		<td>Paul Mineiro (Microsoft)</td>
-		<td align="left"><a href="Slides/paul.pptx">Eigenpartition Trees for Extreme Classification</a></td>
-	</tr>
-	<tr>
-		<td>09:40 - 10:10</td>
-		<td>Panel discussion</td>
-		<td>with Samy, Yiming &amp; Paul chaired by John Langford</td>
-	</tr>
+    <tr>
+        <td>10:05 - 10:35</td>
+        <td><a href="https://www.cs.utexas.edu/~inderjit/" target="_blank"> Inderjit Dhillon</a> (UT Austin)</td>
+        <td align="left">A Primal and Dual Sparse Approach to Extreme Classification</td>
+    </tr>
 	
 	<tr>
 		<td>&nbsp;</td>
@@ -129,9 +120,47 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		<td align="left"></td>
 	</tr>
 	<tr>
-		<td>10:10 - 10:30</td>
+        <td>10:35 - 11:00</td>
 		<td>Coffee break</td>
 		<td align="left"></td>
+	</tr>
+</table>
+
+<h3> Extreme Models with Sub-linear Prediction Costs</h3>
+
+<table width="1200" cellspacing="0" cellpadding="0">
+	<tr>
+		<th style="width:12%"></th>
+		<th style="width:23%"></th>
+		<th style="width:65%"></th>
+	</tr>
+    <tr>
+        <td>11:00 - 11:30</td>
+        <td><a href="http://www.manikvarma.org" target="_blank"> Manik Varma</a> (Microsoft Research)</td>
+        <td align="left">Extreme Multi-label Loss Functions for Tagging, Ranking &amp; Recommendation</td>
+    </tr>
+    <tr>
+        <td>11:30 - 11:45</td>
+        <td><a href="http://lowrank.net/nikos/index.html" target="_blank"> Nikos Karampatziakis</a> (Microsoft)</td>
+        <td align="left">Log-time and Log-space Extreme Classification</td>
+    </tr>
+    <tr>
+        <td>11:45 - 12:00</td>
+        <td><a href="https://kunaldahiya.github.io" target="_blank"> Kunal Dahiya</a> (IIT Delhi)</td>
+        <td align="left">Extreme Classification with Label Features</td>
+    </tr>
+    <tr>
+        <td>12:00 - 12:15</td>
+        <td><a href="https://www.cs.cmu.edu/~eyan/" target="_blank"> Ian En-Hsu Yen</a> (CMU)</td>
+        <td align="left">Dual Decomposed Learning with Factorwise Oracles for Structural SVMs of Large Output Domain</td>
+    </tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td></td>
+		<td align="left"></td>
+	</tr>
+	<td>12:15 – 13:30</td>
+		<td>Lunch</td>
 	</tr>
 </table>
 
@@ -143,71 +172,39 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		<th style="width:23%"></th>
 		<th style="width:65%"></th>
 	</tr>
-	<tr>                                      
-		<td>10:30 – 11:00</td>
-		<td><a href="http://www2.informatik.hu-berlin.de/~kloftmar/" target="_blank">Marius Kloft</a> (HU Berlin)</td>
-		<td align="left"><a href="Slides/marius.pdf">Multi-class SVMs: From Tighter Data-Dependent Generalization Bounds to Novel Algorithms</a></td>
-	</tr>
-	<tr>
-		<td>11:00 – 11:30</td>
-		<td align="left"><a href="http://www.cs.put.poznan.pl/kdembczynski/" target="_blank">Krzysztof Dembczynski</a> (UT Poznan)</td>
-		<td align="left"><a href="Slides/kd.pdf">Extreme F-measure Maximization</a></td>
-	</tr>
-	<tr>
-		<td>11:30 – 12:00</td>
-		<td align="left"><a href="http://www.wisdom.weizmann.ac.il/~shamiro/" target="_blank">Ohad Shamir</a> (Weizmann Institute)</td>
-		<td align="left"><a href="Slides/ohad.pdf">Multiclass-Multilabel Classification with More Classes than Example</a></td>
-	</tr>
-	<tr>
-		<td>12:00 – 12:30</td>
-		<td>Panel discussion</td>
-		<td>with Marius, Krzysztof and Mehryar Mohri chaired by Prateek Jain</td>
-	</tr>
+    <tr>
+        <td>13:30 - 14:00</td>
+        <td><a href="http://www.di.ens.fr/~fbach/" target="_blank"> Francis Bach</a> (INRIA)</td>
+        <td align="left">Semi-supervised dimension reduction for large numbers of classes</td>
+    </tr>
+    <tr>
+        <td>14:00 - 14:15</td>
+        <td><a href="http://cims.nyu.edu/~yangs/" target="_blank"> Scott Yang</a> (NYU)</td>
+        <td align="left">A Theoretical Framework for Structured Prediction using Factor Graph Complexity</td>
+    </tr>
+    <tr>
+        <td>14:15 - 14:30</td>
+        <td><a href="https://www.microsoft.com/en-us/research/people/t-nanata/" target="_blank"> Nagarajan Natarajan</a> (Microsoft)</td>
+        <td align="left">Regret Bounds for Non-decomposable Metrics with Missing Labels</td>
+    </tr>
+    <tr>
+        <td>14:30 - 15:00</td>
+        <td><a href="http://pub.ist.ac.at/~chl/" target="_blank"> Christoph Lampert</a> (IST Austria)</td>
+        <td align="left">Multi-Task Learning with Unlabeled Tasks</td>
+    </tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td></td>
 		<td align="left"></td>
-	</tr>
-	<td>12:30 – 14:30</td>
-		<td>Lunch</td>
-		<td align="left">with an option to attend John Langford's Vowpal Wabbit 8.1 tutorial from 13:15 - 14:15.</td>
-	</tr>
-</table>
-
-<h3> Performance Evaluation in Long Tail Applications</h3>
-
-<table width="1200" cellspacing="0" cellpadding="0">
-	<tr>
-		<th style="width:12%"></th>
-		<th style="width:23%"></th>
-		<th style="width:65%"></th>
-	</tr>
-	<tr>
-		<td>14:30 – 15:00</td>
-		<td align="left"><a href="http://research.microsoft.com/en-us/people/aselag/" target="_blank">Asela Gunawardana </a> (Microsoft)</td>
-		<td align="left"><a href="Slides/asela.pdf">Evaluating Machine Learned User Experiences></a></td>
 	</tr>
 	<tr>
 		<td>15:00 – 15:30</td>
-		<td align="left"><a href="http://www.eng.tau.ac.il/~noamk/" target="_blank">Noam Koenigstein</a> (Microsoft)</td>
-		<td align="left"><a href="Slides/noam.pdf">Implicit Feedback and Performance Evaluation in Recommender Systems</a></td>
-	</tr>
-		<td>15:30 – 16:00</td>
-		<td>Panel discussion</td>
-		<td>with Asela, Noam, Armand Juolin and Patrice Simard chaired by Manik Varma</td>				
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td></td>
-		<td align="left"></td>
-	</tr>
-	<tr>
-		<td>16:00 – 16:30</td>
 		<td>Coffee break</td>
 		<td align="left"></td>
 	</tr>
 </table>
-<h3> Extreme Multi-label Learning</h3>
+
+<h3> Deep Learning &amp; NLP</h3>
 
 <table width="1200" cellspacing="0" cellpadding="0">
 	<tr>
@@ -215,27 +212,64 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		<th style="width:23%"></th>
 		<th style="width:65%"></th>
 	</tr>
-	<tr>
-		<td>16:30 – 17:00</td>
-		<td align="left"><a href="http://cseweb.ucsd.edu/~elkan/" target="_blank"> Charles Elkan </a> (Amazon/UCSD)</td>
-		<td align="left"><a href="Slides/charles.pdf">Massive Sparse Multilabel Learning</a></td>
-	</tr>
-	<tr>
-		<td>17:00 – 17:30</td>
-		<td><a href="https://people.cs.umass.edu/~belanger/" target="_blank">David Belanger </a> (UMass)</td>
-		<td align="left"><a href="Slides/david.pdf">Scaling up Multilabel Classification using Structured Prediction Energy Networks</a></td>
-	</tr>
-	<tr>
-		<td>17:30 – 18:00</td>
-		<td>Michiel Stock (Ghent)</td>
-		<td align="left"><a href="Slides/michiel.pdf">A two-step method to incorporate task features for large output spaces</a></td>
-	</tr>
-		<td>18:00 – 18:30</td>
-		<td>Panel discussion</td>
-		<td>with Charles, Manik, David and Michiel chaired by Moustapha Cisse</td>
-	</tr>
+    <tr>
+        <td>15:30 - 16:00</td>
+        <td><a href="http://www.iro.umontreal.ca/~vincentp/welcome.html" target="_blank"> Pascal Vincent</a> (Montréal)</td>
+        <td align="left">Training neural networks in time independent of output layer size</td>
+    </tr>
+    <tr>
+        <td>16:00 - 16:15</td>
+        <td><a href="https://research.facebook.com/edouard-grave/" target="_blank"> Edouard Grave</a> (Facebook)</td>
+        <td align="left">Efficient softmax approximation for GPUs</td>
+    </tr>
+    <tr>
+        <td>16:15 - 16:30</td>
+        <td><a href="https://smerity.com/abme.html" target="_blank"> Stephen Merity</a> (Salesforce)</td>
+        <td align="left">Pointer Sentinel Mixture Models</td>
+    </tr>
+    <tr>
+        <td>16:30 - 16:45</td>
+        <td><a href="https://www.cs.princeton.edu/~arora/" target="_blank"> Sanjeev Arora</a> (Princeton)</td>
+        <td align="left">A Simple but Tough-to-Beat Baseline for Sentence Embeddings</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td align="left"></td>
+    </tr>
+    <tr>
+        <td>16:45 – 17:00</td>
+        <td>Break</td>
+        <td align="left"></td>
+    </tr>
 </table>
--->
+
+<h3> Deep Learning &amp; Vision</h3>
+
+<table width="1200" cellspacing="0" cellpadding="0">
+    <tr>
+        <th style="width:12%"></th>
+        <th style="width:23%"></th>
+        <th style="width:65%"></th>
+    </tr>
+
+    <tr>
+        <td>17:00 - 17:30</td>
+        <td><a href="https://mine.kaust.edu.sa/Pages/cisse.aspx" target="_blank"> Moustapha Cissé</a> (Facebook)</td>
+        <td align="left">TBD</td>
+    </tr>
+    <tr>
+        <td>17:30 - 17:45</td>
+        <td><a href="http://tomzahavy.wixsite.com/zahavy" target="_blank"> Tom Zahavy</a> (Technion)</td>
+        <td align="left">Is a picture worth a thousand words? a Deep Multi Modal Product Classification Architecture for e-commerce</td>
+    </tr>
+    <tr>
+        <td>17:45 - 18:15</td>
+        <td><a href="https://research.facebook.com/armand-joulin" target="_blank"> Armand Joulin</a> (Facebook)</td>
+        <td align="left">Learning to Solve Vision without Annotating Millions of Images</td>
+    </tr>
+</table>
+
 					
 							</div>
 					    </div>
@@ -261,13 +295,13 @@ The workshop venue is Room 511f on level 5 of the NIPS convention centre. Partic
 		
 		</div><br>
 			<div id="footer">
-					<a href="./index.html" >Home</a>
+					<a href="index.html" >Home</a>
 					&nbsp;<span class="seperator">|</span>&nbsp;
 					<!-- <a href="people.html" >People</a>
 					&nbsp;<span class="seperator">|</span>&nbsp; -->
-					<a href="./schedule.html" >Schedule</a>
+					<a href="schedule.html" >Schedule</a>
 					&nbsp;<span class="seperator">|</span>&nbsp;
-					<a href="./links.html" >Links</a>
+					<a href="links.html" >Links</a>
 					
 			</div>
 			<br><br>
