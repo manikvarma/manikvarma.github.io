@@ -1,24 +1,134 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>
 
-<head>
-  <title>Code for PfastreXML</title>
-  <meta name="keyword" content="PfastreXML, pfastrexml, Multi-label Learning, Multi-label Classification, multilabel learning, multilabel classification, multi label learning, multi label classification, extreme multi-label learning, extreme multi-label classification, extreme classification"> 
-</head>
 
-<body>
+<div>
 <center>
-  <h1><b>PfastreXML</b></h1> 
-  <hr width=350>
-  <a href="mailto:himanshu.j689@gmail.com">Himanshu Jain</a> &bull; 
-  <a href="mailto:yashoteja.prabhu@gmail.com">Yashoteja Prabhu</a> &bull; <a href="../../index.html">Manik Varma</a>
-  <hr width=350>
+  <h1><b>PfastreXML: Propensity scored Reranked FastXML</b></h1> 
+  <hr width="350">
+  <a href="http://www.cse.iitd.ac.in/~hjain" target="_blank">Himanshu Jain</a> • 
+  <a href="http://www.cse.iitd.ac.in/~yashoteja" target="_blank">Yashoteja Prabhu</a> • <a href="../../index.html" target="_blank">Manik Varma</a>
+  <hr width="350">
 </center>
 
 <p>
-Code coming soon.
+The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label space. PfastreXML is an efficient tree ensemble based extreme classifier that can scale to millions of labels. PfastreXML can be trained on most datasets using a desktop/small cluster and can make predictions in milliseconds per test point. PfastreXML improves upon FastXML by optimizing propensity scored nDCG at each tree node and by re-ranking the predicted labels.
 </p>
-<BR>
 
+<h2>Download PfastreXML</h2> 
+
+<p>
+This code is made available as is for non-commercial research purposes. Please make sure that you have read the license agreement in LICENSE.doc/pdf. Please do not install or use PfastreXML unless you agree to the terms of the license.
+</p>
+
+<a href="https://drive.google.com/open?id=0B3lPMIHmG6vGbFY2UXpaNk9ZMVU" target="_blank">Download PfastreXML source code in C++ and Matlab as well as precompiled Windows/Linux binaries</a> 
+
+<p>
+The code for PfastreXML is written in C++ and should compile on 64 bit Windows/Linux machines using a C++11 enabled compiler. Matlab wrappers have also been provided with the code. Installation and usage instructions are provided below and in Readme.txt. The default parameters provided in the Usage Section work reasonably on the benchmark datasets in the <a href="../../downloads/XC/XMLRepository.html">Extreme Classification Repository</a>.
+</p>
+
+<p>
+Please contact <a href="mailto:yashoteja.prabhu@gmail.com">Yashoteja Prabhu</a> and <a href="mailto:manik@microsoft.com">Manik Varma</a> if you have any questions or feedback.
+</P>
+
+<h2>Experimental Results and Datasets</h2>
+
+<p>
+Please visit the <a href="../../downloads/XC/XMLRepository.html">Extreme Classification Repository</a> to download the benchmark datasets and compare PfastreXML's performance to baseline algorithms. 
+</p>
+
+<h2>Usage</h2>
+
+Linux/Windows makefiles for compiling PfastreXML have been provided with the source code. To compile, run "make" (Linux) or "nmake -f Makefile.win" (Windows) in the PfastreXML folder.
+Run the following commands from inside PfastreXML folder for training and testing.		<br><br>
+
+<h3>Training</h3>
+
+C++: 
+<pre>	./PfastreXML_train [feature file name] [label file name] [inverse propensity file name] [model folder name] -S 0 -T 1 -s 0 -t 50 -b 1.0 -c 1.0 -m 10 -l 10 -g 30 -a 0.8 </pre>
+
+Matlab:
+<pre>	PfastreXML_train([feature matrix], [label matrix], [inverse propensity vector], param, [model folder name])</pre>
+
+where:
+<pre>
+	-S &equiv; param.pfswitch		: PfastXML switch, setting this to 1 omits tail classifiers, leading to PfastXML algorithm		default=0
+	-T &equiv; param.num_thread		: Number of threads to use										default=1
+	-s &equiv; param.start_tree		: Starting tree index											default=0
+	-t &equiv; param.num_tree		: Number of trees to be grown										default=50
+	-b &equiv; param.bias			: Feature bias value, extra feature value to be appended						default=1.0
+	-c &equiv; param.log_loss_coeff	: SVM weight co-efficient										default=1.0
+	-l &equiv; param.lbl_per_leaf		: Number of label-probability pairs to retain in a leaf							default=100
+	-g &equiv; param.gamma		: gamma parameter appearing in tail label classifiers							default=30
+	-a &equiv; param.alpha		: Trade off parameter between PfastXML and tail classifier scores					default=0.8 for propensity-weighted metrics/0.9 otherwise
+	-m &equiv; param.max_leaf		: Maximum allowed instances in a leaf node. Larger nodes are attempted to be split, and on failure converted to leaves		default=10
+</pre>
+
+<h3>Testing</h3>
+
+C++: 
+<pre>	./PfastreXML_test [feature file name] [score file name] [model folder name] -S 0 -T 1 -s 0 -t 50 -n 1000 </pre>
+
+Matlab:
+<pre>	[score matrix] = PfastreXML_test([feature matrix], param, [model folder name])</pre>
+
+where:
+<pre>
+	-S &equiv; param.pfswitch		: same as in training											default=[value saved in trained model]
+	-T &equiv; param.num_thread		: same as in training											default=[value saved in trained model]
+	-s &equiv; param.start_tree		: same as in training											default=[value saved in trained model]
+	-t &equiv; param.num_tree		: same as in training											default=[value saved in trained model]
+	-n &equiv; param.actlbl		: Number of predicted scores per test instance. Lower value means quicker prediction			default=1000
+</pre>
+
+<h3>Performance Evaluation</h3>
+
+Scripts for performance evaluation are only available in Matlab. To compile these scripts, execute "make" in the Tools folder from the Matlab terminal.<br>
+Following command is executed from Tools/metrics folder and outputs a struct containing all the metrics:
+<pre>	[metrics] = get_all_metrics([test score matrix], [test label matrix], [inverse label propensity vector])</pre>
+
+<h3>Miscellaneous</h3>
+
+<ul>
+<li>
+The data format required by PfastreXML for feature and label input files is different from the format used in the <a href="../../downloads/XC/XMLRepository.html">repository</a> datasets.
+To convert from the repository format to PfastreXML format, run the following command from the 'Tools' folder:
+<pre>	perl convert_format.pl [repository data file] [output feature file name] [output label file name] </pre>
+</li>
+
+<li>
+Scripts are provided in the 'Tools' folder for sparse matrix inter conversion between Matlab .mat format and text format.<br>
+To read a text matrix into Matlab:
+<pre>	[matrix] = read_text_mat([text matrix name]); </pre>
+To write a Matlab matrix into text format:
+<pre>	write_text_mat([Matlab sparse matrix], [text matrix name to be written to]);</pre>
+</li>
+
+<li>
+To generate inverse label propensity weights, run the following command inside 'Tools/metrics' folder on Matlab terminal:
+<pre>	[weights vector] = inv_propensity([training label matrix],A,B); </pre>
+A,B are the parameters of the inverse propensity model. Following values are to be used over the benchmark datasets:
+
+<pre>
+	Wikipedia-LSHTC: A=0.5,  B=0.4
+	Amazon:          A=0.6,  B=2.6
+	Other:		 A=0.55, B=1.5
+</pre>
+</li>
+</ul>
+
+<h2>Toy Example</h2>
+
+The zip file containing the source code also includes the EUR-Lex dataset as a toy example. To run PfastreXML on the EUR-Lex dataset, execute "bash sample_run.sh" (Linux) or "sample_run" (Windows) in the PfastreXML folder.<br>
+
+<h2><span class="header">References </span></h2>
+
+<P></P><DT><A NAME="Jain16">1</A> &nbsp;&nbsp;H.&nbsp;Jain, Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/jain16.pdf">Extreme Multi-label Loss Functions for Recommendation, Tagging, Ranking & Other Missing Label Applications</a>, in <em> KDD</em> 2016.
+
+<P></P><DT><A NAME="Prabhu14">2</A> &nbsp;&nbsp;Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/prabhu14.pdf">FastXML: A Fast, Accurate and Stable Tree-classifier for eXtreme Multi-label Learning</a>, in <em> KDD</em> 2014.
+
+<P></P><DT><A NAME="Bhatia15">2</A> &nbsp;&nbsp;K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma and P.&nbsp;Jain, <a href="https://papers.nips.cc/paper/5969-sparse-local-embeddings-for-extreme-multi-label-classification">Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em>NIPS</em> 2015.
+
+</div>
 </body>
-
 </html>
