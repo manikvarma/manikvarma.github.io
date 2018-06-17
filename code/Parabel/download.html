@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<!-- Google Analytics -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-119923090-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+	<div>
+	
+	<center>
+  		<h1><b>Parabel: Partitioned Label Trees for Extreme Classification</b></h1> 
+  		<hr width="680">
+  		<a href="http://www.cse.iitd.ac.in/~yashoteja" target="_blank">Yashoteja Prabhu</a> • <a href="mailto:anilkagak2@gmail.com" target="_blank">Anil Kag</a> • <a href="mailto:shharsol@microsoft.com" target="_blank">Shrutendra Harsola</a> • <a href="mailto:Rahul.Agrawal@microsoft.com" target="_blank">Rahul Agrawal</a> • <a href="../../index.html" target="_blank">Manik Varma</a>
+  		<hr width="680">
+	</center>
+
+	<p>
+	The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label set. Parabel is a hybrid 1-vs-All/tree ensemble which efficiently learns a balanced label hierarchy from training data so as to cut overall training and prediction costs from linear to logarithmic in the number of labels. It then learns a probabilistic model based on the learnt label hierarchy for the joint label distribution conditioned on a data point. This model generalizes the multi-class hierarchical softmax model used in language modelling and word-vector embeddings to the multi-label setting. Finally, Parabel develops efficient log-time training and prediction algorithms based on the proposed probabilistic model. As a result, Parabel is able to match state-of-the-art 1-vs-All accuracies while being up to 600-900x faster at training and 60-13,000x faster at prediction. Parabel can also be up to 20x faster at training, have 10x lower model size and be up to 9% more accurate than PfastreXML. Parabel can train on millions of labels and datapoints within a few hours on a single core of a desktop and make predictions in milliseconds per test point. Please refer to the paper <a href="#WWW18">[1]</a> for more details.
+	</p>
+
+	<h2>Download Parabel</h2>
+	<p>
+		This code is made available as is for non-commercial research purposes. Please make sure that you have read the license agreement in LICENSE.doc/pdf. Please do not install or use Parabel unless you agree to the terms of the license.
+	</p>
+		<a href="https://drive.google.com/uc?id=0B3lPMIHmG6vGbFY2UXpaNk9ZMVU&export=download" target="_blank" onClick="ga('send','event','downloads','click','parabel_download','12');">Download Parabel source code in C++ and Matlab as well as precompiled Windows/Linux binaries.</a>
+<!--https://drive.google.com/open?id=0B3lPMIHmG6vGbFY2UXpaNk9ZMVU"--> 		<!--a href="http://goo.gl/yfafCP" target="_blank">Download Parabel source code in C++ and Matlab as well as precompiled Windows/Linux binaries.</a-->
+	<p>
+		The code for Parabel is written in C++ and should compile on 64 bit Windows/Linux machines using a C++11 enabled compiler. Matlab wrappers have also been provided with the code. Installation and usage instructions are provided below. The default parameters provided in the Usage Section work reasonably on the benchmark datasets in the <a href="http://manikvarma.org/downloads/XC/XMLRepository.html">Extreme Classification Repository</a>
+	</p>
+	<p>
+		Please contact <a href="mailto:yashoteja.prabhu@gmail.com">Yashoteja Prabhu</a> and <a href="mailto:manik@microsoft.com">Manik Varma</a> if you have any questions or feedback.
+	</P>
+
+	<h2>Experimental Results and Datasets</h2>
+
+	<p>
+		Please visit the <a href="../../downloads/XC/XMLRepository.html">Extreme Classification Repository</a> to download the benchmark datasets and compare Parabel's performance to baseline algorithms. 
+	</p>
+
+	<h2>Usage</h2>
+
+		Linux/Windows makefiles for compiling Parabel have been provided with the source code. To compile, run "make" (Linux) or "nmake -f Makefile.win" (Windows) in the Parabel folder.
+		Run the following commands from inside the Parabel folder for training and testing.<br><br>
+
+	<h3>Training</h3>
+
+	C++:
+        <pre>./parabel_train [input feature file name] [input label file name] [output model folder name] -T 1 -s 0 -t 3 -b 1.0 -c 1.0 -m 100 -tcl 0.1 -tce 0 -e 0.0001 -n 20 -k 0 -q 0</pre>
+
+	Matlab:
+        <pre>parabel_train([input feature matrix], [input label matrix], [output model folder name], param)</pre>
+
+where:
+<pre>
+        -T = param.num_thread                           : Number of threads                                                                     default=1
+        -s = param.start_tree                           : Starting index of the trees                                                           default=0
+        -t = param.num_tree                             : Number of trees to be grown                                                           default=3
+        -b = param.bias_feat                            : Additional feature value to be appended to datapoint's features. Used for bias in linear separators similar to Liblinear.     default=1.0
+        -c = param.classifier_cost                      : Cost co-efficient for linear classifiers                                              default=1.0
+        -m = param.max_leaf                             : Maximum no. of labels in a leaf node. Larger nodes will be split into 2 balanced child nodes.         default=100
+        -tcl = param.classifier_threshold                       : Threshold value for sparsifying linear classifiers' trained weights to reduce model size.             default=0.1
+        -tce = param.centroid_threshold                 : Threshold value for sparsifying label centroids to speed up label clustering.         default=0
+        -e = param.clustering_eps                       : Eps value for terminating balanced spherical 2-Means clustering algorithm. Algorithm is terminated when successive iterations decrease objective by less than this value.     default=0.0001
+        -n = param.classifier_maxitr                    : Maximum iterations of algorithm for training linear classifiers                       default=20
+        -k = param.classifier_kind                      : Kind of linear classifier to use. 0=L2R_L2LOSS_SVC, 1=L2R_LR (Refer to Liblinear)     default=L2R_L2LOSS_SVC
+        -q = param.quiet                                : Quiet option to restrict the output for reporting progress and debugging purposes 0=no quiet, 1=quiet         default=0
+</pre>
+        For C++, the feature and label input files are expected to be in sparse matrix text format (refer to Miscellaneous section). For Matlab, the feature and label matrices are Matlab's sparse matrices.
+
+
+	<h3>Testing</h3>
+
+	C++:
+	<pre>./parabel_predict [input feature file name] [input model folder name] [output score file name] -T 1 -s 0 -t 3 -B 10 -q 0</pre>
+
+	Matlab:
+        <pre>output_score_mat = parabel_predict( [input feature matrix], [input model folder name], param )</pre>
+
+	where:
+	<pre>
+        -T = param.num_thread                           : Number of threads                                                                     default=[value saved in trained model]
+        -s = param.start_tree                           : Starting index of the trees for prediction                                                            default=[value saved in trained model]
+        -t = param.num_tree                             : Number of trees to be used for prediction                                                             default=[value saved in trained model]
+        -B = param.beam_width                           : Beam search width for fast, approximate prediction                                    default=10
+        -q = param.quiet                                : Quiet option to restrict the output for reporting progress and debugging purposes 0=no quiet, 1=quiet         default=[value saved in trained model]
+	</pre>
+
+        For C++, the feature and score files are expected to be in sparse matrix text format (refer to Miscellaneous section). For Matlab, the feature and score matrices are Matlab's sparse matrices.
+
+	<h3>Performance Evaluation</h3>
+
+	Scripts for performance evaluation are only available in Matlab. To compile these scripts, execute "make" in the Tools folder from the Matlab terminal.<br>
+	Following command is executed from Tools/metrics folder and outputs a struct containing all the metrics:
+	<pre>	[metrics] = get_all_metrics([test score matrix], [test label matrix], [inverse label propensity vector])</pre>
+
+	<h3> Miscellaneous </h3>
+
+	<ul>
+		<li>
+		The data format required by Parabel for feature and label input files is different from the format used in the <a href="../../downloads/XC/XMLRepository.html">repository</a> datasets.
+		To convert from the repository format to Parabel format, run the following command from the 'Tools' folder:
+		<pre>	perl convert_format.pl [repository data file] [output feature file name] [output label file name] </pre>
+		</li>
+
+		<li>
+		Scripts are provided in the 'Tools' folder for sparse matrix inter conversion between Matlab .mat format and text format.<br>
+		To read a text matrix into Matlab:
+		<pre>	[matrix] = read_text_mat([text matrix name]); </pre>
+		To write a Matlab matrix into text format:
+		<pre>	write_text_mat([Matlab sparse matrix], [text matrix name to be written to]);</pre>
+		</li>
+
+		<li>
+		To generate inverse label propensity weights, run the following command inside 'Tools/metrics' folder on Matlab terminal:
+		<pre>	[weights vector] = inv_propensity([training label matrix],A,B); </pre>
+		A,B are the parameters of the inverse propensity model. Following values are to be used over the benchmark datasets:
+
+		<pre>
+		Wikipedia-LSHTC: A=0.5,  B=0.4
+		Amazon:          A=0.6,  B=2.6
+		Other:		 A=0.55, B=1.5
+		</pre>
+		</li>
+	</ul>
+
+	<h2>Toy Example</h2>
+
+	The zip file containing the source code also includes the EUR-Lex dataset as a toy example. To run Parabel on the EUR-Lex dataset, execute "bash sample_run.sh" (Linux) or "sample_run" (Windows) in the Parabel folder.<br>
+
+	<h2>References</h2>
+	<ul type="circle">
+	<a name="WWW18">
+	<li>
+		Y. Prabhu, A. Kag, S. Harsola, R. Agrawal and M. Varma.
+    		<b>Parabel: Partitioned label trees for extreme classification with application to dynamic search advertising.</b> 
+    		In <i> Proceedings of the International World Wide Web Conference, Lyon, France</i>, April 2018.
+    		<br>
+    		<a href="../../pubs/selfbib.html#Prabhu18b">Bibtex source</a> | 
+    		<a href="../../pubs/prabhu18b-abstract.txt" target="_blank">Abstract</a> | 
+    		Download in <a href="../../pubs/prabhu18b.pdf">pdf</a> format
+   	</li>
+  	</ul>
+
+	</div>
+</body>
+
+</html>
+
