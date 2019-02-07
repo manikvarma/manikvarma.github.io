@@ -1,0 +1,538 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+	<div>
+	
+	<center>
+  		<h1><b>Slice: Scalable Linear Extreme Classifiers</b></h1> 
+  		<hr width="600">
+  		<a href="http://www.cse.iitd.ac.in/~hjain" target="_blank">Himanshu Jain</a> &bull; <a href="mailto:t-venkb@microsoft.com" target="_blank">Venkatesh B.</a> &bull; <a href="mailto:bhanuc@microsoft.com" target="_blank">Bhanu Teja Chunduri</a> &bull; <a href="../../index.html" target="_blank">Manik Varma</a>
+  		<hr width="600">
+	</center>
+
+	<p>
+	Extreme multi-label learning aims to annotate each data point with the most relevant subset of labels from an extremely large label set. Slice is an efficient 1-vs-All based extreme classifier that is specially designed for low-dimensional dense features. Slice achieves almost the same prediction accuracy as leading 1-vs-All extreme classifiers such as DiSMEC <a href="#Babbar17">[04]</a> but can be orders of magnitude faster at training and prediction as it cuts down both costs from linear to logarithmic in the number of labels. For example, Slice can efficiently scale to datasets with as many as 100 million labels and 240 million training points. Slice is also much more accurate than all the other state-of-the-art extreme classifiers (PfastreXML <a href="#Jain16">[05]</a>, PPDSparse <a href="#Yen17">[03]</a> and Parabel <a href="#Prabhu18">[02]</a>) for low-dimensional dense deep learning features. Please refer to our WSDM-2019 paper <a href="#Jain19">[1]</a> for more details.
+	</p>
+
+	<h2>Download Slice</h2>
+	<p>
+		This code is made available as is for non-commercial research purposes only. Please make sure that you have read the license agreement in LICENSE.doc/pdf. Please do not install or use Slice unless you agree to the terms of the license.
+	</p>
+		<a href="https://drive.google.com/file/d/1vXP7rRB6jZO8zeaoDNJM6BEv1YXTZAK8" target="_blank">Download Slice source code in C++ as well as precompiled Windows/Linux binaries.</a>
+	<p>
+	The code for Slice is written in C++ and should compile on 64 bit Windows/Linux machines using a C++11 enabled compiler. The code also uses the publically available  <a href="https://github.com/nmslib/nmslib" target="_blank">implementation</a> of the <a href="https://arxiv.org/pdf/1603.09320" target="_blank">HNSW</a> algorithm for Approximate Nearest Neighbor Search (ANNS). Installation and usage instructions are provided below. Running Slice with the default parameter settings should provide reasonable results on benchmark datasets but please verify that this works for you by running the sample_run.sh script provided in the toy example.</a>
+	</p>
+	<p>
+		Please contact <a href="mailto:himanshu.j689@gmail.com">Himanshu Jain</a> and <a href="mailto:manik@microsoft.com">Manik Varma</a> if you have any questions or feedback.
+	</P>
+
+
+	<h2>Datasets</h2>
+<p>
+The following datasets were used in our WSDM-2019 paper <a href="#Jain19">[01]</a> to compare Slice's performance against other methods. All points are represented using XML-CNN <a href="#Liu17">[12]</a> features which were provided by the authors directly. Note that, these dataset features differ from those available on <a href="http://manikvarma.org/downloads/XC/XMLRepository.html" target="_blank">The Extreme Classification Repository</a> where points have been represented using pretrained fasttext features. The raw text for these datasets is also available from the repository in case you would like to compute your own custom features.
+</p>
+<p>
+<center>
+<table style="width:1000px;">
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th rowspan="2" align="right" style="width: 150px;">Dataset</th>
+	<th rowspan="2" style="width: 100px;">Download</th>
+  	<th rowspan="1" style="width: 100px;">Feature</th>
+	<th rowspan="1" style="width: 130px;">Label</th>
+  	<th rowspan="1" style="width: 100px;">Number of</th>
+  	<th rowspan="1" style="width: 100px;">Number of</th>
+  	<th rowspan="1" style="width: 100px;">Avg. Points </th>
+  	<th rowspan="1" style="width: 100px;">Avg. Labels </th>
+  	<th rowspan="2" style="width: 100px;">Citations</th>
+</tr>
+
+<tr align=center>
+  	<th>Dimensionality</th>
+	<th rowspan="1">Dimensionality</th>
+  	<th rowspan="1">Train Points</th>
+  	<th rowspan="1">Test Points</th>
+  	<th rowspan="1">per Label</th>
+  	<th rowspan="1">per Point</th>
+</tr>
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+  
+<tr align=center>
+<td align=right>EURLex-4K</td>
+<td><a href = "https://drive.google.com/file/d/1h3AdutkwUkZVZJJQ39thqXWbFW6qYRle/view?usp=sharing" target="_blank">Download</a></td>
+<td>1024</td>
+<td>3956</td>
+<td>11,585</td>
+<td>3,865</td>
+<td>15.59</td>
+<td>5.32</td>
+<td><a href = "#Jain19">[1]</a> + <a href = "#Liu17">[12]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Wikipedia-500K</td>
+<td><a href = "https://drive.google.com/file/d/1J3VX0hoHsVTHcvklEpL7Ph--hT4hhfjy/view?usp=sharing" target="_blank">Download</a></td>
+<td>512</td>
+<td>501,070</td>
+<td>1,646,302</td>
+<td>711,542</td>
+<td>16.03</td>
+<td>4.87</td>
+<td><a href = "#Jain19">[1]</a> + <a href = "#Liu17">[12]</a></td>
+</tr>
+
+<tr align=center>
+<td align=right>Amazon-670K</td>
+<td><a href = "https://drive.google.com/file/d/1bTQ8Bhd1NWE-sULK67T-JG75NbMS0TiH/view?usp=sharing" target="_blank">Download</a></td>
+<td>512</td>
+<td>670,091</td>
+<td>490,449</td>
+<td>153,025</td>
+<td>3.99</td>
+<td>5.45</td>
+<td><a href = "#Jain19">[1]</a> + <a href = "#Liu17">[12]</a></td>
+</tr>
+
+
+
+<tr align=center>
+<td colspan=9>
+<hr>
+</td>
+</tr>
+<caption>
+Table 1:  Dataset statistics &amp; download
+</caption>
+</table>
+</center>
+</p>
+
+<h2>Benchmark Results</h2>
+<p>
+These results were reported in our WSDM-2019 paper. Please let us know if you would like your algorithm's performance added to the table.
+</p>
+<p>
+<center>
+<table style="width:700px;table-layout:fixed">
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<th>Method</th>
+	<th>P@1</th>
+	<th>P@3</th>
+	<th>P@5</th>
+	<th>Training time (hr)</th>
+	<th>Test time/point (ms)</th>
+</tr>
+
+<tr align=center>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+<th colspan=6>EURLex-4K</th>
+</tr>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<td align=right>Slice <a href = "#Jain19">[1]</a></td>
+	<td>77.72</td>
+	<td>63.78</td>
+	<td>52.05</td>
+	<td>0.02</td>
+	<td>1.23</td>
+</tr>
+<tr align=center>
+	<td align=right>DiSMEC <a href = "#Babbar16">[4]</a></td>
+	<td>76.12</td>
+	<td>62.91</td>
+	<td>51.51</td>
+	<td>0.13</td>
+	<td>4.36</td>
+</tr>
+<tr align=center>
+	<td align=right>Parabel <a href = "#Prabhu18b">[2]</a></td>
+	<td>74.54</td>
+	<td>61.72</td>
+	<td>50.48</td>
+	<td>0.01</td>
+	<td>0.91</td>
+</tr>
+<tr align=center>
+	<td align=right>PPD-Sparse <a href = "#Yen17">[3]</a></td>
+	<td>76.32</td>
+	<td>62.79</td>
+	<td>51.40</td>
+	<td>0.013</td>
+	<td>4.36</td>
+</tr>
+<tr align=center>
+	<td align=right>PfastreXML <a href = "#Jain16">[5]</a></td>
+	<td>73.63</td>
+	<td>60.31</td>
+	<td>49.69</td>
+	<td>0.037</td>
+	<td>1.82</td>
+</tr>
+<tr align=center>
+	<td align=right>SLEEC <a href = "#Bhatia15">[7]</a></td>
+	<td>74.31</td>
+	<td>60.00</td>
+	<td>49.11</td>
+	<td>0.35</td>
+	<td>4.87</td>
+</tr>
+<tr align=center>
+	<td align=right>PD-Sparse <a href = "#Yen16">[6]</a></td>
+	<td>73.53</td>
+	<td>60.80</td>
+	<td>49.37</td>
+	<td>0.12</td>
+	<td>4.36</td>
+</tr>
+<tr align=center>
+	<td align=right>CS <a href = "#Hsu09">[11]</a></td>
+	<td>58.01</td>
+	<td>44.85</td>
+	<td>35.50</td>
+	<td>0.01</td>
+	<td>140.10</td>
+</tr>
+<tr align=center>
+	<td align=right>LEML <a href = "#Yu14">[8]</a></td>
+	<td>60.34</td>
+	<td>47.45</td>
+	<td>37.96</td>
+	<td>0.67</td>
+	<td>2.24</td>
+</tr>
+<tr align=center>
+	<td align=right>WSABIE <a href = "#Weston11">[10]</a></td>
+	<td>76.09</td>
+	<td>61.69</td>
+	<td>49.11</td>
+	<td>0.13</td>
+	<td>2.24</td>
+</tr>
+<tr align=center>
+	<td align=right>CPLST <a href = "#Chen12">[9]</a></td>
+	<td>61.01</td>
+	<td>47.43</td>
+	<td>38.04</td>
+	<td>0.18</td>
+	<td>2.24</td>
+</tr>
+
+<tr align=center>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+<th colspan=6>Wikipedia-500K</th>
+</tr>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<td align=right>Slice (|S|=2000) <a href = "#Jain19">[1]</a></td>
+	<td>62.62</td>
+	<td>41.79</td>
+	<td>31.57</td>
+	<td>15.61</td>
+	<td>11.14</td>
+</tr>
+<tr align=center>
+	<td align=right>DiSMEC <a href = "#Babbar16">[4]</a></td>
+	<td>63.70</td>
+	<td>42.49</td>
+	<td>32.26</td>
+	<td>~2133</td>
+	<td>316.29</td>
+</tr>
+<tr align=center>
+	<td align=right>Parabel <a href = "#Prabhu18b">[2]</a></td>
+	<td>59.34</td>
+	<td>39.05</td>
+	<td>29.35</td>
+	<td>6.29</td>
+	<td>2.94</td>
+</tr>
+<tr align=center>
+	<td align=right>PPD-Sparse <a href = "#Yen17">[3]</a></td>
+	<td>50.40</td>
+	<td>33.15</td>
+	<td>25.54</td>
+	<td>5.85</td>
+	<td>316.29</td>
+</tr>
+<tr align=center>
+	<td align=right>PfastreXML <a href = "#Jain16">[5]</a></td>
+	<td>55.00</td>
+	<td>36.14</td>
+	<td>27.38</td>
+	<td>11.14</td>
+	<td>6.36</td>
+</tr>
+
+<tr align=center>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+<th colspan=6>Amazon-670K</th>
+</tr>
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+<tr align=center>
+	<td align=right>Slice <a href = "#Jain19">[1]</a></td>
+	<td>37.77</td>
+	<td>33.76</td>
+	<td>30.70</td>
+	<td>1.92</td>
+	<td>3.49</td>
+</tr>
+<tr align=center>
+	<td align=right>DiSMEC <a href = "#Babbar16">[4]</a></td>
+	<td>37.60</td>
+	<td>33.62</td>
+	<td>30.64</td>
+	<td>~789</td>
+	<td>429</td>
+</tr>
+<tr align=center>
+	<td align=right>Parabel <a href = "#Prabhu18b">[2]</a></td>
+	<td>33.93</td>
+	<td>30.38</td>
+	<td>27.49</td>
+	<td>1.54</td>
+	<td>2.85</td>
+</tr>
+<tr align=center>
+	<td align=right>PPD-Sparse <a href = "#Yen17">[3]</a></td>
+	<td>33.16</td>
+	<td>29.60</td>
+	<td>26.85</td>
+	<td>3.90</td>
+	<td>429</td>
+</tr>
+<tr align=center>
+	<td align=right>PfastreXML <a href = "#Jain16">[5]</a></td>
+	<td>28.51</td>
+	<td>26.06</td>
+	<td>24.17</td>
+	<td>2.85</td>
+	<td>19.35</td>
+</tr>
+<tr align=center>
+	<td align=right>SLEEC <a href = "#Bhatia15">[7]</a></td>
+	<td>18.77</td>
+	<td>16.50</td>
+	<td>14.97</td>
+	<td>7.12</td>
+	<td>22.54</td>
+</tr>
+
+<tr align=center>
+<td colspan=6>
+<hr>
+</td>
+</tr>
+
+<tr align=center>
+    <td colspan=6 align=left>
+        
+</td>
+</tr>
+<caption>
+Table 2: Precision@k on benchmark datasets
+</caption>
+</table>
+</center>
+</p>
+
+
+	<h2>Usage</h2>
+
+		Linux/Windows makefiles for compiling Slice have been provided with the source code. To compile, run "make" (Linux) or "nmake -f Makefile.win" (Windows) in the Slice folder.
+		Run the following commands from inside the Slice folder for training and testing.<br><br>
+
+	<h3>Training</h3>
+		<pre>./slice_train [input feature file name] [input label file name] [output model folder name] -m 100 -c 300 -s 300 -k 300 -o 20 -t 1 -C 1 -f 0.000001 -siter 20 -stype 0 -q 0</pre>
+
+where:	
+<pre>
+	-m = params.M                       :        HNSW M parameter. default=100
+	-c = params.efC                     :        HNSW efConstruction parameter. default=300
+	-s = params.efS                     :        HNSW efSearch parameter. default=300
+	-k = params.num_nbrs                :        Number of labels to be shortlisted per training point according to the generative model. default=300
+	-o = params.num_io_threads          :        Number of threads used to write the retrived ANN points to file. default=20
+	-t = params.num_threads             :        Number of threads used to train ANNS datastructure and the discriminative classifiers. default=1
+	-C = params.classifier_cost         :        Cost co-efficient for linear classifiers            default=1.0 SVM weight co-efficient. default=1.0
+	-f = params.classifier_threshold    :        Threshold value for sparsifying linear classifiers' trained weights to reduce model size. default=1e-6
+	-siter = params.classifier_maxiter  :        Maximum iterations of algorithm for training linear classifiers. default=20
+	-stype = params.classifier_kind     :        Kind of linear classifier to use. 0=L2R_L2LOSS_SVC, 1=L2R_LR (Refer to Liblinear). default=0
+	-q = params.quiet                   :        Quiet option to restrict the output for reporting progress and debugging purposes 0=no quiet, 1=quiet. default=[value saved in trained model]
+</pre>
+	Feature file should be in dense matrix text format and label file should be in sparse matrix text format (refer to Miscellaneous section).
+
+
+	<h3>Testing</h3>
+
+	<pre>./slice_predict [feature file name] [model dir name] -b 0 -t 1 -q 0</pre>
+
+where:
+	<pre>
+	-s = params.efS                     :        HNSW efSearch parameter. default=[value saved in trained model]
+	-k = params.num_nbrs                :        Number of labels to be shortlisted per training point according to the generative model. default=[value saved in trained model]
+	-o = params.num_io_threads          :        Number of threads used to write the retrived ANN points to file. default=[value saved in trained model]
+	-b = params.b_gen                   :        Bias parameter for the generative model. default=0
+	-t = params.num_threads             :        Number of threads. default=[value saved in trained model]
+	-q = params.quiet                   :        Quiet option to restrict the output for reporting progress and debugging purposes 0=no quiet, 1=quiet. default=[value saved in trained model]
+	</pre>
+	Feature file should be in dense matrix text format (refer to the Miscellaneous section).
+
+	<h3>Performance Evaluation</h3>
+	Scripts for calculating Precision@k and nDCG@k are available in Tools/metrics folder. The following command can be used to compute these metrics:
+	<pre>
+  ./precision_k [test score matrix file name] [test label file name] [K]
+  ./nDCG_k [test score matrix file name] [test label file name] [K]
+	</pre>
+
+	You can also use the Matlab scripts provided in Tools/metrics folder for calculating the propensity scored metrics. Please execute "make" in Tools/Matlab folder from the Matlab terminal to compile these scripts.
+	Both vanilla and propensity scored metrics can be computed by executing the following Matlab command from the Tools/metrics folder:
+  <pre>
+	[metrics] = get_all_metrics([test score matrix], [test label matrix], [inverse label propensity vector])
+	</pre>
+
+	<h3> Miscellaneous </h3>
+
+	<ul>
+		<li>
+		Unlike previous code releases from our group (<a href="http://manikvarma.org/code/Parabel/download.html" target="_blank">Parabel</a>, <a href="http://manikvarma.org/code/PfastreXML/download.html" target="_blank">PfastreXML</a>, <a href="http://manikvarma.org/code/FastXML/download.html" target="_blank">FastXML</a> and <a href="http://manikvarma.org/code/SLEEC/download.html" target="_blank">SLEEC</a>), Slice stores features in a dense matrix format while labels are stored in a sparse format. The first line of both the files contains the number of rows and columns and the subsequent lines contain one data instance per row. For features, each line contains D (the dimensionality of the feature vectors), space separated, float values while each line of the label file contains indices of active labels and the corresponding value (always 1 in this case) starting from 0. Scripts to convert features from sparse format to dense format and vice versa are also provided in the Tools/c++ folder. The following commands can be used for these conversions:
+		<pre>
+	./smat_to_dmat [sparse feature text file] [dense feature text file]
+	./dmat_to_smat [dense feature text file] [sparse feature text file]
+		</pre>
+		</li>
+
+		<li>
+		Scripts are provided in the 'Tools' folder for sparse matrix inter conversion between Matlab .mat format and text format.<br>
+		Please use the following commands to read a sparse matrix in Matlab and write it in text format:
+		<pre>	[sparse matrix] = read_text_mat([sparse text matrix file name]); </pre>
+		<pre>	write_text_mat([Matlab sparse matrix], [sparse text matrix file name]);</pre>
+		</li>
+
+		<li>
+		Please run the following command inside 'Tools/metrics' folder on Matlab terminal to generate inverse propensity weights for each label:
+		<pre>	[weights vector] = inv_propensity([training label matrix],A,B); </pre>
+		A,B are the parameters of the inverse propensity model. Following values are to be used over the benchmark datasets:
+
+		<pre>
+	Wikipedia-500K: A=0.5,  B=0.4
+	Amazon-670K:    A=0.6,  B=2.6
+	Other:          A=0.55, B=1.5
+		</pre>
+		</li>
+	</ul>
+
+	<h2>Toy Example</h2>
+
+	The zip file containing the source code also includes the EURLex-4K dataset with 1024 dimensional <a href="http://nyc.lti.cs.cmu.edu/yiming/Publications/jliu-sigir17.pdf">XML-CNN</a> features, as a toy example. To run Slice on the EURLex-4K dataset, execute "bash sample_run.sh" (Linux) or "sample_run" (Windows) in the Slice folder. You should get at Precision@1 of 77.7% if everything is working correctly.<br>
+
+	<h2><span class="header">References </span></h2>
+
+<P></P><DT><A NAME="Jain19" id="Jain19">[01]</A> 
+			&nbsp;&nbsp;
+			H.&nbsp;Jain, &nbsp;V.&nbsp;Balasubramanian, &nbsp;B.&nbsp;Chunduri and M.&nbsp;Varma, <a href="../../pubs/jain19.pdf">Slice: Scalable linear extreme classifiers trained on 100 million labels for related searches</a>, in <em> WSDM</em> 2019.
+	
+<P></P><DT><A NAME="Prabhu18b">[02]</A>
+        &nbsp; &nbsp;
+        Y.&nbsp;Prabhu, A.&nbsp;Kag, S.&nbsp;Harsola, R.&nbsp;Agrawal and M.&nbsp;Varma, <a href="http://manikvarma.org/pubs/prabhu18b.pdf" target="_blank"> Parabel: Partitioned Label Trees for Extreme Classification with Application to Dynamic Search Advertising</a> in <em> WWW</em>, 2018.
+
+<P></P><DT><A NAME="Yen17">[03]</A>
+        &nbsp; &nbsp;
+        I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, W.&nbsp;Dai, P.&nbsp;Ravikumar I.&nbsp;S.&nbsp;Dhillon and E.&nbspP.&nbsp;Xing, <a href="https://www.cs.cmu.edu/~eyan/publication/ParallelPDSparse.pdf" target="_blank"> PPDSparse: A Parallel Primal-Dual Sparse Method for Extreme Classification</a> in <em> KDD</em>, 2017.
+
+<P></P><DT><A NAME="Babbar16">[04]</A>
+&nbsp; &nbsp;
+R.&nbsp;Babbar, and B.&nbsp;Sch&ouml;lkopf, <a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxyb2hpdGJhYmJhcnxneDoyMTU5YWY1NTE1OTQ3Yzli" target="_blank"> DiSMEC - Distributed Sparse Machines for Extreme Multi-label Classification</a> in <em> WSDM</em>, 2017.
+
+<P></P><DT><A NAME="Jain16">[05]</A>
+&nbsp; &nbsp;
+H.&nbsp;Jain, Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/jain16.pdf" target="_blank"> Extreme Multi-label Loss Functions for Recommendation, Tagging, Ranking &amp; Other Missing Label Applications</a> in <em> KDD</em>, 2016.
+
+
+<P></P><DT><A NAME="Yen16">[06]</A>
+    &nbsp; &nbsp;
+    I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, K.&nbsp;Zhong, P.&nbsp;Ravikumar and I.&nbsp;S.&nbsp;Dhillon, <a href="http://www.cs.cmu.edu/~eyan/publication/ExtremeClassification.pdf" target="_blank"> PD-Sparse: A Primal and Dual Sparse Approach to Extreme Multiclass and Multilabel Classification</a> in <em> ICML</em>, 2016.
+ 
+
+<P></P><DT><A NAME="Bhatia15">[07]</A>
+&nbsp; &nbsp;
+K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma, and P.&nbsp;Jain, <a href="../../pubs/bhatia15.pdf" target="_blank">Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em> NIPS,</em> 2015.
+
+<P></P><DT><A NAME="Yu14">[08]</A>
+&nbsp; &nbsp;
+H.&nbsp;Yu, P.&nbsp;Jain, P.&nbsp;Kar, and I.&nbsp;Dhillon, <a href="http://jmlr.org/proceedings/papers/v32/yu14.pdf" target="_blank">Large-scale Multi-label Learning with Missing Labels</a>, in <em> ICML,</em> 2014.
+
+<P></P><DT><A NAME="Chen12">[09]</A>
+&nbsp; &nbsp;
+Y.&nbsp;Chen, and H.&nbsp;Lin, <a href = "http://ntur.lib.ntu.edu.tw/retrieve/188489/02.pdf" target="_blank">Feature-aware Label Space Dimension Reduction for Multi-label Classification </a>, in <em> NIPS,</em> 2012.
+
+
+<P></P><DT><A NAME="Weston11">[10]</A>
+&nbsp; &nbsp;
+J.&nbsp;Weston, S.&nbsp;Bengio, and N.&nbsp;Usunier, <a href = "http://www.thespermwhale.com/jaseweston/papers/wsabie-ijcai.pdf" target="_blank"> WSABIE: Scaling Up To Large Vocabulary Image Annotation </a>, in <em> IJCAI,</em> 2011.
+
+ 
+<P></P><DT><A NAME="Hsu09">[11]</A>
+&nbsp; &nbsp;
+D.&nbsp;Hsu, S.&nbsp;Kakade, J.&nbsp;Langford, and T.&nbsp;Zhang, <a href = "http://www.cs.columbia.edu/~djhsu/papers/mlcs.pdf" target="_blank">Multi-Label Prediction via Compressed Sensing </a>, in <em> NIPS,</em> 2009.
+
+
+<P></P><DT><A NAME="Liu17">[12]</A>
+&nbsp; &nbsp;
+J.&nbsp;Liu, W.&nbsp;C.&nbsp;Chang, Y.&nbsp;Wu, and Y.&nbsp;Yang. 2017. <a href = "" target="_blank">Deep Learning for Extreme Multi-label Text Classification</a>, in <em>SIGIR,</em> 2017.
+  
+	</div>
+</body>
+
+</html>
+
