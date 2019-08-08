@@ -1,3216 +1,3439 @@
 <html>
 
 <head>
- <title>The Extreme Classification Repository</title>
-  <meta name="keyword" content="Extreme Classification, extreme classification repository, extreme multilabel repository,  Multilabel, multilabel datasets, multilabel learning code, SLEEC, M3L, FastXML, WikiLSHTC, RCV1X, delicious, bibtex">
+  <title>The Extreme Classification Repository</title>
+  <meta name="keyword"
+    content="Extreme Classification, extreme classification repository, extreme multilabel repository,  Multilabel, multilabel datasets, multilabel learning code, SLEEC, M3L, FastXML, WikiLSHTC, RCV1X, delicious, bibtex">
 
-  <script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
 
-<script type="text/x-mathjax-config">
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 </head>
 
 <body>
-<center>
-  <h1>The Extreme Classification Repository: Multi-label Datasets &amp; Code</h1>
-  <hr width=600>
-
-  <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> &bull; <a href="https://kunaldahiya.github.io/"target="_blank">Kunal Dahiya</a> &bull; <a href="http://www.cse.iitd.ernet.in/~hjain/"target="_blank">Himanshu Jain</a> &bull; <a href = "http://www.cse.iitd.ernet.in/~yashoteja/"target="_blank">Yashoteja Prabhu </a> &bull; <a href="../../index.html"target="_blank">Manik Varma</a>
-  <hr width=600>
-</center>
-
-<p>
-  The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets and code that can be used for evaluating the performance of extreme multi-label algorithms.
-</p>
-
-<p>
-	<h2>Download Datasets</h2>
-</p>
-<p>
-	These multi-label datasets have been processed from their original source to create train/test splits ensuring that the test set contains as many training labels as possible. This yields more realistic train/test splits as compared to uniform sampling which can drop many of the infrequently occurring, and hard to classify, labels from the test set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been dropped from our test set. Results computed on the train/test splits provided on this page are therefore not comparable to results computed on the original sources or through uniform sampling. Please cite both the original source as well as the reference mentioned in the citation column in Table1 to avoid any ambiguity about which train/test split was used.
-Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download.
-</p>
-<p>
-<a href="XMLDatasetRead.zip">View the README for the dataset file format and download a sample script for reading the data into Matlab</a>
-</p>
-
-<p>
-<center>
-<table style="width:1300px;">
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="2" align="right" style="width: 150px;">Dataset</th>
-	<th rowspan="2" style="width: 250px;">Download</th>
-  	<th rowspan="1" style="width: 130px;">Feature</th>
-	<th rowspan="1" style="width: 130px;">Label</th>
-  	<th rowspan="1" style="width: 100px;">Number of</th>
-  	<th rowspan="1" style="width: 100px;">Number of</th>
-  	<th rowspan="1" style="width: 100px;">Avg. Points </th>
-  	<th rowspan="1" style="width: 100px;">Avg. Labels </th>
-  	<th rowspan="2" style="width: 100px;">Citations</th>
-</tr>
-
-<tr align=center>
-  	<th>Dimensionality</th>
-	<th rowspan="1">Dimensionality</th>
-  	<th rowspan="1">Train Points</th>
-  	<th rowspan="1">Test Points</th>
-  	<th rowspan="1">per Label</th>
-  	<th rowspan="1">per Point</th>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-  
-<tr align=center>
-<td align=right>Mediamill</td>
-<td><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGY3B4TXRmZnZBTkk" target="_blank">Download</a></td>
-<td>120</td>
-<td>101</td>
-<td>30993</td>
-<td>12914</td>
-<td>1902.15</td>
-<td>4.38</td>
-<td><a href = "#Prabhu14">[2]</a> + <a href = "#Snoek06">[19]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Bibtex</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM" target="_blank">Download</a></td>
-<td>1836</td>
-<td>159</td>
-<td>4880</td>
-<td>2515</td>
-<td>111.71</td>
-<td>2.40</td>
-<td><a href = "#Prabhu14">[2]</a> + <a href = "#Katakis08">[20]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU" target="_blank">Download</a></td>
-<td>500</td>
-<td>983</td>
-<td>12920</td>
-<td>3185</td>
-<td>311.61</td>
-<td>19.03</td>
-<td><a href = "#Prabhu14">[2]</a> + <a href = "#Tsoumakas08">[21]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>RCV1-2K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdnEzRWZWQWJMRnc" target="_blank">Download</a></td>
-<td>47236</td>
-<td>2456</td>
-<td>623847</td>
-<td>155962</td>
-<td>1218.56</td>
-<td>4.79</td>
-<td><a href = "#Prabhu14">[2]</a> + <a href = "#RCV1">[26]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>EURLex-4K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGU0VTR1pCejFpWjg" target="_blank"> Download</a></td>
-<td>5000</td>
-<td>3993</td>
-<td>15539</td>
-<td>3809</td>
-<td>25.73</td>
-<td>5.31</td>
-<td><a href = "#Bhatia15">[1]</a> + <a href = "#Eurlex">[27]</a></td>
-</tr>
-
-
-<tr align=center>
-<td align=right>AmazonCat-13K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGa2tMbVJGdDNSMGc" target="_blank">Download Dataset</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGYjBBREJ2MEViYXM" target="_blank">Download Feature &amp; Label Meta-data</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for Deep Learning</a></td>
-<td>203882</td>
-<td>13330</td>
-<td>1186239</td>
-<td>306782</td>
-<td>448.57</td>
-<td>5.04</td>
-<td><a href = "#Julian13">[28]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>AmazonCat-14K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGaDFqU2E5U0dxS00" target="_blank">Download Dataset</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGSG5tZ2hVc29NZzg" target="_blank">Download Feature &amp; Label Meta-data</a><br> <a href = "https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for Deep Learning</a></td>
-<td>597540</td>
-<td>14588</td>
-<td>4398050</td>
-<td>1099725</td>
-<td>1330.1</td>
-<td>3.53</td>
-<td><a href = "#Julian15a">[29]</a> + <a href = "#Julian15b">[30]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Wiki10-31K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGaDdOeGliWF9EOTA" target="_blank">Download Dataset</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGQ21SX2llNnJldUE" target="_blank">Download Feature &amp; Label Meta-data</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGMDZSalQ3MWh5UFU" target="_blank">Download Raw Text for Deep Learning</a></td>
-<td>101938</td>
-<td>30938</td>
-<td>14146</td>
-<td>6616</td>
-<td>8.52</td>
-<td>18.64</td>
-<td><a href = "#Bhatia15">[1]</a> + <a href = "#Zubiaga09">[23]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious-200K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGR3lBWWYyVlhDLWM" target="_blank">Download</a></td>
-<td>782585</td>
-<td>205443</td>
-<td>196606</td>
-<td>100095</td>
-<td>72.29</td>
-<td>75.54 </td>
-<td><a href = "#Bhatia15">[1]</a> + <a href = "#Wetzker08">[24]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>WikiLSHTC-325K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGSHE1SWx4TVRva3c" target="_blank">Download</a></td>
-<td>1617899</td>
-<td>325056</td>
-<td>1778351</td>
-<td>587084</td>
-<td>17.46</td>
-<td>3.19</td>
-<td><a href = "#Prabhu14">[2]</a> + <a href = "#WikiLSHTC">[25]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Wikipedia-500K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c" target="_blank">Download Dataest</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGd2pFcTRDQVh5bDg" target="_blank">Download Feature &amp; Label Meta-data</a></td>
-<td>2381304</td>
-<td>501070</td>
-<td>1813391</td>
-<td>783743</td>
-<td>24.75</td>
-<td>4.77</td>
-<td>-</td>
-</tr>  
-
-<tr align=center>
-<td align=right>Amazon-670K</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGdUJwRzltS1dvUVk" target="_blank">Download Dataset</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGZ0xsNTFhazNLS28" target="_blank">Download Feature &amp; Label Meta-data</a><br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for Deep Learning</a></td>
-<td>135909</td>
-<td>670091</td>
-<td>490449</td>
-<td>153025</td>
-<td>3.99</td>
-<td>5.45</td>
-<td><a href = "#Bhatia15">[1]</a> + <a href = "#Julian13">[28]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-1M</td>
-<td >-</td>
-<td>164592</td>
-<td>1082898</td>
-<td>3917928</td>
-<td>1563137</td>
-<td>7.07</td>
-<td>1.95</td>
-<td><a href = "#Prabhu14">[2]</a></td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-3M</td>
-<td ><a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGUEd4eTRxaWl3YkE" target="_blank">Download Dataset</a> <br> <a href = "https://drive.google.com/open?id=0B3lPMIHmG6vGd2U3VHB0Wkk4cGM" target="_blank">Download Feature &amp; Label Meta-data</a><br> <a href = "https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for Deep Learning</a></td>
-<td>337067</td>
-<td>2812281</td>
-<td>1717899</td>
-<td>742507</td>
-<td>31.64</td>
-<td>36.17</td>
-<td><a href = "#Julian15a">[29]</a> + <a href = "#Julian15b">[30]<a/></td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-9M</td>
-<td >-</td>
-<td>2082698</td>
-<td>8838461</td>
-<td>70455530</td>
-<td>22629136</td>
-<td>14.32</td>
-<td>1.79</td>
-<td><a href = "#Prabhu14">[2]</a></td>
-</tr>
-
-
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-<caption>
-Table 1:  Dataset statistics &amp; download
-</caption>
-</table>
-</center>
-</p>
-
-<p>
-We have followed the naming convention of appending the number of labels to the dataset name so as to disambiguate various versions of the datasets. Thus, DeliciousLarge has been renamed to Delicious-200K, RCV1-X to RCV1-2K, <i>etc</i>.
-</p>
-
-<p>
-Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like to contribute a dataset.
-</p>
-<p>
-	<h2>Download Code</h2>
-	
-</p>
-
-<ol>
-<li>1-vs-All classifiers
-<ul type="circle">
-<li>Slice (Jain et al., WSDM 2019): <a href="../../code/Slice/download.html">source code in C++ as well as precompiled Widows/Linux binaries</a></li>
-<li>Parabel (Prabhu et al., WWW 2018): <a href="../../code/Parabel/download.html">source code in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
-<li>DiSMEC (Babbar & Sch&ouml;lkopf, WSDM 2017): <a href="https://sites.google.com/site/rohitbabbar/code/dismec" target="_blank">source code in C</a></li>
-<li>PPD-Sparse (Yen et al., KDD 2017): <a href="http://ianyen.site/software/AsyncPDSparse.zip" target="_blank">source code in C</a></li>
-<li>Label Filters (Niculescu-Mizil et al., AISTATS 2017): <a href="https://github.com/rupea/LabelFilters" target="_blank">source code in C++</a></li>
-<li>PD-Sparse (Yen et al., ICML 2016): <a href="http://www.cs.utexas.edu/~xrhuang/PDSparse/" target="_blank">source code in C</a></li>
-</ul>
-<li>Trees
-<ul type="circle">
-<li>SwiftXML (Prabhu et al., WSDM 2018): <a href="../../code/SwiftXML/download.html">source code in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
-<li>Probabilistic Label Trees (Jasinska et al., ICML 2017): <a href="https://github.com/mwydmuch/extweme_wabbit" target="_blank">Vowpal Wabbit implementation</a></li>
-<li>PfastreXML (Jain et al., KDD 2016): <a href="../../code/PfastreXML/download.html" target="_blank">source code in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
-<li>FastXML (Prabhu & Varma, KDD 2014): <a href="../../code/FastXML/download.html" target="_blank">source code in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
-</ul>
-<li>Embeddings
-<ul type="circle">
-<li>DEFRAG (Jalan et al., IJCAI 2019): <a href="https://github.com/purushottamkar/defrag/" target="_blank">source code in C++</a></li>
-<li>AnnexML (Tagami, KDD 2017): <a href="https://s.yimg.jp/dl/docs/research_lab/annexml-0.0.1.zip" target="_blank">source code in C</a></li>
-<li>Randomized embeddings for extreme learning (Mineiro & Karampatziakis, CoRR 2017): <a href="https://github.com/pmineiro/randembed" target="_blank">source code in Matlab</a></li>
-<li>SLEEC (Bhatia et al., NIPS 2015): <a href="../../code/SLEEC/download.html" target="_blank">source code in Matlab</a></li>
-<li>LEML (Yu et al., ICML 2014): <a href="http://www.cs.utexas.edu/~rofuyu/exp-codes/leml-icml14-exp.zip" target="_blank">precompiled Linux binaries</a></li>
-<li>W-LTLS (Evron et al., NeurIPS 2018): <a href="https://github.com/ievron/wltls" target="_blank">source code</a></li>
-</ul>
-<li>Deep Learning
-<ul type="circle">
-<li>fastText Learn Tree (Jernite et al., ICML 2017): <a href="https://github.com/yjernite/fastTextLearnTree" target="_blank">source code in C</a></li>
-<li>XML-CNN (Liu et al., SIGIR 2017): <a href="https://drive.google.com/file/d/1dkEIvA9cT-Vnm3_ZEbTjFY6Oaf1whshG/view?usp=sharing" target="_blank">source code in Theano</a></li>
-
-</ul>
-</ol>
-
-<p>Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like us to provide a link to your code.</p>
-    
-<p>
-<h2>Metrics and Benchmark Results</h2>
-</p>
-
-<p>
-Tables 2, 3, 6 and 7 present comparative results of various algorithms on the small scale datasets. Tables 4, 5, 8 and 9 present results on the larger datasets. If an algorithm cannot scale to a dataset then its results are either not shown or reported as "-". Classification accuracy is evaluated according to (PS = Propenisty Scored) Precision$@k$ and nDCG$@k$ defined for a predicted score vector $\hat{\mathbf y} \in {\cal{R}}^{L}$ and ground truth label vector $\mathbf y \in \left\lbrace 0, 1 \right\rbrace^L$ as
-\[
-\text{P}@k := \frac{1}{k} \sum_{l\in \text{rank}_k (\hat{\mathbf y})} \mathbf y_l
-\]
-
-\[
-\text{PSP}@k := \frac{1}{k} \sum_{l\in \text{rank}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{p_l}
-\]
-
-\[
-\text{DCG}@k := \sum_{l\in {\text{rank}}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{\log(l+1)}
-\]
-\[
-\text{PSDCG}@k := \sum_{l\in {\text{rank}}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{p_l\log(l+1)}
-\]
-
-\[
-\text{nDCG}@k := \frac{{\text{DCG}}@k}{\sum_{l=1}^{\min(k, \|\mathbf y\|_0)} \frac{1}{\log(l+1)}}
-\]
-
-\[
-\text{PSnDCG}@k := \frac{{\text{PSDCG}}@k}{\sum_{l=1}^{k} \frac{1}{\log(l+1)}}
-\]
-where, $\text{rank}_k(\mathbf y)$ returns the $k$ largest indices of $\mathbf{y}$ ranked in descending order and $p_l$ is the propensity score for label $l$ which helps in making metrics unbiased <a href = "#Jain16">[31]</a>. Propensity scores for each of the datasets are included in the evaluation script below and it is recommended that you use the script to compute (Propensity Scored) Precision and nDCG so as to be consistent with the results reported in Tables 2-9.
-
-<p>
-<a href="https://drive.google.com/open?id=0B3lPMIHmG6vGN0hSQjFJUHZ0YTg" target="_blank">Download sample Matlab script to compute (propensity scored) Precision and nDCG</a>
-</p>
-
-<p>
-<center>
-<table style="width:1600px;table-layout:fixed">
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="2" align="right">Dataset</th>
-  <th rowspan="2">Propensity Scored Precision@k</th>
-	<th colspan="6">Embedding Based</th>
-	<th colspan="3">Tree Based</th>
-	<th colspan="4">Other</th>
-</tr>
-<tr align=center>
-	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
-	<th>LEML <a href = "#Yu14">[5]</a></th>
-	<th>WSABIE <a href = "#Weston11">[11]</a></th>
-	<th>CPLST <a href = "#Chen12">[9]</a></th>
-	<th>CS <a href = "#Hsu09">[6]</a></th>
-	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
-	<th>PfastreXML <a href = "#Jain16">[31]</a></th>
-	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th>LPSR <a href = "#Weston13">[4]</a></th>
-  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
-  <th>kNN</th>
-  <th>Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th>DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th>PD-Sparse <a href = "#Yen16">[33]</a></th>
-  <th>PPD-Sparse <a href = "#Yen17">[34]</a></th>
-</tr>
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right style="width: 120px;">Bibtex</td>
-<td style="width: 200px;">PSP@1</td>
-<td style="width: 120px;">51.12</td>
-<td style="width: 120px;">47.97</td>
-<td style="width: 120px;">43.39</td>
-<td style="width: 120px;">48.17</td>
-<td style="width: 120px;">46.04</td>
-<td style="width: 120px;">32.38</td>
-<td style="width: 120px;">52.28</td>
-<td style="width: 120px;">48.54</td>
-<td style="width: 120px;">49.20</td>
-<td style="width: 120px;">48.84</td>
-<td style="width: 120px;">43.71</td>
-<td style="width: 120px;">50.88</td>
-<td style="width: 120px;">-</td>
-<td style="width: 120px;">48.34</td>
-<td style="width: 120px;">-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>53.95</td>
-<td>51.42</td>
-<td>44.00</td>
-<td>50.86</td>
-<td>45.08</td>
-<td>38.68</td>
-<td>54.36</td>
-<td>52.30</td>
-<td>50.14</td>
-<td>52.96</td>
-<td>45.82</td>
-<td>52.42</td>
-<td>-</td>
-<td>48.77</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>59.56</td>
-<td>57.53</td>
-<td>49.30</td>
-<td>56.42</td>
-<td>48.17</td>
-<td>45.96</td>
-<td>60.55</td>
-<td>58.28</td>
-<td>55.01</td>
-<td>59.29</td>
-<td>51.64</td>
-<td>57.36</td>
-<td>-</td>
-<td>52.93</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious</td>
-<td>PSP@1</td>
-<td>32.11</td>
-<td>30.73</td>
-<td>31.25</td>
-<td>31.10</td>
-<td>30.60</td>
-<td>29.48</td>
-<td>34.57</td>
-<td>32.35</td>
-<td>31.34</td>
-<td>31.95</td>
-<td>31.03</td>
-<td>32.69</td>
-<td>-</td>
-<td>25.22</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>33.21</td>
-<td>32.43</td>
-<td>32.02</td>
-<td>32.40</td>
-<td>31.84</td>
-<td>30.27</td>
-<td>34.80</td>
-<td>34.51</td>
-<td>32.57</td>
-<td>33.24</td>
-<td>32.02</td>
-<td>34.00</td>
-<td>-</td>
-<td>24.63</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>33.83</td>
-<td>33.26</td>
-<td>32.47</td>
-<td>33.02</td>
-<td>32.26</td>
-<td>30.02</td>
-<td>35.86</td>
-<td>35.43</td>
-<td>32.77</td>
-<td>33.47</td>
-<td>32.43</td>
-<td>34.53</td>
-<td>-</td>
-<td>23.85</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Mediamill</td>
-<td>PSP@1</td>
-<td>70.14</td>
-<td>66.34</td>
-<td>64.24</td>
-<td>65.79</td>
-<td>66.23</td>
-<td>62.53</td>
-<td>66.88</td>
-<td>66.67</td>
-<td>66.06</td>
-<td>66.06</td>
-<td>65.71</td>
-<td>66.51</td>
-<td>-</td>
-<td>62.23</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>72.76</td>
-<td>65.11</td>
-<td>62.73</td>
-<td>64.07</td>
-<td>65.28</td>
-<td>58.97</td>
-<td>65.90</td>
-<td>65.43</td>
-<td>63.83</td>
-<td>63.53</td>
-<td>66.23</td>
-<td>65.21</td>
-<td>-</td>
-<td>59.85</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>74.02</td>
-<td>63.62</td>
-<td>59.92</td>
-<td>61.89</td>
-<td>63.70</td>
-<td>53.23</td>
-<td>64.90</td>
-<td>64.30</td>
-<td>61.11</td>
-<td>59.38</td>
-<td>66.14</td>
-<td>64.30</td>
-<td>-</td>
-<td>54.03</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-    <td align=right>EURLex-4K</td>
-    <td>PSP@1</td>
-    <td>34.25</td>
-    <td>24.10</td>
-    <td>31.16</td>
-    <td>28.60</td>
-    <td>24.97</td>
-    <td>24.94</td>
-    <td>43.86</td>
-    <td>26.62</td>
-    <td>33.17</td>
-    <td>37.97</td>
-    <td>-</td>
-    <td>36.36</td>
-    <td>41.20</td>
-    <td>38.28</td>
-    <td>37.61</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSP@3</td>
-    <td>39.83</td>
-    <td>27.20</td>
-    <td>34.85</td>
-    <td>32.49</td>
-    <td>27.46</td>
-    <td>27.19</td>
-    <td>45.72</td>
-    <td>34.16</td>
-    <td>39.68</td>
-    <td>44.01</td>
-    <td>-</td>
-    <td>44.04</td>
-    <td>45.40</td>
-    <td>42.00</td>
-    <td>46.05</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSP@5</td>
-    <td>42.76</td>
-    <td>29.09</td>
-    <td>36.82</td>
-    <td>34.46</td>
-    <td>25.04</td>
-    <td>28.90</td>
-    <td>46.97</td>
-    <td>38.96</td>
-    <td>41.99</td>
-    <td>46.17</td>
-    <td>-</td>
-    <td>48.29</td>
-    <td>49.30</td>
-    <td>44.89</td>
-    <td>50.79</td>
-</tr>
-
-<tr align=center>
-    <td colspan=15>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td colspan=15 align=left>
-        
-</td>
-</tr>
-<caption>
-Table 2: Propensity Scored Precision@k on the small scale datasets
-</caption>
-</table>
-</center>
-</p>
-
-<p>
-<center>
-<table style="width:1600px;table-layout:fixed">
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="2" align="right">Dataset</th>
-  <th rowspan="2">Propensity Scored nDCG@k</th>
-	<th colspan="6">Embedding Based</th>
-	<th colspan="3">Tree Based</th>
-	<th colspan="4">Other</th>
-</tr>
-<tr align=center>
-	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
-	<th>LEML <a href = "#Yu14">[5]</a></th>
-	<th>WSABIE <a href = "#Weston11">[11]</a></th>
-	<th>CPLST <a href = "#Chen12">[9]</a></th>
-	<th>CS <a href = "#Hsu09">[6]</a></th>
-	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
-	<th>PfastreXML <a href = "#Jain16">[31]</a></th>
-	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th>LPSR <a href = "#Weston13">[4]</a></th>
-  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
-  <th>kNN</th>
-  <th>Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th>DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th>PD-Sparse <a href = "#Yen16">[33]</a></th>
-
-</tr>
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right style="width: 120px;">Bibtex</td>
-<td style="width: 200px;">PSnDCG@1</td>
-<td style="width: 120px;">51.12</td>
-<td style="width: 120px;">47.97</td>
-<td style="width: 120px;">43.39</td>
-<td style="width: 120px;">48.17</td>
-<td style="width: 120px;">46.04</td>
-<td style="width: 120px;">32.38</td>
-<td style="width: 120px;">52.28</td>
-<td style="width: 120px;">48.54</td>
-<td style="width: 120px;">49.20</td>
-<td style="width: 120px;">48.84</td>
-<td style="width: 120px;">43.71</td>
-<td style="width: 120px;">50.88</td>
-<td style="width: 120px;">-</td>
-<td style="width: 120px;">48.34</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>52.99</td>
-<td>50.25</td>
-<td>43.64</td>
-<td>49.94</td>
-<td>45.25</td>
-<td>36.73</td>
-<td>53.62</td>
-<td>51.11</td>
-<td>49.78</td>
-<td>51.62</td>
-<td>45.04</td>
-<td>51.90</td>
-<td>-</td>
-<td>48.49</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>56.04</td>
-<td>53.59</td>
-<td>46.50</td>
-<td>52.96</td>
-<td>46.89</td>
-<td>40.74</td>
-<td>56.99</td>
-<td>54.38</td>
-<td>52.41</td>
-<td>55.09</td>
-<td>48.20</td>
-<td>54.58</td>
-<td>-</td>
-<td>50.72</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious</td>
-<td>PSnDCG@1</td>
-<td>32.11</td>
-<td>30.73</td>
-<td>31.25</td>
-<td>31.10</td>
-<td>30.60</td>
-<td>29.48</td>
-<td>34.57</td>
-<td>32.35</td>
-<td>31.34</td>
-<td>31.95</td>
-<td>31.03</td>
-<td>32.69</td>
-<td>-</td>
-<td>25.22</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>32.93</td>
-<td>32.01</td>
-<td>31.84</td>
-<td>32.07</td>
-<td>31.54</td>
-<td>30.10</td>
-<td>34.71</td>
-<td>34.00</td>
-<td>32.29</td>
-<td>32.95</td>
-<td>31.76</td>
-<td>33.69</td>
-<td>-</td>
-<td>24.80</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>33.41</td>
-<td>32.66</td>
-<td>32.18</td>
-<td>32.55</td>
-<td>31.89</td>
-<td>29.98</td>
-<td>35.42</td>
-<td>34.73</td>
-<td>32.50</td>
-<td>33.17</td>
-<td>32.09</td>
-<td>34.10</td>
-<td>-</td>
-<td>24.25</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Mediamill</td>
-<td>PSnDCG@1</td>
-<td>70.14</td>
-<td>66.34</td>
-<td>64.24</td>
-<td>65.79</td>
-<td>66.23</td>
-<td>62.53</td>
-<td>66.88</td>
-<td>66.08</td>
-<td>66.06</td>
-<td>66.06</td>
-<td>65.71</td>
-<td>66.51</td>
-<td>-</td>
-<td>62.25</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>72.31</td>
-<td>65.79</td>
-<td>63.47</td>
-<td>64.88</td>
-<td>65.89</td>
-<td>60.33</td>
-<td>66.47</td>
-<td>66.08</td>
-<td>64.83</td>
-<td>64.63</td>
-<td>66.39</td>
-<td>65.91</td>
-<td>-</td>
-<td>61.05</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>73.13</td>
-<td>64.71</td>
-<td>61.57</td>
-<td>63.36</td>
-<td>64.77</td>
-<td>56.50</td>
-<td>65.71</td>
-<td>65.24</td>
-<td>62.94</td>
-<td>61.84</td>
-<td>66.27</td>
-<td>65.20</td>
-<td>-</td>
-<td>57.26</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-    <td align=right>EURLex-4K</td>
-    <td>PSnDCG@1</td>
-    <td>34.25</td>
-    <td>24.10</td>
-    <td>31.16</td>
-    <td>28.60</td>
-    <td>24.97</td>
-    <td>25.94</td>
-    <td>43.86</td>
-    <td>26.62</td>
-    <td>33.17</td>
-    <td>37.97</td>
-    <td>-</td>
-    <td>36.36</td>
-    <td>41.20</td>
-    <td>38.28</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSnDCG@3</td>
-    <td>38.35</td>
-    <td>26.37</td>
-    <td>33.85</td>
-    <td>31.45</td>
-    <td>26.82</td>
-    <td>26.56</td>
-    <td>45.23</td>
-    <td>32.07</td>
-    <td>37.92</td>
-    <td>42.44</td>
-    <td>-</td>
-    <td>41.95</td>
-    <td>44.30</td>
-    <td>40.96</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSnDCG@5</td>
-    <td>40.30</td>
-    <td>27.62</td>
-    <td>35.17</td>
-    <td>32.77</td>
-    <td>25.57</td>
-    <td>27.67</td>
-    <td>46.03</td>
-    <td>35.23</td>
-    <td>39.55</td>
-    <td>43.97</td>
-    <td>-</td>
-    <td>44.78</td>
-    <td>46.90</td>
-    <td>42.84</td>
-</tr>
-
-<tr align=center>
-    <td colspan=15>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td colspan=15 align=left>
-        
-</td>
-</tr>
-<caption>
-Table 3: Propensity Scored nDCG@k on the small scale datasets
-</caption>
-</table>
-</center>
-</p>
-
-<p>
-<center>
-<table style="width:1300px;table-layout:fixed">
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="1" align="right">Dataset</th>
-  <th rowspan="1">Propensity Scored Precision@k</th>
-	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
-  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
-  <th rowspan="1">PfastreXML <a href = "#Jain16">[31]</a></th>
-  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
-  <th rowspan="1">Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th rowspan="1">DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th rowspan="1">PD-Sparse <a href = "#Yen16">[33]</a></th>
-  <th rowspan="1">PPD-Sparse <a href = "#Yen17">[34]</a></th>
-</tr>
-
-<tr align=center>
-    <td colspan=10>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td align=right style="width: 300px;">AmazonCat-13K</td>
-    <td style="width: 100px;">PSP@1</td>
-    <td style="width: 100px;">46.75</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">69.52</td>
-    <td style="width: 100px;">48.31</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">50.93</td>
-    <td style="width: 100px;">59.10</td>
-    <td style="width: 100px;">49.58</td>
-    <td style="width: 100px;">-</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSP@3</td>
-    <td>58.46</td>
-    <td>-</td>
-    <td>73.22</td>
-    <td>60.26</td>
-    <td>-</td>
-    <td>64.00</td>
-    <td>67.10</td>
-    <td>61.63</td>
-    <td>-</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSP@5</td>
-    <td>65.96</td>
-    <td>-</td>
-    <td>75.48</td>
-    <td>69.30</td>
-    <td>-</td>
-    <td>72.08</td>
-    <td>71.20</td>
-    <td>68.23</td>
-    <td>-</td>
-</tr>
-
-<tr align=center>
-    <td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Wiki10-31K</td>
-<td>PSP@1</td>
-<td>11.14</td>
-<td>9.41</td>
-<td>19.02</td>
-<td>9.80</td>
-<td>12.79</td>
-<td>11.66</td>
-<td>13.60</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>11.86</td>
-<td>10.07</td>
-<td>18.34</td>
-<td>10.17</td>
-<td>12.26</td>
-<td>12.73</td>
-<td>13.10</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>12.40</td>
-<td>10.55</td>
-<td>18.43</td>
-<td>10.54</td>
-<td>12.13</td>
-<td>13.68</td>
-<td>13.80</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious-200K</td>
-<td>PSP@1</td>
-<td>7.17</td>
-<td>6.06</td>
-<td>3.15</td>
-<td>6.48</td>
-<td>3.24</td>
-<td>7.25</td>
-<td>6.5</td>
-<td>5.29</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>8.16</td>
-<td>7.24</td>
-<td>3.87</td>
-<td>7.52</td>
-<td>3.42</td>
-<td>7.94</td>
-<td>7.6</td>
-<td>5.80</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>8.96</td>
-<td>8.10</td>
-<td>4.43</td>
-<td>8.31</td>
-<td>3.64</td>
-<td>8.52</td>
-<td>8.4</td>
-<td>6.24</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>WikiLSHTC-325K</td>
-<td>PSP@1</td>
-<td>20.27</td>
-<td>3.48</td>
-<td>30.66</td>
-<td>16.35</td>
-<td>6.93</td>
-<td>26.76</td>
-<td>29.1</td>
-<td>28.34</td>
-<td>27.47</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>23.18</td>
-<td>3.79</td>
-<td>31.55</td>
-<td>20.99</td>
-<td>7.21</td>
-<td>33.27</td>
-<td>35.6</td>
-<td>33.50</td>
-<td>33.00</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>25.08</td>
-<td>4.27</td>
-<td>33.12</td>
-<td>23.56</td>
-<td>7.86</td>
-<td>37.36</td>
-<td>39.5</td>
-<td>36.62</td>
-<td>36.29</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-670K</td>
-<td>PSP@1</td>
-<td>20.62</td>
-<td>2.07</td>
-<td>29.30</td>
-<td>19.37</td>
-<td>16.68</td>
-<td>25.43</td>
-<td>27.8</td>
-<td>-</td>
-<td>26.64</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>23.32</td>
-<td>2.26</td>
-<td>30.80</td>
-<td>23.26</td>
-<td>18.07</td>
-<td>29.43</td>
-<td>30.6</td>
-<td>-</td>
-<td>30.65</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>25.98</td>
-<td>2.47</td>
-<td>32.43</td>
-<td>26.85</td>
-<td>19.43</td>
-<td>32.85</td>
-<td>34.2</td>
-<td>-</td>
-<td>34.65</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-1M</td>
-<td>PSP@1</td>
-<td>10.75</td>
-<td>-</td>
-<td>15.81</td>
-<td>12.69</td>
-<td>6.91</td>
-<td>10.63</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>15.87</td>
-<td>-</td>
-<td>20.02</td>
-<td>16.42</td>
-<td>10.17</td>
-<td>16.27</td>
-<td>-7</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>19.11</td>
-<td>-</td>
-<td>22.68</td>
-<td>18.44</td>
-<td>12.41</td>
-<td>20.08</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-3M</td>
-<td>PSP@1</td>
-<td>-</td>
-<td>-</td>
-<td>21.38</td>
-<td>9.77</td>
-<td>-</td>
-<td>12.82</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>-</td>
-<td>-</td>
-<td>23.22</td>
-<td>11.69</td>
-<td>-</td>
-<td>15.61</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>-</td>
-<td>-</td>
-<td>24.52</td>
-<td>13.25</td>
-<td>-</td>
-<td>17.73</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-<td align=right>Ads-9M</td>
-<td>PSP@1</td>
-<td>-</td>
-<td>-</td>
-<td>13.52</td>
-<td>12.89</td>
-<td>-</td>
-<td>6.54</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@3</td>
-<td>-</td>
-<td>-</td>
-<td>17.95</td>
-<td>15.88</td>
-<td>-</td>
-<td>10.81</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSP@5</td>
-<td>-</td>
-<td>-</td>
-<td>20.50</td>
-<td>17.26</td>
-<td>-</td>
-<td>13.79</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=10 align=left>
-<hr>
-</td>
-</tr>
-<caption>
-Table 4: Propensity Scored Precision@k on the large scale datasets
-</caption>
-</table>
-</center>
-</p>
-</p>
-
-<p>
-<center>
-<table style="width:1300px;table-layout:fixed">
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="1" align="right">Dataset</th>
-  <th rowspan="1">Propensity Scored nDCG@k</th>
-	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
-  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
-  <th rowspan="1">PfastreXML <a href = "#Jain16">[31]</a></th>
-  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
-  <th rowspan="1">Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th rowspan="1">DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th rowspan="1">PD-Sparse <a href = "#Yen16">[33]</a></th>
-</tr>
-
-<tr align=center>
-    <td colspan=9>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td align=right style="width: 300px;">AmazonCat-13K</td>
-    <td style="width: 100px;">PSnDCG@1</td>
-    <td style="width: 100px;">46.75</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">69.52</td>
-    <td style="width: 100px;">48.31</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">50.93</td>
-    <td style="width: 100px;">59.10</td>
-    <td style="width: 100px;">49.58</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSnDCG@3</td>
-    <td>55.19</td>
-    <td>-</td>
-    <td>72.21</td>
-    <td>56.90</td>
-    <td>-</td>
-    <td>60.37</td>
-    <td>65.20</td>
-    <td>58.28</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>PSnDCG@5</td>
-    <td>60.08</td>
-    <td>-</td>
-    <td>73.67</td>
-    <td>62.75</td>
-    <td>-</td>
-    <td>65.68</td>
-    <td>68.80</td>
-    <td>62.68</td>
-</tr>
-
-<tr align=center>
-    <td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Wiki10-31K</td>
-<td>PSnDCG@1</td>
-<td>11.14</td>
-<td>9.41</td>
-<td>19.02</td>
-<td>9.80</td>
-<td>12.79</td>
-<td>11.66</td>
-<td>13.60</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>11.68</td>
-<td>9.90</td>
-<td>18.49</td>
-<td>10.08</td>
-<td>12.38</td>
-<td>12.48</td>
-<td>13.20</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>12.06</td>
-<td>10.24</td>
-<td>18.52</td>
-<td>10.33</td>
-<td>12.27</td>
-<td>13.13</td>
-<td>13.60</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious-200K</td>
-<td>PSnDCG@1</td>
-<td>7.17</td>
-<td>6.06</td>
-<td>3.15</td>
-<td>6.51</td>
-<td>3.24</td>
-<td>7.25</td>
-<td>6.5</td>
-<td>5.29</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>7.89</td>
-<td>6.93</td>
-<td>3.68</td>
-<td>7.26</td>
-<td>3.37</td>
-<td>7.75</td>
-<td>7.5</td>
-<td>5.66</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>8.44</td>
-<td>7.52</td>
-<td>4.06</td>
-<td>7.79</td>
-<td>3.52</td>
-<td>8.15</td>
-<td>7.9</td>
-<td>5.96</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>WikiLSHTC-325K</td>
-<td>PSnDCG@1</td>
-<td>20.27</td>
-<td>3.48</td>
-<td>30.66</td>
-<td>16.35</td>
-<td>6.93</td>
-<td>26.76</td>
-<td>29.1</td>
-<td>28.34</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>22.27</td>
-<td>3.68</td>
-<td>31.24</td>
-<td>19.56</td>
-<td>7.11</td>
-<td>31.26</td>
-<td>35.9</td>
-<td>31.92</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>23.35</td>
-<td>3.94</td>
-<td>32.09</td>
-<td>21.02</td>
-<td>7.46</td>
-<td>33.57</td>
-<td>39.4</td>
-<td>33.68</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-670K</td>
-<td>PSnDCG@1</td>
-<td>20.62</td>
-<td>2.07</td>
-<td>29.30</td>
-<td>19.37</td>
-<td>16.68</td>
-<td>25.43</td>
-<td>27.8</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>22.63</td>
-<td>2.21</td>
-<td>30.40</td>
-<td>22.25</td>
-<td>17.70</td>
-<td>28.38</td>
-<td>28.8</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>24.43</td>
-<td>2.35</td>
-<td>31.49</td>
-<td>24.69</td>
-<td>18.63</td>
-<td>30.71</td>
-<td>30.7</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-1M</td>
-<td>PSnDCG@1</td>
-<td>10.75</td>
-<td>-</td>
-<td>15.81</td>
-<td>12.69</td>
-<td>6.91</td>
-<td>10.63</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>14.03</td>
-<td>-</td>
-<td>18.54</td>
-<td>15.12</td>
-<td>9.02</td>
-<td>14.28</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>15.67</td>
-<td>-</td>
-<td>19.93</td>
-<td>16.18</td>
-<td>10.18</td>
-<td>16.26</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-3M</td>
-<td>PSnDCG@1</td>
-<td>-</td>
-<td>-</td>
-<td>21.38</td>
-<td>9.77</td>
-<td>-</td>
-<td>12.82</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>-</td>
-<td>-</td>
-<td>22.75</td>
-<td>11.20</td>
-<td>-</td>
-<td>14.89</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>-</td>
-<td>-</td>
-<td>23.68</td>
-<td>12.29</td>
-<td>-</td>
-<td>16.38</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=9>
-<hr>
-</td>
-</tr>
-<tr align=center>
-<td align=right>Ads-9M</td>
-<td>PSnDCG@1</td>
-<td>-</td>
-<td>-</td>
-<td>13.52</td>
-<td>12.89</td>
-<td>-</td>
-<td>6.54</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@3</td>
-<td>-</td>
-<td>-</td>
-<td>16.43</td>
-<td>14.86</td>
-<td>-</td>
-<td>9.26</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>PSnDCG@5</td>
-<td>-</td>
-<td>-</td>
-<td>17.79</td>
-<td>15.61</td>
-<td>-</td>
-<td>10.76</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=9 align=left>
-<hr>
-</td>
-</tr>
-<caption>
-Table 5: Propensity Scored nDCG@k on the large scale datasets
-</caption>
-</table>
-</center>
-</p>
-</p>
-
-<p>
-<center>
-<table style="width:1600px;table-layout:fixed">
-<tr align=center>
-<td colspan=16>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="2" align="right">Dataset</th>
-  <th rowspan="2">Precision@k</th>
-	<th colspan="6">Embedding Based</th>
-	<th colspan="3">Tree Based</th>
-	<th colspan="5">Other</th>
-</tr>
-<tr align=center>
-	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
-	<th>LEML <a href = "#Yu14">[5]</a></th>
-	<th>WSABIE <a href = "#Weston11">[11]</a></th>
-	<th>CPLST <a href = "#Chen12">[9]</a></th>
-	<th>CS <a href = "#Hsu09">[6]</a></th>
-	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
-	<th>PfastreXML <a href = "#Jain16">[31]</a></th>
-	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th>LPSR <a href = "#Weston13">[4]</a></th>
-  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
-  <th>kNN</th>
-  <th>Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th>DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th>PD-Sparse <a href = "#Yen16">[33]</a></th>
-  <th>PPD-Sparse <a href = "#Yen17">[34]</a></th>
-
-</tr>
-<tr align=center>
-<td colspan=16>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right style="width: 120px;">Bibtex</td>
-<td style="width: 200px;">P@1</td>
-<td style="width: 120px;">65.08</td>
-<td style="width: 120px;">62.54</td>
-<td style="width: 120px;">54.78</td>
-<td style="width: 120px;">62.38</td>
-<td style="width: 120px;">58.87</td>
-<td style="width: 120px;">44.98</td>
-<td style="width: 120px;">63.46</td>
-<td style="width: 120px;">63.42</td>
-<td style="width: 120px;">62.11</td>
-<td style="width: 120px;">62.62</td>
-<td style="width: 120px;">57.04</td>
-<td style="width: 120px;">64.53</td>
-<td style="width: 120px;">-</td>
-<td style="width: 120px;">61.29</td>
-<td style="width: 120px;">-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>39.64</td>
-<td>38.41</td>
-<td>32.39</td>
-<td>37.84</td>
-<td>33.53</td>
-<td>30.43</td>
-<td>39.22</td>
-<td>39.23</td>
-<td>36.65</td>
-<td>39.09</td>
-<td>34.38</td>
-<td>38.56</td>
-<td>-</td>
-<td>35.82</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>28.87</td>
-<td>28.21</td>
-<td>23.98</td>
-<td>27.62</td>
-<td>23.72</td>
-<td>23.53</td>
-<td>29.14</td>
-<td>28.86</td>
-<td>26.53</td>
-<td>28.79</td>
-<td>25.44</td>
-<td>27.94</td>
-<td>-</td>
-<td>25.74</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=16>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious</td>
-<td>P@1</td>
-<td>67.59</td>
-<td>65.67</td>
-<td>64.13</td>
-<td>65.31</td>
-<td>61.36</td>
-<td>63.04</td>
-<td>67.13</td>
-<td>69.61</td>
-<td>65.01</td>
-<td>65.02</td>
-<td>64.95</td>
-<td>67.44</td>
-<td>-</td>
-<td>51.82</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>61.38</td>
-<td>60.55</td>
-<td>58.13</td>
-<td>59.95</td>
-<td>56.46</td>
-<td>56.26</td>
-<td>62.33</td>
-<td>64.12</td>
-<td>58.96</td>
-<td>58.88</td>
-<td>58.89</td>
-<td>61.83</td>
-<td>-</td>
-<td>44.18</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>56.56</td>
-<td>56.08</td>
-<td>53.64</td>
-<td>55.31</td>
-<td>52.07</td>
-<td>50.16</td>
-<td>58.62</td>
-<td>59.27</td>
-<td>53.49</td>
-<td>53.28</td>
-<td>54.11</td>
-<td>56.75</td>
-<td>-</td>
-<td>38.95</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=16>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Mediamill</td>
-<td>P@1</td>
-<td>87.82</td>
-<td>84.01</td>
-<td>81.29</td>
-<td>83.35</td>
-<td>83.82</td>
-<td>78.95</td>
-<td>83.98</td>
-<td>84.22</td>
-<td>83.57</td>
-<td>83.57</td>
-<td>82.97</td>
-<td>83.91</td>
-<td>-</td>
-<td>81.86</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>73.45</td>
-<td>67.20</td>
-<td>64.74</td>
-<td>66.18</td>
-<td>67.32</td>
-<td>60.93</td>
-<td>67.37</td>
-<td>67.33</td>
-<td>65.78</td>
-<td>65.50</td>
-<td>67.91</td>
-<td>67.12</td>
-<td>-</td>
-<td>62.52</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>59.17</td>
-<td>52.80</td>
-<td>49.83</td>
-<td>51.46</td>
-<td>52.80</td>
-<td>44.27</td>
-<td>53.02</td>
-<td>53.04</td>
-<td>49.97</td>
-<td>48.57</td>
-<td>54.23</td>
-<td>52.99</td>
-<td>-</td>
-<td>45.11</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=16>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>EURLex-4K</td>
-<td>P@1</td>
-<td>79.26</td>
-<td>63.40</td>
-<td>68.55</td>
-<td>72.28</td>
-<td>58.52</td>
-<td>62.09</td>
-<td>75.45</td>
-<td>71.36</td>
-<td>76.37</td>
-<td>79.89</td>
-<td>-</td>
-<td>81.73</td>
-<td>82.40</td>
-<td>76.43</td>
-<td>83.83</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>64.30</td>
-<td>50.35</td>
-<td>55.11</td>
-<td>58.16</td>
-<td>45.51</td>
-<td>48.39</td>
-<td>62.70</td>
-<td>59.90</td>
-<td>63.36</td>
-<td>66.01</td>
-<td>-</td>
-<td>68.78</td>
-<td>68.50</td>
-<td>60.37</td>
-<td>70.72</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>52.33</td>
-<td>41.28</td>
-<td>45.12</td>
-<td>47.73</td>
-<td>32.47</td>
-<td>40.11</td>
-<td>52.51</td>
-<td>50.39</td>
-<td>52.03</td>
-<td>53.80</td>
-<td>-</td>
-<td>57.44</td>
-<td>57.70</td>
-<td>49.72</td>
-<td>59.21</td>
-</tr>
-
-
-
-<tr align=center>
-<td colspan=16 align=left>
-<hr>
-</td>
-</tr>
-<caption>
-Table 6: Precision@k on the small scale datasets
-</caption>
-</table>
-</center>
-</p>
-
-
-<p>
-<center>
-<table style="width:1600px;table-layout:fixed">
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="2" align="right">Dataset</th>
-  <th rowspan="2">nDCG@k</th>
-	<th colspan="6">Embedding Based</th>
-	<th colspan="3">Tree Based</th>
-	<th colspan="4">Other</th>
-</tr>
-<tr align=center>
-	<th>SLEEC <a href = "#Bhatia15">[1]</a></th>
-	<th>LEML <a href = "#Yu14">[5]</a></th>
-	<th>WSABIE <a href = "#Weston11">[11]</a></th>
-	<th>CPLST <a href = "#Chen12">[9]</a></th>
-	<th>CS <a href = "#Hsu09">[6]</a></th>
-	<th>ML-CSSP <a href = "#Bi13">[8]</a></th>
-	<th>PfastreXML <a href = "#Jain16">[31]</a></th>
-	<th>FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th>LPSR <a href = "#Weston13">[4]</a></th>
-  <th>1-vs-All <a href = "#Hariharan12">[18]</a></th>
-  <th>kNN</th>
-  <th>Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th>DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th>PD-Sparse <a href = "#Yen16">[33]</a></th>
-</tr>
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right style="width: 120px;">Bibtex</td>
-<td style="width: 200px;">nDCG@1</td>
-<td style="width: 120px;">65.08</td>
-<td style="width: 120px;">62.54</td>
-<td style="width: 120px;">54.78</td>
-<td style="width: 120px;">62.38</td>
-<td style="width: 120px;">58.87</td>
-<td style="width: 120px;">44.98</td>
-<td style="width: 120px;">63.46</td>
-<td style="width: 120px;">63.42</td>
-<td style="width: 120px;">62.11</td>
-<td style="width: 120px;">62.62</td>
-<td style="width: 120px;">57.04</td>
-<td style="width: 120px;">64.53</td>
-<td style="width: 120px;">-</td>
-<td style="width: 120px;">61.29</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>60.47</td>
-<td>58.22</td>
-<td>50.11</td>
-<td>57.63</td>
-<td>52.19</td>
-<td>44.67</td>
-<td>59.61</td>
-<td>59.51</td>
-<td>56.50</td>
-<td>59.13</td>
-<td>52.29</td>
-<td>59.35</td>
-<td>-</td>
-<td>55.83</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>62.64</td>
-<td>60.53</td>
-<td>52.39</td>
-<td>59.71</td>
-<td>53.25</td>
-<td>47.97</td>
-<td>62.12</td>
-<td>61.70</td>
-<td>58.23</td>
-<td>61.58</td>
-<td>54.64</td>
-<td>61.06</td>
-<td>-</td>
-<td>57.35</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious</td>
-<td>nDCG@1</td>
-<td>67.59</td>
-<td>65.67</td>
-<td>64.13</td>
-<td>65.31</td>
-<td>61.36</td>
-<td>63.04</td>
-<td>67.13</td>
-<td>69.61</td>
-<td>65.01</td>
-<td>65.02</td>
-<td>64.95</td>
-<td>67.44</td>
-<td>-</td>
-<td>51.82</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>62.87</td>
-<td>61.77</td>
-<td>59.59</td>
-<td>61.16</td>
-<td>57.66</td>
-<td>57.91</td>
-<td>63.48</td>
-<td>65.47</td>
-<td>60.45</td>
-<td>60.43</td>
-<td>60.32</td>
-<td>63.15</td>
-<td>-</td>
-<td>46.00</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>59.28</td>
-<td>58.47</td>
-<td>56.25</td>
-<td>57.80</td>
-<td>54.44</td>
-<td>53.36</td>
-<td>60.74</td>
-<td>61.90</td>
-<td>56.38</td>
-<td>56.28</td>
-<td>56.77</td>
-<td>59.41</td>
-<td>-</td>
-<td>42.02</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-
-<tr align=center>
-<td align=right>Mediamill</td>
-<td>nDCG@1</td>
-<td>87.82</td>
-<td>84.01</td>
-<td>81.29</td>
-<td>83.35</td>
-<td>83.82</td>
-<td>78.95</td>
-<td>83.98</td>
-<td>84.22</td>
-<td>83.57</td>
-<td>83.57</td>
-<td>82.97</td>
-<td>83.91</td>
-<td>-</td>
-<td>81.86</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>81.50</td>
-<td>75.23</td>
-<td>72.92</td>
-<td>74.21</td>
-<td>75.29</td>
-<td>68.97</td>
-<td>75.31</td>
-<td>75.41</td>
-<td>74.06</td>
-<td>73.84</td>
-<td>75.44</td>
-<td>75.22</td>
-<td>-</td>
-<td>70.21</td>
-</tr>
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>79.22</td>
-<td>71.96</td>
-<td>69.37</td>
-<td>70.55</td>
-<td>71.92</td>
-<td>62.88</td>
-<td>72.21</td>
-<td>72.37</td>
-<td>69.34</td>
-<td>68.18</td>
-<td>72.83</td>
-<td>72.21</td>
-<td>-</td>
-<td>63.71</td>
-</tr>
-
-<tr align=center>
-<td colspan=15>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-    <td align=right>EURLex-4K</td>
-    <td>nDCG@1</td>
-    <td>79.26</td>
-    <td>63.40</td>
-    <td>68.55</td>
-    <td>72.28</td>
-    <td>58.52</td>
-    <td>62.09</td>
-    <td>75.45</td>
-    <td>71.36</td>
-    <td>76.37</td>
-    <td>79.89</td>
-    <td>-</td>
-    <td>81.73</td>
-    <td>82.40</td>
-    <td>76.43</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>nDCG@3</td>
-    <td>68.13</td>
-    <td>53.56</td>
-    <td>58.44</td>
-    <td>61.64</td>
-    <td>48.67</td>
-    <td>51.63</td>
-    <td>65.97</td>
-    <td>62.87</td>
-    <td>66.63</td>
-    <td>69.62</td>
-    <td>-</td>
-    <td>72.15</td>
-    <td>72.50</td>
-    <td>64.31</td>
-</tr>
-<tr align=center>
-    <td align=right> </td>
-    <td>nDCG@5</td>
-    <td>61.60</td>
-    <td>48.47</td>
-    <td>53.03</td>
-    <td>55.92</td>
-    <td>40.79</td>
-    <td>47.11</td>
-    <td>60.78</td>
-    <td>58.06</td>
-    <td>60.61</td>
-    <td>63.04</td>
-    <td>-</td>
-    <td>66.40</td>
-    <td>66.70</td>
-    <td>58.78</td>
-</tr>
-
-<tr align=center>
-    <td colspan=15>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td colspan=15 align=left>
-
-</td>
-</tr>
-<caption>
-Table 7: nDCG@k on the small scale datasets
-</caption>
-</table>
-</center>
-</p>
-
-<p>
-<center>
-<table style="width:1300px;table-layout:fixed">
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="1" align="right">Dataset</th>
-  <th rowspan="1">Precision@k</th>
-	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
-  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
-  <th rowspan="1">PfastreXML <a href = "#Jain16">[31]</a></th>
-  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
-  <th rowspan="1">Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th rowspan="1">DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th rowspan="1">PD-Sparse <a href = "#Yen16">[33]</a></th>
-  <th rowspan="1">PPD-Sparse <a href = "#Yen17">[34]</a></th>  
-</tr>
-
-<tr align=center>
-    <td colspan=10>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td align=right style="width: 300px;">AmazonCat-13K</td>
-    <td style="width: 100px;">P@1</td>
-    <td style="width: 100px;">90.53</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">91.75</td>
-    <td style="width: 100px;">93.11</td>
-    <td style="width: 100px;">-</td>
-    <td style="width: 100px;">93.03</td>
-    <td style="width: 100px;">93.40</td>
-    <td style="width: 100px;">90.60</td>
-    <td style="width: 100px;">-</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>P@3</td>
-    <td>76.33</td>
-    <td>-</td>
-    <td>77.97</td>
-    <td>78.2</td>
-    <td>-</td>
-    <td>79.16</td>
-    <td>79.10</td>
-    <td>75.14</td>
-    <td>-</td>
-</tr>
-
-<tr align=center>
-    <td align=right> </td>
-    <td>P@5</td>
-    <td>61.52</td>
-    <td>-</td>
-    <td>63.68</td>
-    <td>63.41</td>
-    <td>-</td>
-    <td>64.52</td>
-    <td>64.10</td>
-    <td>60.69</td>
-    <td>-</td>
-</tr>
-
-
-<tr align=center>
-    <td colspan=10>
-        <hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Wiki10-31K</td>
-<td>P@1</td>
-<td>85.88</td>
-<td>73.47</td>
-<td>83.57</td>
-<td>83.03</td>
-<td>72.72</td>
-<td>84.31</td>
-<td>85.20</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>72.98</td>
-<td>62.43</td>
-<td>68.61</td>
-<td>67.47</td>
-<td>58.51</td>
-<td>72.57</td>
-<td>74.60</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>62.70</td>
-<td>54.35</td>
-<td>59.10</td>
-<td>57.76</td>
-<td>49.50</td>
-<td>63.39</td>
-<td>65.90</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious-200K</td>
-<td>P@1</td>
-<td>47.85</td>
-<td>40.73</td>
-<td>41.72</td>
-<td>43.07</td>
-<td>18.59</td>
-<td>46.97</td>
-<td>45.50</td>
-<td>34.37</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>42.21</td>
-<td>37.71</td>
-<td>37.83</td>
-<td>38.66</td>
-<td>15.43</td>
-<td>40.08</td>
-<td>38.70</td>
-<td>29.48</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>39.43</td>
-<td>35.84</td>
-<td>35.58</td>
-<td>36.19</td>
-<td>14.07</td>
-<td>36.63</td>
-<td>35.50</td>
-<td>27.04</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>WikiLSHTC-325K</td>
-<td>P@1</td>
-<td>54.83</td>
-<td>19.82</td>
-<td>56.05</td>
-<td>49.75</td>
-<td>27.44</td>
-<td>65.04</td>
-<td>64.40</td>
-<td>61.26</td>
-<td>64.08</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>33.42</td>
-<td>11.43</td>
-<td>36.79</td>
-<td>33.10</td>
-<td>16.23</td>
-<td>43.23</td>
-<td>42.50</td>
-<td>39.48</td>
-<td>41.26</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>23.85</td>
-<td>8.39</td>
-<td>27.09</td>
-<td>24.45</td>
-<td>11.77</td>
-<td>32.05</td>
-<td>31.50</td>
-<td>28.79</td>
-<td>30.12</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-670K</td>
-<td>P@1</td>
-<td>35.05</td>
-<td>8.13</td>
-<td>39.46</td>
-<td>36.99</td>
-<td>28.65</td>
-<td>44.89</td>
-<td>44.70</td>
-<td>-</td>
-<td>45.32</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>31.25</td>
-<td>6.83</td>
-<td>35.81</td>
-<td>33.28</td>
-<td>24.88</td>
-<td>39.80</td>
-<td>39.70</td>
-<td>-</td>
-<td>40.37</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>28.56</td>
-<td>6.03</td>
-<td>33.05</td>
-<td>30.53</td>
-<td>22.37</td>
-<td>36.00</td>
-<td>36.10</td>
-<td>-</td>
-<td>36.92</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-1M</td>
-<td>P@1</td>
-<td>22.03</td>
-<td>-</td>
-<td>21.70</td>
-<td>24.03</td>
-<td>17.95</td>
-<td>23.23</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>13.71</td>
-<td>-</td>
-<td>14.17</td>
-<td>14.71</td>
-<td>11.98</td>
-<td>15.87</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>10.33</td>
-<td>-</td>
-<td>10.97</td>
-<td>10.85</td>
-<td>9.33</td>
-<td>12.48</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-3M</td>
-<td>P@1</td>
-<td>-</td>
-<td>-</td>
-<td>43.83</td>
-<td>44.24</td>
-<td>-</td>
-<td>47.48</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>-</td>
-<td>-</td>
-<td>41.81</td>
-<td>40.83</td>
-<td>-</td>
-<td>44.65</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>-</td>
-<td>-</td>
-<td>40.09</td>
-<td>38.59</td>
-<td>-</td>
-<td>42.53</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-<td align=right>Ads-9M</td>
-<td>P@1</td>
-<td>-</td>
-<td>-</td>
-<td>15.57</td>
-<td>15.11</td>
-<td>-</td>
-<td>17.10</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@3</td>
-<td>-</td>
-<td>-</td>
-<td>10.15</td>
-<td>9.10</td>
-<td>-</td>
-<td>11.83</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>P@5</td>
-<td>-</td>
-<td>-</td>
-<td>7.73</td>
-<td>6.62</td>
-<td>-</td>
-<td>9.40</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=10 align=left>
-<hr>
-</td>
-</tr>
-<caption>
-Table 8: Precision@k on the large scale datasets
-</caption>
-</table>
-</center>
-</p>
-</p>
-
-<p>
-<center>
-<table style="width:1300px;table-layout:fixed">
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-<tr align=center>
-	<th rowspan="1" align="right">Dataset</th>
-  <th rowspan="1">nDCG@k</th>
-	<th rowspan="1">SLEEC <a href = "#Bhatia15">[1]</a></th>
-  <th rowspan="1">LEML <a href = "#Yu14">[5]</a></th>
-  <th rowspan="1">PfastreXML <a href = "#Jain16">[31]</a></th>
-  <th rowspan="1">FastXML <a href = "#Prabhu14">[2]</a></th>
-  <th rowspan="1">LPSR-NB <a href = "#Weston13">[4]</a></th>
-  <th rowspan="1">Parabel <a href = "#Prabhu18b">[36]</a></th>
-  <th rowspan="1">DiSMEC <a href = "#Babbar16">[32]</a></th>
-  <th rowspan="1">PD-Sparse <a href = "#Yen16">[33]</a></th>
-  <th rowspan="1">PPD-Sparse <a href = "#Yen17">[34]</a></th>
-  
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right style="width: 300px;">AmazonCat-13K</td>
-<td style="width: 100px;">nDCG@1</td>
-<td style="width: 100px;">90.53</td>
-<td style="width: 100px;">-</td>
-<td style="width: 100px;">91.75</td>
-<td style="width: 100px;">93.11</td>
-<td style="width: 100px;">-</td>
-<td style="width: 100px;">93.03</td>
-<td style="width: 100px;">93.40</td>
-<td style="width: 100px;">90.60</td>
-<td style="width: 100px;">-</td>
-</tr>
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>84.96</td>
-<td>-</td>
-<td>86.48</td>
-<td>87.07</td>
-<td>-</td>
-<td>87.72</td>
-<td>87.70</td>
-<td>84.00</td>
-</tr>
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>82.77</td>
-<td>-</td>
-<td>84.96</td>
-<td>85.16</td>
-<td>-</td>
-<td>86.00</td>
-<td>85.80</td>
-<td>82.05</td>
-</tr>
-
-<tr align=center>
-    <td colspan=10>
-        <hr>
-    </td>
-</tr>
-
-<tr align=center>
-    <td align=right>Wiki10-31K</td>
-    <td>nDCG@1</td>
-    <td>85.88</td>
-    <td>73.47</td>
-    <td>83.57</td>
-    <td>84.31</td>
-    <td>72.72</td>
-    <td>83.03</td>
-    <td>84.10</td>
-    <td>-</td>
-</tr>
-<tr align=center>
-    <td align=right> </td>
-    <td>nDCG@3</td>
-    <td>76.02</td>
-    <td>64.92</td>
-    <td>72.00</td>
-    <td>75.35</td>
-    <td>61.71</td>
-    <td>71.01</td>
-    <td>77.10</td>
-    <td>-</td>
-</tr>
-<tr align=center>
-    <td align=right> </td>
-    <td>nDCG@5</td>
-    <td>68.13</td>
-    <td>58.69</td>
-    <td>64.54</td>
-    <td>63.36</td>
-    <td>54.63</td>
-    <td>68.30</td>
-    <td>70.40</td>
-    <td>-</td>
-</tr>
-
-<tr align=center>
-    <td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Delicious-200K</td>
-<td>nDCG@1</td>
-<td>47.85</td>
-<td>40.73</td>
-<td>41.72</td>
-<td>43.07</td>
-<td>18.59</td>
-<td>46.97</td>
-<td>45.50</td>
-<td>34.37</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>43.52</td>
-<td>38.44</td>
-<td>38.76</td>
-<td>39.70</td>
-<td>16.17</td>
-<td>41.72</td>
-<td>40.90</td>
-<td>30.60</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>41.37</td>
-<td>37.01</td>
-<td>37.08</td>
-<td>37.83</td>
-<td>15.13</td>
-<td>39.07</td>
-<td>37.80</td>
-<td>28.65</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>WikiLSHTC-325K</td>
-<td>nDCG@1</td>
-<td>54.83</td>
-<td>19.82</td>
-<td>56.05</td>
-<td>49.75</td>
-<td>27.44</td>
-<td>65.04</td>
-<td>64.40</td>
-<td>61.26</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>47.25</td>
-<td>14.52</td>
-<td>50.59 </td>
-<td>45.23</td>
-<td>23.04</td>
-<td>59.15</td>
-<td>58.50</td>
-<td>55.08</td>
-
-</tr>
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>46.16</td>
-<td>13.73</td>
-<td>50.13</td>
-<td>44.75</td>
-<td>22.55</td>
-<td>58.93</td>
-<td>58.40</td>
-<td>54.67</td>
-
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-670K</td>
-<td>nDCG@1</td>
-<td>34.77</td>
-<td>8.13</td>
-<td>39.46</td>
-<td>36.99</td>
-<td>28.65</td>
-<td>44.89</td>
-<td>44.70</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>32.74</td>
-<td>7.30</td>
-<td>37.78</td>
-<td>35.11</td>
-<td>26.40</td>
-<td>42.14</td>
-<td>42.10</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>31.53</td>
-<td>6.85</td>
-<td>36.69</td>
-<td>33.86</td>
-<td>25.03</td>
-<td>40.36</td>
-<td>40.50</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-1M</td>
-<td>nDCG@1</td>
-<td>22.03</td>
-<td>-</td>
-<td>21.70</td>
-<td>24.03</td>
-<td>17.95</td>
-<td>23.23</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>24.32</td>
-<td>-</td>
-<td>24.09</td>
-<td>25.02</td>
-<td>19.50</td>
-<td>26.13</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>25.80</td>
-<td>-</td>
-<td>25.68</td>
-<td>25.82</td>
-<td>20.65</td>
-<td>28.04</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Amazon-3M</td>
-<td>nDCG@1</td>
-<td>-</td>
-<td>-</td>
-<td>43.83</td>
-<td>44.24</td>
-<td>-</td>
-<td>47.48</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>-</td>
-<td>-</td>
-<td>42.68</td>
-<td>41.92</td>
-<td>-</td>
-<td>45.73</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>-</td>
-<td>-</td>
-<td>41.75</td>
-<td>40.47</td>
-<td>-</td>
-<td>44.53</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td colspan=10>
-<hr>
-</td>
-</tr>
-
-<tr align=center>
-<td align=right>Ads-9M</td>
-<td>nDCG@1</td>
-<td>-</td>
-<td>-</td>
-<td>15.57</td>
-<td>15.11</td>
-<td>-</td>
-<td>17.10</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@3</td>
-<td>-</td>
-<td>-</td>
-<td>17.24</td>
-<td>15.58</td>
-<td>-</td>
-<td>19.89</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-<tr align=center>
-<td align=right> </td>
-<td>nDCG@5</td>
-<td>-</td>
-<td>-</td>
-<td>18.29</td>
-<td>16.01</td>
-<td>-</td>
-<td>21.79</td>
-<td>-</td>
-<td>-</td>
-</tr>
-
-
-<tr align=center>
-<td colspan=10 align=left>
-<hr>
-</td>
-</tr>
-<caption>
-Table 9: nDCG@k on the large scale datasets
-</caption>
-</table>
-</center>
-</p>
-</p>
-
-<!-- 
+  <center>
+    <h1>The Extreme Classification Repository: Multi-label Datasets &amp; Code</h1>
+    <hr width=600>
+
+    <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> &bull; <a href="https://kunaldahiya.github.io/"
+      target="_blank">Kunal Dahiya</a> &bull; <a href="http://www.cse.iitd.ernet.in/~hjain/" target="_blank">Himanshu
+      Jain</a> &bull; <a href="http://www.cse.iitd.ernet.in/~yashoteja/" target="_blank">Yashoteja Prabhu </a> &bull; <a
+      href="../../index.html" target="_blank">Manik Varma</a>
+    <hr width=600>
+  </center>
+
+  <p>
+    The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with
+    the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets and code
+    that can be used for evaluating the performance of extreme multi-label algorithms.
+  </p>
+
+  <p>
+    <h2>Download Datasets</h2>
+  </p>
+  <p>
+    These multi-label datasets have been processed from their original source to create train/test splits ensuring that
+    the test set contains as many training labels as possible. This yields more realistic train/test splits as compared
+    to uniform sampling which can drop many of the infrequently occurring, and hard to classify, labels from the test
+    set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to
+    classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been
+    dropped from our test set. Results computed on the train/test splits provided on this page are therefore not
+    comparable to results computed on the original sources or through uniform sampling. Please cite both the original
+    source as well as the reference mentioned in the citation column in Table1 to avoid any ambiguity about which
+    train/test split was used.
+    Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download.
+  </p>
+  <p>
+    <a href="XMLDatasetRead.zip">View the README for the dataset file format and download a sample script for reading
+      the data into Matlab</a>
+  </p>
+
+  <p>
+    <center>
+      <table style="width:1300px;">
+        <tr align=center>
+          <td colspan=9>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="2" align="right" style="width: 150px;">Dataset</th>
+          <th rowspan="2" style="width: 250px;">Download</th>
+          <th rowspan="1" style="width: 130px;">Feature</th>
+          <th rowspan="1" style="width: 130px;">Label</th>
+          <th rowspan="1" style="width: 100px;">Number of</th>
+          <th rowspan="1" style="width: 100px;">Number of</th>
+          <th rowspan="1" style="width: 100px;">Avg. Points </th>
+          <th rowspan="1" style="width: 100px;">Avg. Labels </th>
+          <th rowspan="2" style="width: 100px;">Citations</th>
+        </tr>
+
+        <tr align=center>
+          <th>Dimensionality</th>
+          <th rowspan="1">Dimensionality</th>
+          <th rowspan="1">Train Points</th>
+          <th rowspan="1">Test Points</th>
+          <th rowspan="1">per Label</th>
+          <th rowspan="1">per Point</th>
+        </tr>
+
+        <tr align=center>
+          <td colspan=9>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=9>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Mediamill</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGY3B4TXRmZnZBTkk" target="_blank">Download</a></td>
+          <td>120</td>
+          <td>101</td>
+          <td>30993</td>
+          <td>12914</td>
+          <td>1902.15</td>
+          <td>4.38</td>
+          <td><a href="#Prabhu14">[2]</a> + <a href="#Snoek06">[19]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Bibtex</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM" target="_blank">Download</a></td>
+          <td>1836</td>
+          <td>159</td>
+          <td>4880</td>
+          <td>2515</td>
+          <td>111.71</td>
+          <td>2.40</td>
+          <td><a href="#Prabhu14">[2]</a> + <a href="#Katakis08">[20]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU" target="_blank">Download</a></td>
+          <td>500</td>
+          <td>983</td>
+          <td>12920</td>
+          <td>3185</td>
+          <td>311.61</td>
+          <td>19.03</td>
+          <td><a href="#Prabhu14">[2]</a> + <a href="#Tsoumakas08">[21]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>RCV1-2K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdnEzRWZWQWJMRnc" target="_blank">Download</a></td>
+          <td>47236</td>
+          <td>2456</td>
+          <td>623847</td>
+          <td>155962</td>
+          <td>1218.56</td>
+          <td>4.79</td>
+          <td><a href="#Prabhu14">[2]</a> + <a href="#RCV1">[26]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>EURLex-4K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGU0VTR1pCejFpWjg" target="_blank"> Download</a></td>
+          <td>5000</td>
+          <td>3993</td>
+          <td>15539</td>
+          <td>3809</td>
+          <td>25.73</td>
+          <td>5.31</td>
+          <td><a href="#Bhatia15">[1]</a> + <a href="#Eurlex">[27]</a></td>
+        </tr>
+
+
+        <tr align=center>
+          <td align=right>AmazonCat-13K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGa2tMbVJGdDNSMGc" target="_blank">Download
+              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGYjBBREJ2MEViYXM"
+              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
+              href="https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for
+              Deep Learning</a></td>
+          <td>203882</td>
+          <td>13330</td>
+          <td>1186239</td>
+          <td>306782</td>
+          <td>448.57</td>
+          <td>5.04</td>
+          <td><a href="#Julian13">[28]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>AmazonCat-14K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGaDFqU2E5U0dxS00" target="_blank">Download
+              Dataset</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGSG5tZ2hVc29NZzg"
+              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
+              href="https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for
+              Deep Learning</a></td>
+          <td>597540</td>
+          <td>14588</td>
+          <td>4398050</td>
+          <td>1099725</td>
+          <td>1330.1</td>
+          <td>3.53</td>
+          <td><a href="#Julian15a">[29]</a> + <a href="#Julian15b">[30]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Wiki10-31K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGaDdOeGliWF9EOTA" target="_blank">Download
+              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGQ21SX2llNnJldUE"
+              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
+              href="https://drive.google.com/open?id=0B3lPMIHmG6vGMDZSalQ3MWh5UFU" target="_blank">Download Raw Text for
+              Deep Learning</a></td>
+          <td>101938</td>
+          <td>30938</td>
+          <td>14146</td>
+          <td>6616</td>
+          <td>8.52</td>
+          <td>18.64</td>
+          <td><a href="#Bhatia15">[1]</a> + <a href="#Zubiaga09">[23]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious-200K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGR3lBWWYyVlhDLWM" target="_blank">Download</a></td>
+          <td>782585</td>
+          <td>205443</td>
+          <td>196606</td>
+          <td>100095</td>
+          <td>72.29</td>
+          <td>75.54 </td>
+          <td><a href="#Bhatia15">[1]</a> + <a href="#Wetzker08">[24]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>WikiLSHTC-325K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGSHE1SWx4TVRva3c" target="_blank">Download</a></td>
+          <td>1617899</td>
+          <td>325056</td>
+          <td>1778351</td>
+          <td>587084</td>
+          <td>17.46</td>
+          <td>3.19</td>
+          <td><a href="#Prabhu14">[2]</a> + <a href="#WikiLSHTC">[25]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Wikipedia-500K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c" target="_blank">Download
+              Dataest</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGd2pFcTRDQVh5bDg"
+              target="_blank">Download Feature &amp; Label Meta-data</a></td>
+          <td>2381304</td>
+          <td>501070</td>
+          <td>1813391</td>
+          <td>783743</td>
+          <td>24.75</td>
+          <td>4.77</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-670K</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdUJwRzltS1dvUVk" target="_blank">Download
+              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGZ0xsNTFhazNLS28"
+              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
+              href="https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for
+              Deep Learning</a></td>
+          <td>135909</td>
+          <td>670091</td>
+          <td>490449</td>
+          <td>153025</td>
+          <td>3.99</td>
+          <td>5.45</td>
+          <td><a href="#Bhatia15">[1]</a> + <a href="#Julian13">[28]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-1M</td>
+          <td>-</td>
+          <td>164592</td>
+          <td>1082898</td>
+          <td>3917928</td>
+          <td>1563137</td>
+          <td>7.07</td>
+          <td>1.95</td>
+          <td><a href="#Prabhu14">[2]</a></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-3M</td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGUEd4eTRxaWl3YkE" target="_blank">Download
+              Dataset</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGd2U3VHB0Wkk4cGM"
+              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
+              href="https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for
+              Deep Learning</a></td>
+          <td>337067</td>
+          <td>2812281</td>
+          <td>1717899</td>
+          <td>742507</td>
+          <td>31.64</td>
+          <td>36.17</td>
+          <td><a href="#Julian15a">[29]</a> + <a href="#Julian15b">[30]<a /></td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-9M</td>
+          <td>-</td>
+          <td>2082698</td>
+          <td>8838461</td>
+          <td>70455530</td>
+          <td>22629136</td>
+          <td>14.32</td>
+          <td>1.79</td>
+          <td><a href="#Prabhu14">[2]</a></td>
+        </tr>
+
+
+
+        <tr align=center>
+          <td colspan=9>
+            <hr>
+          </td>
+        </tr>
+        <caption>
+          Table 1: Dataset statistics &amp; download
+        </caption>
+      </table>
+    </center>
+  </p>
+
+  <p>
+    We have followed the naming convention of appending the number of labels to the dataset name so as to disambiguate
+    various versions of the datasets. Thus, DeliciousLarge has been renamed to Delicious-200K, RCV1-X to RCV1-2K,
+    <i>etc</i>.
+  </p>
+
+  <p>
+    Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like to contribute a dataset.
+  </p>
+  <p>
+    <h2>Download Code</h2>
+
+  </p>
+
+  <ol>
+    <li>1-vs-All classifiers
+      <ul type="circle">
+        <li>Slice (Jain et al., WSDM 2019): <a href="../../code/Slice/download.html">source code in C++ as well as
+            precompiled Widows/Linux binaries</a></li>
+        <li>Parabel (Prabhu et al., WWW 2018): <a href="../../code/Parabel/download.html">source code in C and Matlab as
+            well as precompiled Windows/Linux binaries</a></li>
+        <li>DiSMEC (Babbar & Sch&ouml;lkopf, WSDM 2017): <a href="https://sites.google.com/site/rohitbabbar/code/dismec"
+            target="_blank">source code in C</a></li>
+        <li>PPD-Sparse (Yen et al., KDD 2017): <a href="http://ianyen.site/software/AsyncPDSparse.zip"
+            target="_blank">source code in C</a></li>
+        <li>Label Filters (Niculescu-Mizil et al., AISTATS 2017): <a href="https://github.com/rupea/LabelFilters"
+            target="_blank">source code in C++</a></li>
+        <li>PD-Sparse (Yen et al., ICML 2016): <a href="http://www.cs.utexas.edu/~xrhuang/PDSparse/"
+            target="_blank">source code in C</a></li>
+        <li>ProXML (Babbar et al., Machine Learning 2019 & ECML 2019): <a
+            href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fxmc-aalto%2Fproxml&sa=D&sntz=1&usg=AFQjCNGp4yO4NJZ1OjauutX5Uys9uMJazw"
+            target="_blank">source code in C++</a></li>
+        <li>Bonsai (Khandagale et al., ArXiv 2019): <a
+            href="https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2Fxmc-aalto%2Fbonsai&sa=D&sntz=1&usg=AFQjCNEj6jN3ZknWFZYOrDt6hksFaKeMTg"
+            target="_blank">source code in C++</a></li>
+
+      </ul>
+    <li>Trees
+      <ul type="circle">
+        <li>SwiftXML (Prabhu et al., WSDM 2018): <a href="../../code/SwiftXML/download.html">source code in C and Matlab
+            as well as precompiled Windows/Linux binaries</a></li>
+        <li>Probabilistic Label Trees (Jasinska et al., ICML 2017): <a href="https://github.com/mwydmuch/extweme_wabbit"
+            target="_blank">Vowpal Wabbit implementation</a></li>
+        <li>PfastreXML (Jain et al., KDD 2016): <a href="../../code/PfastreXML/download.html" target="_blank">source
+            code in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
+        <li>FastXML (Prabhu & Varma, KDD 2014): <a href="../../code/FastXML/download.html" target="_blank">source code
+            in C and Matlab as well as precompiled Windows/Linux binaries</a></li>
+      </ul>
+    <li>Embeddings
+      <ul type="circle">
+        <li>DEFRAG (Jalan et al., IJCAI 2019): <a href="https://github.com/purushottamkar/defrag/"
+            target="_blank">source code in C++</a></li>
+        <li>AnnexML (Tagami, KDD 2017): <a href="https://s.yimg.jp/dl/docs/research_lab/annexml-0.0.1.zip"
+            target="_blank">source code in C</a></li>
+        <li>Randomized embeddings for extreme learning (Mineiro & Karampatziakis, CoRR 2017): <a
+            href="https://github.com/pmineiro/randembed" target="_blank">source code in Matlab</a></li>
+        <li>SLEEC (Bhatia et al., NIPS 2015): <a href="../../code/SLEEC/download.html" target="_blank">source code in
+            Matlab</a></li>
+        <li>LEML (Yu et al., ICML 2014): <a href="http://www.cs.utexas.edu/~rofuyu/exp-codes/leml-icml14-exp.zip"
+            target="_blank">precompiled Linux binaries</a></li>
+        <li>W-LTLS (Evron et al., NeurIPS 2018): <a href="https://github.com/ievron/wltls" target="_blank">source
+            code</a></li>
+      </ul>
+    <li>Deep Learning
+      <ul type="circle">
+        <li>fastText Learn Tree (Jernite et al., ICML 2017): <a href="https://github.com/yjernite/fastTextLearnTree"
+            target="_blank">source code in C</a></li>
+        <li>XML-CNN (Liu et al., SIGIR 2017): <a
+            href="https://drive.google.com/file/d/1dkEIvA9cT-Vnm3_ZEbTjFY6Oaf1whshG/view?usp=sharing"
+            target="_blank">source code in Theano</a></li>
+
+      </ul>
+  </ol>
+
+  <p>Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like us to provide a link to your
+    code.</p>
+
+  <p>
+    <h2>Metrics and Benchmark Results</h2>
+  </p>
+
+  <p>
+    Tables 2, 3, 6 and 7 present comparative results of various algorithms on the small scale datasets. Tables 4, 5, 8
+    and 9 present results on the larger datasets. If an algorithm cannot scale to a dataset then its results are either
+    not shown or reported as "-". Classification accuracy is evaluated according to (PS = Propenisty Scored)
+    Precision$@k$ and nDCG$@k$ defined for a predicted score vector $\hat{\mathbf y} \in {\cal{R}}^{L}$ and ground truth
+    label vector $\mathbf y \in \left\lbrace 0, 1 \right\rbrace^L$ as
+    \[
+    \text{P}@k := \frac{1}{k} \sum_{l\in \text{rank}_k (\hat{\mathbf y})} \mathbf y_l
+    \]
+
+    \[
+    \text{PSP}@k := \frac{1}{k} \sum_{l\in \text{rank}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{p_l}
+    \]
+
+    \[
+    \text{DCG}@k := \sum_{l\in {\text{rank}}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{\log(l+1)}
+    \]
+    \[
+    \text{PSDCG}@k := \sum_{l\in {\text{rank}}_k (\hat{\mathbf y})} \frac{\mathbf y_l}{p_l\log(l+1)}
+    \]
+
+    \[
+    \text{nDCG}@k := \frac{{\text{DCG}}@k}{\sum_{l=1}^{\min(k, \|\mathbf y\|_0)} \frac{1}{\log(l+1)}}
+    \]
+
+    \[
+    \text{PSnDCG}@k := \frac{{\text{PSDCG}}@k}{\sum_{l=1}^{k} \frac{1}{\log(l+1)}}
+    \]
+    where, $\text{rank}_k(\mathbf y)$ returns the $k$ largest indices of $\mathbf{y}$ ranked in descending order and
+    $p_l$ is the propensity score for label $l$ which helps in making metrics unbiased <a href="#Jain16">[31]</a>.
+    Propensity scores for each of the datasets are included in the evaluation script below and it is recommended that
+    you use the script to compute (Propensity Scored) Precision and nDCG so as to be consistent with the results
+    reported in Tables 2-9.
+
+    <p>
+      <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGN0hSQjFJUHZ0YTg" target="_blank">Download sample Matlab
+        script to compute (propensity scored) Precision and nDCG</a>
+    </p>
+
+    <p>
+      <center>
+        <table style="width:1600px;table-layout:fixed">
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+          <tr align=center>
+            <th rowspan="2" align="right">Dataset</th>
+            <th rowspan="2">Propensity Scored Precision@k</th>
+            <th colspan="6">Embedding Based</th>
+            <th colspan="3">Tree Based</th>
+            <th colspan="5">Other</th>
+          </tr>
+          <tr align=center>
+            <th>SLEEC <a href="#Bhatia15">[1]</a></th>
+            <th>LEML <a href="#Yu14">[5]</a></th>
+            <th>WSABIE <a href="#Weston11">[11]</a></th>
+            <th>CPLST <a href="#Chen12">[9]</a></th>
+            <th>CS <a href="#Hsu09">[6]</a></th>
+            <th>ML-CSSP <a href="#Bi13">[8]</a></th>
+            <th>PfastreXML <a href="#Jain16">[31]</a></th>
+            <th>FastXML <a href="#Prabhu14">[2]</a></th>
+            <th>LPSR <a href="#Weston13">[4]</a></th>
+            <th>1-vs-All <a href="#Hariharan12">[18]</a></th>
+            <th>kNN</th>
+            <th>Parabel <a href="#Prabhu18b">[36]</a></th>
+            <th>DiSMEC <a href="#Babbar16">[32]</a></th>
+            <th>PD-Sparse <a href="#Yen16">[33]</a></th>
+            <th>PPD-Sparse <a href="#Yen17">[34]</a></th>
+            <th>ProXML <a href="#Babbar19">[39]</a></th>
+          </tr>
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right style="width: 120px;">Bibtex</td>
+            <td style="width: 200px;">PSP@1</td>
+            <td style="width: 120px;">51.12</td>
+            <td style="width: 120px;">47.97</td>
+            <td style="width: 120px;">43.39</td>
+            <td style="width: 120px;">48.17</td>
+            <td style="width: 120px;">46.04</td>
+            <td style="width: 120px;">32.38</td>
+            <td style="width: 120px;">52.28</td>
+            <td style="width: 120px;">48.54</td>
+            <td style="width: 120px;">49.20</td>
+            <td style="width: 120px;">48.84</td>
+            <td style="width: 120px;">43.71</td>
+            <td style="width: 120px;">50.88</td>
+            <td style="width: 120px;">-</td>
+            <td style="width: 120px;">48.34</td>
+            <td style="width: 120px;">-</td>
+            <td style="width: 120px;">50.1</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>53.95</td>
+            <td>51.42</td>
+            <td>44.00</td>
+            <td>50.86</td>
+            <td>45.08</td>
+            <td>38.68</td>
+            <td>54.36</td>
+            <td>52.30</td>
+            <td>50.14</td>
+            <td>52.96</td>
+            <td>45.82</td>
+            <td>52.42</td>
+            <td>-</td>
+            <td>48.77</td>
+            <td>-</td>
+            <td>52.0</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>59.56</td>
+            <td>57.53</td>
+            <td>49.30</td>
+            <td>56.42</td>
+            <td>48.17</td>
+            <td>45.96</td>
+            <td>60.55</td>
+            <td>58.28</td>
+            <td>55.01</td>
+            <td>59.29</td>
+            <td>51.64</td>
+            <td>57.36</td>
+            <td>-</td>
+            <td>52.93</td>
+            <td>-</td>
+            <td>58.3</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Delicious</td>
+            <td>PSP@1</td>
+            <td>32.11</td>
+            <td>30.73</td>
+            <td>31.25</td>
+            <td>31.10</td>
+            <td>30.60</td>
+            <td>29.48</td>
+            <td>34.57</td>
+            <td>32.35</td>
+            <td>31.34</td>
+            <td>31.95</td>
+            <td>31.03</td>
+            <td>32.69</td>
+            <td>-</td>
+            <td>25.22</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>33.21</td>
+            <td>32.43</td>
+            <td>32.02</td>
+            <td>32.40</td>
+            <td>31.84</td>
+            <td>30.27</td>
+            <td>34.80</td>
+            <td>34.51</td>
+            <td>32.57</td>
+            <td>33.24</td>
+            <td>32.02</td>
+            <td>34.00</td>
+            <td>-</td>
+            <td>24.63</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>33.83</td>
+            <td>33.26</td>
+            <td>32.47</td>
+            <td>33.02</td>
+            <td>32.26</td>
+            <td>30.02</td>
+            <td>35.86</td>
+            <td>35.43</td>
+            <td>32.77</td>
+            <td>33.47</td>
+            <td>32.43</td>
+            <td>34.53</td>
+            <td>-</td>
+            <td>23.85</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Mediamill</td>
+            <td>PSP@1</td>
+            <td>70.14</td>
+            <td>66.34</td>
+            <td>64.24</td>
+            <td>65.79</td>
+            <td>66.23</td>
+            <td>62.53</td>
+            <td>66.88</td>
+            <td>66.67</td>
+            <td>66.06</td>
+            <td>66.06</td>
+            <td>65.71</td>
+            <td>66.51</td>
+            <td>-</td>
+            <td>62.23</td>
+            <td>-</td>
+            <td>64.3</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>72.76</td>
+            <td>65.11</td>
+            <td>62.73</td>
+            <td>64.07</td>
+            <td>65.28</td>
+            <td>58.97</td>
+            <td>65.90</td>
+            <td>65.43</td>
+            <td>63.83</td>
+            <td>63.53</td>
+            <td>66.23</td>
+            <td>65.21</td>
+            <td>-</td>
+            <td>59.85</td>
+            <td>-</td>
+            <td>61.3</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>74.02</td>
+            <td>63.62</td>
+            <td>59.92</td>
+            <td>61.89</td>
+            <td>63.70</td>
+            <td>53.23</td>
+            <td>64.90</td>
+            <td>64.30</td>
+            <td>61.11</td>
+            <td>59.38</td>
+            <td>66.14</td>
+            <td>64.30</td>
+            <td>-</td>
+            <td>54.03</td>
+            <td>-</td>
+            <td>60.8</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>EURLex-4K</td>
+            <td>PSP@1</td>
+            <td>34.25</td>
+            <td>24.10</td>
+            <td>31.16</td>
+            <td>28.60</td>
+            <td>24.97</td>
+            <td>24.94</td>
+            <td>43.86</td>
+            <td>26.62</td>
+            <td>33.17</td>
+            <td>37.97</td>
+            <td>-</td>
+            <td>36.36</td>
+            <td>41.20</td>
+            <td>38.28</td>
+            <td>37.61</td>
+            <td>45.2</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>39.83</td>
+            <td>27.20</td>
+            <td>34.85</td>
+            <td>32.49</td>
+            <td>27.46</td>
+            <td>27.19</td>
+            <td>45.72</td>
+            <td>34.16</td>
+            <td>39.68</td>
+            <td>44.01</td>
+            <td>-</td>
+            <td>44.04</td>
+            <td>45.40</td>
+            <td>42.00</td>
+            <td>46.05</td>
+            <td>48.5</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>42.76</td>
+            <td>29.09</td>
+            <td>36.82</td>
+            <td>34.46</td>
+            <td>25.04</td>
+            <td>28.90</td>
+            <td>46.97</td>
+            <td>38.96</td>
+            <td>41.99</td>
+            <td>46.17</td>
+            <td>-</td>
+            <td>48.29</td>
+            <td>49.30</td>
+            <td>44.89</td>
+            <td>50.79</td>
+            <td>51.0</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=18>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=18 align=left>
+
+            </td>
+          </tr>
+          <caption>
+            Table 2: Propensity Scored Precision@k on the small scale datasets
+          </caption>
+        </table>
+      </center>
+    </p>
+
+    <p>
+      <center>
+        <table style="width:1600px;table-layout:fixed">
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+          <tr align=center>
+            <th rowspan="2" align="right">Dataset</th>
+            <th rowspan="2">Propensity Scored nDCG@k</th>
+            <th colspan="6">Embedding Based</th>
+            <th colspan="3">Tree Based</th>
+            <th colspan="5">Other</th>
+          </tr>
+          <tr align=center>
+            <th>SLEEC <a href="#Bhatia15">[1]</a></th>
+            <th>LEML <a href="#Yu14">[5]</a></th>
+            <th>WSABIE <a href="#Weston11">[11]</a></th>
+            <th>CPLST <a href="#Chen12">[9]</a></th>
+            <th>CS <a href="#Hsu09">[6]</a></th>
+            <th>ML-CSSP <a href="#Bi13">[8]</a></th>
+            <th>PfastreXML <a href="#Jain16">[31]</a></th>
+            <th>FastXML <a href="#Prabhu14">[2]</a></th>
+            <th>LPSR <a href="#Weston13">[4]</a></th>
+            <th>1-vs-All <a href="#Hariharan12">[18]</a></th>
+            <th>kNN</th>
+            <th>Parabel <a href="#Prabhu18b">[36]</a></th>
+            <th>DiSMEC <a href="#Babbar16">[32]</a></th>
+            <th>PD-Sparse <a href="#Yen16">[33]</a></th>
+            <th>ProXML <a href="#Babbar19">[39]</a></th>
+          </tr>
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right style="width: 120px;">Bibtex</td>
+            <td style="width: 200px;">PSnDCG@1</td>
+            <td style="width: 120px;">51.12</td>
+            <td style="width: 120px;">47.97</td>
+            <td style="width: 120px;">43.39</td>
+            <td style="width: 120px;">48.17</td>
+            <td style="width: 120px;">46.04</td>
+            <td style="width: 120px;">32.38</td>
+            <td style="width: 120px;">52.28</td>
+            <td style="width: 120px;">48.54</td>
+            <td style="width: 120px;">49.20</td>
+            <td style="width: 120px;">48.84</td>
+            <td style="width: 120px;">43.71</td>
+            <td style="width: 120px;">50.88</td>
+            <td style="width: 120px;">-</td>
+            <td style="width: 120px;">48.34</td>
+            <td style="width: 120px;">50.1</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@3</td>
+            <td>52.99</td>
+            <td>50.25</td>
+            <td>43.64</td>
+            <td>49.94</td>
+            <td>45.25</td>
+            <td>36.73</td>
+            <td>53.62</td>
+            <td>51.11</td>
+            <td>49.78</td>
+            <td>51.62</td>
+            <td>45.04</td>
+            <td>51.90</td>
+            <td>-</td>
+            <td>48.49</td>
+            <td>52.0</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@5</td>
+            <td>56.04</td>
+            <td>53.59</td>
+            <td>46.50</td>
+            <td>52.96</td>
+            <td>46.89</td>
+            <td>40.74</td>
+            <td>56.99</td>
+            <td>54.38</td>
+            <td>52.41</td>
+            <td>55.09</td>
+            <td>48.20</td>
+            <td>54.58</td>
+            <td>-</td>
+            <td>50.72</td>
+            <td>55.1</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Delicious</td>
+            <td>PSnDCG@1</td>
+            <td>32.11</td>
+            <td>30.73</td>
+            <td>31.25</td>
+            <td>31.10</td>
+            <td>30.60</td>
+            <td>29.48</td>
+            <td>34.57</td>
+            <td>32.35</td>
+            <td>31.34</td>
+            <td>31.95</td>
+            <td>31.03</td>
+            <td>32.69</td>
+            <td>-</td>
+            <td>25.22</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@3</td>
+            <td>32.93</td>
+            <td>32.01</td>
+            <td>31.84</td>
+            <td>32.07</td>
+            <td>31.54</td>
+            <td>30.10</td>
+            <td>34.71</td>
+            <td>34.00</td>
+            <td>32.29</td>
+            <td>32.95</td>
+            <td>31.76</td>
+            <td>33.69</td>
+            <td>-</td>
+            <td>24.80</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@5</td>
+            <td>33.41</td>
+            <td>32.66</td>
+            <td>32.18</td>
+            <td>32.55</td>
+            <td>31.89</td>
+            <td>29.98</td>
+            <td>35.42</td>
+            <td>34.73</td>
+            <td>32.50</td>
+            <td>33.17</td>
+            <td>32.09</td>
+            <td>34.10</td>
+            <td>-</td>
+            <td>24.25</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Mediamill</td>
+            <td>PSnDCG@1</td>
+            <td>70.14</td>
+            <td>66.34</td>
+            <td>64.24</td>
+            <td>65.79</td>
+            <td>66.23</td>
+            <td>62.53</td>
+            <td>66.88</td>
+            <td>66.08</td>
+            <td>66.06</td>
+            <td>66.06</td>
+            <td>65.71</td>
+            <td>66.51</td>
+            <td>-</td>
+            <td>62.25</td>
+            <td>64.3</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@3</td>
+            <td>72.31</td>
+            <td>65.79</td>
+            <td>63.47</td>
+            <td>64.88</td>
+            <td>65.89</td>
+            <td>60.33</td>
+            <td>66.47</td>
+            <td>66.08</td>
+            <td>64.83</td>
+            <td>64.63</td>
+            <td>66.39</td>
+            <td>65.91</td>
+            <td>-</td>
+            <td>61.05</td>
+            <td>63.6</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@5</td>
+            <td>73.13</td>
+            <td>64.71</td>
+            <td>61.57</td>
+            <td>63.36</td>
+            <td>64.77</td>
+            <td>56.50</td>
+            <td>65.71</td>
+            <td>65.24</td>
+            <td>62.94</td>
+            <td>61.84</td>
+            <td>66.27</td>
+            <td>65.20</td>
+            <td>-</td>
+            <td>57.26</td>
+            <td>62.8</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>EURLex-4K</td>
+            <td>PSnDCG@1</td>
+            <td>34.25</td>
+            <td>24.10</td>
+            <td>31.16</td>
+            <td>28.60</td>
+            <td>24.97</td>
+            <td>25.94</td>
+            <td>43.86</td>
+            <td>26.62</td>
+            <td>33.17</td>
+            <td>37.97</td>
+            <td>-</td>
+            <td>36.36</td>
+            <td>41.20</td>
+            <td>38.28</td>
+            <td>45.2</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@3</td>
+            <td>38.35</td>
+            <td>26.37</td>
+            <td>33.85</td>
+            <td>31.45</td>
+            <td>26.82</td>
+            <td>26.56</td>
+            <td>45.23</td>
+            <td>32.07</td>
+            <td>37.92</td>
+            <td>42.44</td>
+            <td>-</td>
+            <td>41.95</td>
+            <td>44.30</td>
+            <td>40.96</td>
+            <td>47.5</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSnDCG@5</td>
+            <td>40.30</td>
+            <td>27.62</td>
+            <td>35.17</td>
+            <td>32.77</td>
+            <td>25.57</td>
+            <td>27.67</td>
+            <td>46.03</td>
+            <td>35.23</td>
+            <td>39.55</td>
+            <td>43.97</td>
+            <td>-</td>
+            <td>44.78</td>
+            <td>46.90</td>
+            <td>42.84</td>
+            <td>49.1</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=17>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=17 align=left>
+
+            </td>
+          </tr>
+          <caption>
+            Table 3: Propensity Scored nDCG@k on the small scale datasets
+          </caption>
+        </table>
+      </center>
+    </p>
+
+    <p>
+      <center>
+        <table style="width:1300px;table-layout:fixed">
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+          <tr align=center>
+            <th rowspan="1" align="right">Dataset</th>
+            <th rowspan="1">Propensity Scored Precision@k</th>
+            <th rowspan="1">SLEEC <a href="#Bhatia15">[1]</a></th>
+            <th rowspan="1">LEML <a href="#Yu14">[5]</a></th>
+            <th rowspan="1">PfastreXML <a href="#Jain16">[31]</a></th>
+            <th rowspan="1">FastXML <a href="#Prabhu14">[2]</a></th>
+            <th rowspan="1">LPSR-NB <a href="#Weston13">[4]</a></th>
+            <th rowspan="1">Parabel <a href="#Prabhu18b">[36]</a></th>
+            <th rowspan="1">DiSMEC <a href="#Babbar16">[32]</a></th>
+            <th rowspan="1">PD-Sparse <a href="#Yen16">[33]</a></th>
+            <th rowspan="1">PPD-Sparse <a href="#Yen17">[34]</a></th>
+            <th rowspan="1">ProXML <a href="#Babbar19">[39]</a></th>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right style="width: 300px;">AmazonCat-13K</td>
+            <td style="width: 100px;">PSP@1</td>
+            <td style="width: 100px;">46.75</td>
+            <td style="width: 100px;">-</td>
+            <td style="width: 100px;">69.52</td>
+            <td style="width: 100px;">48.31</td>
+            <td style="width: 100px;">-</td>
+            <td style="width: 100px;">50.93</td>
+            <td style="width: 100px;">59.10</td>
+            <td style="width: 100px;">49.58</td>
+            <td style="width: 100px;">-</td>
+            <td style="width: 100px;">-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>58.46</td>
+            <td>-</td>
+            <td>73.22</td>
+            <td>60.26</td>
+            <td>-</td>
+            <td>64.00</td>
+            <td>67.10</td>
+            <td>61.63</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>65.96</td>
+            <td>-</td>
+            <td>75.48</td>
+            <td>69.30</td>
+            <td>-</td>
+            <td>72.08</td>
+            <td>71.20</td>
+            <td>68.23</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Wiki10-31K</td>
+            <td>PSP@1</td>
+            <td>11.14</td>
+            <td>9.41</td>
+            <td>19.02</td>
+            <td>9.80</td>
+            <td>12.79</td>
+            <td>11.66</td>
+            <td>13.60</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>11.86</td>
+            <td>10.07</td>
+            <td>18.34</td>
+            <td>10.17</td>
+            <td>12.26</td>
+            <td>12.73</td>
+            <td>13.10</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>12.40</td>
+            <td>10.55</td>
+            <td>18.43</td>
+            <td>10.54</td>
+            <td>12.13</td>
+            <td>13.68</td>
+            <td>13.80</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Delicious-200K</td>
+            <td>PSP@1</td>
+            <td>7.17</td>
+            <td>6.06</td>
+            <td>3.15</td>
+            <td>6.48</td>
+            <td>3.24</td>
+            <td>7.25</td>
+            <td>6.5</td>
+            <td>5.29</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>8.16</td>
+            <td>7.24</td>
+            <td>3.87</td>
+            <td>7.52</td>
+            <td>3.42</td>
+            <td>7.94</td>
+            <td>7.6</td>
+            <td>5.80</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>8.96</td>
+            <td>8.10</td>
+            <td>4.43</td>
+            <td>8.31</td>
+            <td>3.64</td>
+            <td>8.52</td>
+            <td>8.4</td>
+            <td>6.24</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>WikiLSHTC-325K</td>
+            <td>PSP@1</td>
+            <td>20.27</td>
+            <td>3.48</td>
+            <td>30.66</td>
+            <td>16.35</td>
+            <td>6.93</td>
+            <td>26.76</td>
+            <td>29.1</td>
+            <td>28.34</td>
+            <td>27.47</td>
+            <td>34.8</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>23.18</td>
+            <td>3.79</td>
+            <td>31.55</td>
+            <td>20.99</td>
+            <td>7.21</td>
+            <td>33.27</td>
+            <td>35.6</td>
+            <td>33.50</td>
+            <td>33.00</td>
+            <td>37.7</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>25.08</td>
+            <td>4.27</td>
+            <td>33.12</td>
+            <td>23.56</td>
+            <td>7.86</td>
+            <td>37.36</td>
+            <td>39.5</td>
+            <td>36.62</td>
+            <td>36.29</td>
+            <td>41.0</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Amazon-670K</td>
+            <td>PSP@1</td>
+            <td>20.62</td>
+            <td>2.07</td>
+            <td>29.30</td>
+            <td>19.37</td>
+            <td>16.68</td>
+            <td>25.43</td>
+            <td>27.8</td>
+            <td>-</td>
+            <td>26.64</td>
+            <td>30.8</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>23.32</td>
+            <td>2.26</td>
+            <td>30.80</td>
+            <td>23.26</td>
+            <td>18.07</td>
+            <td>29.43</td>
+            <td>30.6</td>
+            <td>-</td>
+            <td>30.65</td>
+            <td>32.8</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>25.98</td>
+            <td>2.47</td>
+            <td>32.43</td>
+            <td>26.85</td>
+            <td>19.43</td>
+            <td>32.85</td>
+            <td>34.2</td>
+            <td>-</td>
+            <td>34.65</td>
+            <td>35.1</td>
+          </tr>
+
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Ads-1M</td>
+            <td>PSP@1</td>
+            <td>10.75</td>
+            <td>-</td>
+            <td>15.81</td>
+            <td>12.69</td>
+            <td>6.91</td>
+            <td>10.63</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>15.87</td>
+            <td>-</td>
+            <td>20.02</td>
+            <td>16.42</td>
+            <td>10.17</td>
+            <td>16.27</td>
+            <td>-7</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>19.11</td>
+            <td>-</td>
+            <td>22.68</td>
+            <td>18.44</td>
+            <td>12.41</td>
+            <td>20.08</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+
+          <tr align=center>
+            <td align=right>Amazon-3M</td>
+            <td>PSP@1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>21.38</td>
+            <td>9.77</td>
+            <td>-</td>
+            <td>12.82</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>23.22</td>
+            <td>11.69</td>
+            <td>-</td>
+            <td>15.61</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>24.52</td>
+            <td>13.25</td>
+            <td>-</td>
+            <td>17.73</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr align=center>
+            <td colspan=12>
+              <hr>
+            </td>
+          </tr>
+          <tr align=center>
+            <td align=right>Ads-9M</td>
+            <td>PSP@1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>13.52</td>
+            <td>12.89</td>
+            <td>-</td>
+            <td>6.54</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>17.95</td>
+            <td>15.88</td>
+            <td>-</td>
+            <td>10.81</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+          <tr align=center>
+            <td align=right> </td>
+            <td>PSP@5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>20.50</td>
+            <td>17.26</td>
+            <td>-</td>
+            <td>13.79</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+
+
+          <tr align=center>
+            <td colspan=12 align=left>
+              <hr>
+            </td>
+          </tr>
+          <caption>
+            Table 4: Propensity Scored Precision@k on the large scale datasets
+          </caption>
+        </table>
+      </center>
+    </p>
+  </p>
+
+  <p>
+    <center>
+      <table style="width:1300px;table-layout:fixed">
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="1" align="right">Dataset</th>
+          <th rowspan="1">Propensity Scored nDCG@k</th>
+          <th rowspan="1">SLEEC <a href="#Bhatia15">[1]</a></th>
+          <th rowspan="1">LEML <a href="#Yu14">[5]</a></th>
+          <th rowspan="1">PfastreXML <a href="#Jain16">[31]</a></th>
+          <th rowspan="1">FastXML <a href="#Prabhu14">[2]</a></th>
+          <th rowspan="1">LPSR-NB <a href="#Weston13">[4]</a></th>
+          <th rowspan="1">Parabel <a href="#Prabhu18b">[36]</a></th>
+          <th rowspan="1">DiSMEC <a href="#Babbar16">[32]</a></th>
+          <th rowspan="1">PD-Sparse <a href="#Yen16">[33]</a></th>
+          <th rowspan="1">ProXML <a href="#Babbar19">[39]</a></th>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right style="width: 300px;">AmazonCat-13K</td>
+          <td style="width: 100px;">PSnDCG@1</td>
+          <td style="width: 100px;">46.75</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">69.52</td>
+          <td style="width: 100px;">48.31</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">50.93</td>
+          <td style="width: 100px;">59.10</td>
+          <td style="width: 100px;">49.58</td>
+          <td style="width: 100px;">-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>55.19</td>
+          <td>-</td>
+          <td>72.21</td>
+          <td>56.90</td>
+          <td>-</td>
+          <td>60.37</td>
+          <td>65.20</td>
+          <td>58.28</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>60.08</td>
+          <td>-</td>
+          <td>73.67</td>
+          <td>62.75</td>
+          <td>-</td>
+          <td>65.68</td>
+          <td>68.80</td>
+          <td>62.68</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Wiki10-31K</td>
+          <td>PSnDCG@1</td>
+          <td>11.14</td>
+          <td>9.41</td>
+          <td>19.02</td>
+          <td>9.80</td>
+          <td>12.79</td>
+          <td>11.66</td>
+          <td>13.60</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>11.68</td>
+          <td>9.90</td>
+          <td>18.49</td>
+          <td>10.08</td>
+          <td>12.38</td>
+          <td>12.48</td>
+          <td>13.20</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>12.06</td>
+          <td>10.24</td>
+          <td>18.52</td>
+          <td>10.33</td>
+          <td>12.27</td>
+          <td>13.13</td>
+          <td>13.60</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious-200K</td>
+          <td>PSnDCG@1</td>
+          <td>7.17</td>
+          <td>6.06</td>
+          <td>3.15</td>
+          <td>6.51</td>
+          <td>3.24</td>
+          <td>7.25</td>
+          <td>6.5</td>
+          <td>5.29</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>7.89</td>
+          <td>6.93</td>
+          <td>3.68</td>
+          <td>7.26</td>
+          <td>3.37</td>
+          <td>7.75</td>
+          <td>7.5</td>
+          <td>5.66</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>8.44</td>
+          <td>7.52</td>
+          <td>4.06</td>
+          <td>7.79</td>
+          <td>3.52</td>
+          <td>8.15</td>
+          <td>7.9</td>
+          <td>5.96</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>WikiLSHTC-325K</td>
+          <td>PSnDCG@1</td>
+          <td>20.27</td>
+          <td>3.48</td>
+          <td>30.66</td>
+          <td>16.35</td>
+          <td>6.93</td>
+          <td>26.76</td>
+          <td>29.1</td>
+          <td>28.34</td>
+          <td>34.8</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>22.27</td>
+          <td>3.68</td>
+          <td>31.24</td>
+          <td>19.56</td>
+          <td>7.11</td>
+          <td>31.26</td>
+          <td>35.9</td>
+          <td>31.92</td>
+          <td>38.7</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>23.35</td>
+          <td>3.94</td>
+          <td>32.09</td>
+          <td>21.02</td>
+          <td>7.46</td>
+          <td>33.57</td>
+          <td>39.4</td>
+          <td>33.68</td>
+          <td>41.5</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-670K</td>
+          <td>PSnDCG@1</td>
+          <td>20.62</td>
+          <td>2.07</td>
+          <td>29.30</td>
+          <td>19.37</td>
+          <td>16.68</td>
+          <td>25.43</td>
+          <td>27.8</td>
+          <td>-</td>
+          <td>30.8</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>22.63</td>
+          <td>2.21</td>
+          <td>30.40</td>
+          <td>22.25</td>
+          <td>17.70</td>
+          <td>28.38</td>
+          <td>28.8</td>
+          <td>-</td>
+          <td>31.7</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>24.43</td>
+          <td>2.35</td>
+          <td>31.49</td>
+          <td>24.69</td>
+          <td>18.63</td>
+          <td>30.71</td>
+          <td>30.7</td>
+          <td>-</td>
+          <td>32.7</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-1M</td>
+          <td>PSnDCG@1</td>
+          <td>10.75</td>
+          <td>-</td>
+          <td>15.81</td>
+          <td>12.69</td>
+          <td>6.91</td>
+          <td>10.63</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>14.03</td>
+          <td>-</td>
+          <td>18.54</td>
+          <td>15.12</td>
+          <td>9.02</td>
+          <td>14.28</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>15.67</td>
+          <td>-</td>
+          <td>19.93</td>
+          <td>16.18</td>
+          <td>10.18</td>
+          <td>16.26</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-3M</td>
+          <td>PSnDCG@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>21.38</td>
+          <td>9.77</td>
+          <td>-</td>
+          <td>12.82</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>22.75</td>
+          <td>11.20</td>
+          <td>-</td>
+          <td>14.89</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>23.68</td>
+          <td>12.29</td>
+          <td>-</td>
+          <td>16.38</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=11>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <td align=right>Ads-9M</td>
+          <td>PSnDCG@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>13.52</td>
+          <td>12.89</td>
+          <td>-</td>
+          <td>6.54</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>16.43</td>
+          <td>14.86</td>
+          <td>-</td>
+          <td>9.26</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>PSnDCG@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.79</td>
+          <td>15.61</td>
+          <td>-</td>
+          <td>10.76</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=11 align=left>
+            <hr>
+          </td>
+        </tr>
+        <caption>
+          Table 5: Propensity Scored nDCG@k on the large scale datasets
+        </caption>
+      </table>
+    </center>
+  </p>
+  </p>
+
+  <p>
+    <center>
+      <table style="width:1600px;table-layout:fixed">
+        <tr align=center>
+          <td colspan=18>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="2" align="right">Dataset</th>
+          <th rowspan="2">Precision@k</th>
+          <th colspan="6">Embedding Based</th>
+          <th colspan="3">Tree Based</th>
+          <th colspan="5">Other</th>
+        </tr>
+        <tr align=center>
+          <th>SLEEC <a href="#Bhatia15">[1]</a></th>
+          <th>LEML <a href="#Yu14">[5]</a></th>
+          <th>WSABIE <a href="#Weston11">[11]</a></th>
+          <th>CPLST <a href="#Chen12">[9]</a></th>
+          <th>CS <a href="#Hsu09">[6]</a></th>
+          <th>ML-CSSP <a href="#Bi13">[8]</a></th>
+          <th>PfastreXML <a href="#Jain16">[31]</a></th>
+          <th>FastXML <a href="#Prabhu14">[2]</a></th>
+          <th>LPSR <a href="#Weston13">[4]</a></th>
+          <th>1-vs-All <a href="#Hariharan12">[18]</a></th>
+          <th>kNN</th>
+          <th>Parabel <a href="#Prabhu18b">[36]</a></th>
+          <th>DiSMEC <a href="#Babbar16">[32]</a></th>
+          <th>PD-Sparse <a href="#Yen16">[33]</a></th>
+          <th>PPD-Sparse <a href="#Yen17">[34]</a></th>
+          <th>ProXML <a href="#Babbar19">[39]</a></th>
+
+        </tr>
+        <tr align=center>
+          <td colspan=18>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right style="width: 120px;">Bibtex</td>
+          <td style="width: 200px;">P@1</td>
+          <td style="width: 120px;">65.08</td>
+          <td style="width: 120px;">62.54</td>
+          <td style="width: 120px;">54.78</td>
+          <td style="width: 120px;">62.38</td>
+          <td style="width: 120px;">58.87</td>
+          <td style="width: 120px;">44.98</td>
+          <td style="width: 120px;">63.46</td>
+          <td style="width: 120px;">63.42</td>
+          <td style="width: 120px;">62.11</td>
+          <td style="width: 120px;">62.62</td>
+          <td style="width: 120px;">57.04</td>
+          <td style="width: 120px;">64.53</td>
+          <td style="width: 120px;">-</td>
+          <td style="width: 120px;">61.29</td>
+          <td style="width: 120px;">-</td>
+          <td style="width: 120px;">64.6</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>39.64</td>
+          <td>38.41</td>
+          <td>32.39</td>
+          <td>37.84</td>
+          <td>33.53</td>
+          <td>30.43</td>
+          <td>39.22</td>
+          <td>39.23</td>
+          <td>36.65</td>
+          <td>39.09</td>
+          <td>34.38</td>
+          <td>38.56</td>
+          <td>-</td>
+          <td>35.82</td>
+          <td>-</td>
+          <td>39.0</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>28.87</td>
+          <td>28.21</td>
+          <td>23.98</td>
+          <td>27.62</td>
+          <td>23.72</td>
+          <td>23.53</td>
+          <td>29.14</td>
+          <td>28.86</td>
+          <td>26.53</td>
+          <td>28.79</td>
+          <td>25.44</td>
+          <td>27.94</td>
+          <td>-</td>
+          <td>25.74</td>
+          <td>-</td>
+          <td>28.2</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=18>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious</td>
+          <td>P@1</td>
+          <td>67.59</td>
+          <td>65.67</td>
+          <td>64.13</td>
+          <td>65.31</td>
+          <td>61.36</td>
+          <td>63.04</td>
+          <td>67.13</td>
+          <td>69.61</td>
+          <td>65.01</td>
+          <td>65.02</td>
+          <td>64.95</td>
+          <td>67.44</td>
+          <td>-</td>
+          <td>51.82</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>61.38</td>
+          <td>60.55</td>
+          <td>58.13</td>
+          <td>59.95</td>
+          <td>56.46</td>
+          <td>56.26</td>
+          <td>62.33</td>
+          <td>64.12</td>
+          <td>58.96</td>
+          <td>58.88</td>
+          <td>58.89</td>
+          <td>61.83</td>
+          <td>-</td>
+          <td>44.18</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>56.56</td>
+          <td>56.08</td>
+          <td>53.64</td>
+          <td>55.31</td>
+          <td>52.07</td>
+          <td>50.16</td>
+          <td>58.62</td>
+          <td>59.27</td>
+          <td>53.49</td>
+          <td>53.28</td>
+          <td>54.11</td>
+          <td>56.75</td>
+          <td>-</td>
+          <td>38.95</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=18>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Mediamill</td>
+          <td>P@1</td>
+          <td>87.82</td>
+          <td>84.01</td>
+          <td>81.29</td>
+          <td>83.35</td>
+          <td>83.82</td>
+          <td>78.95</td>
+          <td>83.98</td>
+          <td>84.22</td>
+          <td>83.57</td>
+          <td>83.57</td>
+          <td>82.97</td>
+          <td>83.91</td>
+          <td>-</td>
+          <td>81.86</td>
+          <td>-</td>
+          <td>64.4</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>73.45</td>
+          <td>67.20</td>
+          <td>64.74</td>
+          <td>66.18</td>
+          <td>67.32</td>
+          <td>60.93</td>
+          <td>67.37</td>
+          <td>67.33</td>
+          <td>65.78</td>
+          <td>65.50</td>
+          <td>67.91</td>
+          <td>67.12</td>
+          <td>-</td>
+          <td>62.52</td>
+          <td>39.0</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>59.17</td>
+          <td>52.80</td>
+          <td>49.83</td>
+          <td>51.46</td>
+          <td>52.80</td>
+          <td>44.27</td>
+          <td>53.02</td>
+          <td>53.04</td>
+          <td>49.97</td>
+          <td>48.57</td>
+          <td>54.23</td>
+          <td>52.99</td>
+          <td>-</td>
+          <td>45.11</td>
+          <td>28.2</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=18>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>EURLex-4K</td>
+          <td>P@1</td>
+          <td>79.26</td>
+          <td>63.40</td>
+          <td>68.55</td>
+          <td>72.28</td>
+          <td>58.52</td>
+          <td>62.09</td>
+          <td>75.45</td>
+          <td>71.36</td>
+          <td>76.37</td>
+          <td>79.89</td>
+          <td>-</td>
+          <td>81.73</td>
+          <td>82.40</td>
+          <td>76.43</td>
+          <td>83.83</td>
+          <td>83.4</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>64.30</td>
+          <td>50.35</td>
+          <td>55.11</td>
+          <td>58.16</td>
+          <td>45.51</td>
+          <td>48.39</td>
+          <td>62.70</td>
+          <td>59.90</td>
+          <td>63.36</td>
+          <td>66.01</td>
+          <td>-</td>
+          <td>68.78</td>
+          <td>68.50</td>
+          <td>60.37</td>
+          <td>70.72</td>
+          <td>70.9</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>52.33</td>
+          <td>41.28</td>
+          <td>45.12</td>
+          <td>47.73</td>
+          <td>32.47</td>
+          <td>40.11</td>
+          <td>52.51</td>
+          <td>50.39</td>
+          <td>52.03</td>
+          <td>53.80</td>
+          <td>-</td>
+          <td>57.44</td>
+          <td>57.70</td>
+          <td>49.72</td>
+          <td>59.21</td>
+          <td>59.1</td>
+        </tr>
+
+
+
+        <tr align=center>
+          <td colspan=18 align=left>
+            <hr>
+          </td>
+        </tr>
+        <caption>
+          Table 6: Precision@k on the small scale datasets
+        </caption>
+      </table>
+    </center>
+  </p>
+
+
+  <p>
+    <center>
+      <table style="width:1600px;table-layout:fixed">
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="2" align="right">Dataset</th>
+          <th rowspan="2">nDCG@k</th>
+          <th colspan="6">Embedding Based</th>
+          <th colspan="3">Tree Based</th>
+          <th colspan="4">Other</th>
+        </tr>
+        <tr align=center>
+          <th>SLEEC <a href="#Bhatia15">[1]</a></th>
+          <th>LEML <a href="#Yu14">[5]</a></th>
+          <th>WSABIE <a href="#Weston11">[11]</a></th>
+          <th>CPLST <a href="#Chen12">[9]</a></th>
+          <th>CS <a href="#Hsu09">[6]</a></th>
+          <th>ML-CSSP <a href="#Bi13">[8]</a></th>
+          <th>PfastreXML <a href="#Jain16">[31]</a></th>
+          <th>FastXML <a href="#Prabhu14">[2]</a></th>
+          <th>LPSR <a href="#Weston13">[4]</a></th>
+          <th>1-vs-All <a href="#Hariharan12">[18]</a></th>
+          <th>kNN</th>
+          <th>Parabel <a href="#Prabhu18b">[36]</a></th>
+          <th>DiSMEC <a href="#Babbar16">[32]</a></th>
+          <th>PD-Sparse <a href="#Yen16">[33]</a></th>
+          <th>ProXML <a href="#Babbar19">[39]</a></th>
+        </tr>
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right style="width: 120px;">Bibtex</td>
+          <td style="width: 200px;">nDCG@1</td>
+          <td style="width: 120px;">65.08</td>
+          <td style="width: 120px;">62.54</td>
+          <td style="width: 120px;">54.78</td>
+          <td style="width: 120px;">62.38</td>
+          <td style="width: 120px;">58.87</td>
+          <td style="width: 120px;">44.98</td>
+          <td style="width: 120px;">63.46</td>
+          <td style="width: 120px;">63.42</td>
+          <td style="width: 120px;">62.11</td>
+          <td style="width: 120px;">62.62</td>
+          <td style="width: 120px;">57.04</td>
+          <td style="width: 120px;">64.53</td>
+          <td style="width: 120px;">-</td>
+          <td style="width: 120px;">61.29</td>
+          <td style="width: 120px;">64.4</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>60.47</td>
+          <td>58.22</td>
+          <td>50.11</td>
+          <td>57.63</td>
+          <td>52.19</td>
+          <td>44.67</td>
+          <td>59.61</td>
+          <td>59.51</td>
+          <td>56.50</td>
+          <td>59.13</td>
+          <td>52.29</td>
+          <td>59.35</td>
+          <td>-</td>
+          <td>55.83</td>
+          <td>59.2</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>62.64</td>
+          <td>60.53</td>
+          <td>52.39</td>
+          <td>59.71</td>
+          <td>53.25</td>
+          <td>47.97</td>
+          <td>62.12</td>
+          <td>61.70</td>
+          <td>58.23</td>
+          <td>61.58</td>
+          <td>54.64</td>
+          <td>61.06</td>
+          <td>-</td>
+          <td>57.35</td>
+          <td>61.5</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious</td>
+          <td>nDCG@1</td>
+          <td>67.59</td>
+          <td>65.67</td>
+          <td>64.13</td>
+          <td>65.31</td>
+          <td>61.36</td>
+          <td>63.04</td>
+          <td>67.13</td>
+          <td>69.61</td>
+          <td>65.01</td>
+          <td>65.02</td>
+          <td>64.95</td>
+          <td>67.44</td>
+          <td>-</td>
+          <td>51.82</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>62.87</td>
+          <td>61.77</td>
+          <td>59.59</td>
+          <td>61.16</td>
+          <td>57.66</td>
+          <td>57.91</td>
+          <td>63.48</td>
+          <td>65.47</td>
+          <td>60.45</td>
+          <td>60.43</td>
+          <td>60.32</td>
+          <td>63.15</td>
+          <td>-</td>
+          <td>46.00</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>59.28</td>
+          <td>58.47</td>
+          <td>56.25</td>
+          <td>57.80</td>
+          <td>54.44</td>
+          <td>53.36</td>
+          <td>60.74</td>
+          <td>61.90</td>
+          <td>56.38</td>
+          <td>56.28</td>
+          <td>56.77</td>
+          <td>59.41</td>
+          <td>-</td>
+          <td>42.02</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+
+
+        <tr align=center>
+          <td align=right>Mediamill</td>
+          <td>nDCG@1</td>
+          <td>87.82</td>
+          <td>84.01</td>
+          <td>81.29</td>
+          <td>83.35</td>
+          <td>83.82</td>
+          <td>78.95</td>
+          <td>83.98</td>
+          <td>84.22</td>
+          <td>83.57</td>
+          <td>83.57</td>
+          <td>82.97</td>
+          <td>83.91</td>
+          <td>-</td>
+          <td>81.86</td>
+          <td>86.5</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>81.50</td>
+          <td>75.23</td>
+          <td>72.92</td>
+          <td>74.21</td>
+          <td>75.29</td>
+          <td>68.97</td>
+          <td>75.31</td>
+          <td>75.41</td>
+          <td>74.06</td>
+          <td>73.84</td>
+          <td>75.44</td>
+          <td>75.22</td>
+          <td>-</td>
+          <td>70.21</td>
+          <td>77.3</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>79.22</td>
+          <td>71.96</td>
+          <td>69.37</td>
+          <td>70.55</td>
+          <td>71.92</td>
+          <td>62.88</td>
+          <td>72.21</td>
+          <td>72.37</td>
+          <td>69.34</td>
+          <td>68.18</td>
+          <td>72.83</td>
+          <td>72.21</td>
+          <td>-</td>
+          <td>63.71</td>
+          <td>75.6</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>EURLex-4K</td>
+          <td>nDCG@1</td>
+          <td>79.26</td>
+          <td>63.40</td>
+          <td>68.55</td>
+          <td>72.28</td>
+          <td>58.52</td>
+          <td>62.09</td>
+          <td>75.45</td>
+          <td>71.36</td>
+          <td>76.37</td>
+          <td>79.89</td>
+          <td>-</td>
+          <td>81.73</td>
+          <td>82.40</td>
+          <td>76.43</td>
+          <td>83.4</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>68.13</td>
+          <td>53.56</td>
+          <td>58.44</td>
+          <td>61.64</td>
+          <td>48.67</td>
+          <td>51.63</td>
+          <td>65.97</td>
+          <td>62.87</td>
+          <td>66.63</td>
+          <td>69.62</td>
+          <td>-</td>
+          <td>72.15</td>
+          <td>72.50</td>
+          <td>64.31</td>
+          <td>74.4</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>61.60</td>
+          <td>48.47</td>
+          <td>53.03</td>
+          <td>55.92</td>
+          <td>40.79</td>
+          <td>47.11</td>
+          <td>60.78</td>
+          <td>58.06</td>
+          <td>60.61</td>
+          <td>63.04</td>
+          <td>-</td>
+          <td>66.40</td>
+          <td>66.70</td>
+          <td>58.78</td>
+          <td>68.2</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=17>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=17 align=left>
+
+          </td>
+        </tr>
+        <caption>
+          Table 7: nDCG@k on the small scale datasets
+        </caption>
+      </table>
+    </center>
+  </p>
+
+  <p>
+    <center>
+      <table style="width:1300px;table-layout:fixed">
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="1" align="right">Dataset</th>
+          <th rowspan="1">Precision@k</th>
+          <th rowspan="1">SLEEC <a href="#Bhatia15">[1]</a></th>
+          <th rowspan="1">LEML <a href="#Yu14">[5]</a></th>
+          <th rowspan="1">PfastreXML <a href="#Jain16">[31]</a></th>
+          <th rowspan="1">FastXML <a href="#Prabhu14">[2]</a></th>
+          <th rowspan="1">LPSR-NB <a href="#Weston13">[4]</a></th>
+          <th rowspan="1">Parabel <a href="#Prabhu18b">[36]</a></th>
+          <th rowspan="1">DiSMEC <a href="#Babbar16">[32]</a></th>
+          <th rowspan="1">PD-Sparse <a href="#Yen16">[33]</a></th>
+          <th rowspan="1">PPD-Sparse <a href="#Yen17">[34]</a></th>
+          <th rowspan="1">ProXML <a href="#Babbar19">[39]</a></th>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right style="width: 300px;">AmazonCat-13K</td>
+          <td style="width: 100px;">P@1</td>
+          <td style="width: 100px;">90.53</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">91.75</td>
+          <td style="width: 100px;">93.11</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">93.03</td>
+          <td style="width: 100px;">93.40</td>
+          <td style="width: 100px;">90.60</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>76.33</td>
+          <td>-</td>
+          <td>77.97</td>
+          <td>78.2</td>
+          <td>-</td>
+          <td>79.16</td>
+          <td>79.10</td>
+          <td>75.14</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>61.52</td>
+          <td>-</td>
+          <td>63.68</td>
+          <td>63.41</td>
+          <td>-</td>
+          <td>64.52</td>
+          <td>64.10</td>
+          <td>60.69</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Wiki10-31K</td>
+          <td>P@1</td>
+          <td>85.88</td>
+          <td>73.47</td>
+          <td>83.57</td>
+          <td>83.03</td>
+          <td>72.72</td>
+          <td>84.31</td>
+          <td>85.20</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>72.98</td>
+          <td>62.43</td>
+          <td>68.61</td>
+          <td>67.47</td>
+          <td>58.51</td>
+          <td>72.57</td>
+          <td>74.60</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>62.70</td>
+          <td>54.35</td>
+          <td>59.10</td>
+          <td>57.76</td>
+          <td>49.50</td>
+          <td>63.39</td>
+          <td>65.90</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious-200K</td>
+          <td>P@1</td>
+          <td>47.85</td>
+          <td>40.73</td>
+          <td>41.72</td>
+          <td>43.07</td>
+          <td>18.59</td>
+          <td>46.97</td>
+          <td>45.50</td>
+          <td>34.37</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>42.21</td>
+          <td>37.71</td>
+          <td>37.83</td>
+          <td>38.66</td>
+          <td>15.43</td>
+          <td>40.08</td>
+          <td>38.70</td>
+          <td>29.48</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>39.43</td>
+          <td>35.84</td>
+          <td>35.58</td>
+          <td>36.19</td>
+          <td>14.07</td>
+          <td>36.63</td>
+          <td>35.50</td>
+          <td>27.04</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>WikiLSHTC-325K</td>
+          <td>P@1</td>
+          <td>54.83</td>
+          <td>19.82</td>
+          <td>56.05</td>
+          <td>49.75</td>
+          <td>27.44</td>
+          <td>65.04</td>
+          <td>64.40</td>
+          <td>61.26</td>
+          <td>64.08</td>
+          <td>63.6</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>33.42</td>
+          <td>11.43</td>
+          <td>36.79</td>
+          <td>33.10</td>
+          <td>16.23</td>
+          <td>43.23</td>
+          <td>42.50</td>
+          <td>39.48</td>
+          <td>41.26</td>
+          <td>41.5</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>23.85</td>
+          <td>8.39</td>
+          <td>27.09</td>
+          <td>24.45</td>
+          <td>11.77</td>
+          <td>32.05</td>
+          <td>31.50</td>
+          <td>28.79</td>
+          <td>30.12</td>
+          <td>30.8</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-670K</td>
+          <td>P@1</td>
+          <td>35.05</td>
+          <td>8.13</td>
+          <td>39.46</td>
+          <td>36.99</td>
+          <td>28.65</td>
+          <td>44.89</td>
+          <td>44.70</td>
+          <td>-</td>
+          <td>45.32</td>
+          <td>43.5</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>31.25</td>
+          <td>6.83</td>
+          <td>35.81</td>
+          <td>33.28</td>
+          <td>24.88</td>
+          <td>39.80</td>
+          <td>39.70</td>
+          <td>-</td>
+          <td>40.37</td>
+          <td>38.7</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>28.56</td>
+          <td>6.03</td>
+          <td>33.05</td>
+          <td>30.53</td>
+          <td>22.37</td>
+          <td>36.00</td>
+          <td>36.10</td>
+          <td>-</td>
+          <td>36.92</td>
+          <td>35.3</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-1M</td>
+          <td>P@1</td>
+          <td>22.03</td>
+          <td>-</td>
+          <td>21.70</td>
+          <td>24.03</td>
+          <td>17.95</td>
+          <td>23.23</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>13.71</td>
+          <td>-</td>
+          <td>14.17</td>
+          <td>14.71</td>
+          <td>11.98</td>
+          <td>15.87</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>10.33</td>
+          <td>-</td>
+          <td>10.97</td>
+          <td>10.85</td>
+          <td>9.33</td>
+          <td>12.48</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-3M</td>
+          <td>P@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>43.83</td>
+          <td>44.24</td>
+          <td>-</td>
+          <td>47.48</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>41.81</td>
+          <td>40.83</td>
+          <td>-</td>
+          <td>44.65</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>40.09</td>
+          <td>38.59</td>
+          <td>-</td>
+          <td>42.53</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <td align=right>Ads-9M</td>
+          <td>P@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>15.57</td>
+          <td>15.11</td>
+          <td>-</td>
+          <td>17.10</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>10.15</td>
+          <td>9.10</td>
+          <td>-</td>
+          <td>11.83</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>P@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>7.73</td>
+          <td>6.62</td>
+          <td>-</td>
+          <td>9.40</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=12 align=left>
+            <hr>
+          </td>
+        </tr>
+        <caption>
+          Table 8: Precision@k on the large scale datasets
+        </caption>
+      </table>
+    </center>
+  </p>
+  </p>
+
+  <p>
+    <center>
+      <table style="width:1300px;table-layout:fixed">
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+        <tr align=center>
+          <th rowspan="1" align="right">Dataset</th>
+          <th rowspan="1">nDCG@k</th>
+          <th rowspan="1">SLEEC <a href="#Bhatia15">[1]</a></th>
+          <th rowspan="1">LEML <a href="#Yu14">[5]</a></th>
+          <th rowspan="1">PfastreXML <a href="#Jain16">[31]</a></th>
+          <th rowspan="1">FastXML <a href="#Prabhu14">[2]</a></th>
+          <th rowspan="1">LPSR-NB <a href="#Weston13">[4]</a></th>
+          <th rowspan="1">Parabel <a href="#Prabhu18b">[36]</a></th>
+          <th rowspan="1">DiSMEC <a href="#Babbar16">[32]</a></th>
+          <th rowspan="1">PD-Sparse <a href="#Yen16">[33]</a></th>
+          <th rowspan="1">PPD-Sparse <a href="#Yen17">[34]</a></th>
+          <th rowspan="1">ProXML <a href="#Babbar19">[39]</a></th>
+
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right style="width: 300px;">AmazonCat-13K</td>
+          <td style="width: 100px;">nDCG@1</td>
+          <td style="width: 100px;">90.53</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">91.75</td>
+          <td style="width: 100px;">93.11</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">93.03</td>
+          <td style="width: 100px;">93.40</td>
+          <td style="width: 100px;">90.60</td>
+          <td style="width: 100px;">-</td>
+          <td style="width: 100px;">-</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>84.96</td>
+          <td>-</td>
+          <td>86.48</td>
+          <td>87.07</td>
+          <td>-</td>
+          <td>87.72</td>
+          <td>87.70</td>
+          <td>84.00</td>
+          <td>-</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>82.77</td>
+          <td>-</td>
+          <td>84.96</td>
+          <td>85.16</td>
+          <td>-</td>
+          <td>86.00</td>
+          <td>85.80</td>
+          <td>82.05</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Wiki10-31K</td>
+          <td>nDCG@1</td>
+          <td>85.88</td>
+          <td>73.47</td>
+          <td>83.57</td>
+          <td>84.31</td>
+          <td>72.72</td>
+          <td>83.03</td>
+          <td>84.10</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>76.02</td>
+          <td>64.92</td>
+          <td>72.00</td>
+          <td>75.35</td>
+          <td>61.71</td>
+          <td>71.01</td>
+          <td>77.10</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>68.13</td>
+          <td>58.69</td>
+          <td>64.54</td>
+          <td>63.36</td>
+          <td>54.63</td>
+          <td>68.30</td>
+          <td>70.40</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Delicious-200K</td>
+          <td>nDCG@1</td>
+          <td>47.85</td>
+          <td>40.73</td>
+          <td>41.72</td>
+          <td>43.07</td>
+          <td>18.59</td>
+          <td>46.97</td>
+          <td>45.50</td>
+          <td>34.37</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>43.52</td>
+          <td>38.44</td>
+          <td>38.76</td>
+          <td>39.70</td>
+          <td>16.17</td>
+          <td>41.72</td>
+          <td>40.90</td>
+          <td>30.60</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>41.37</td>
+          <td>37.01</td>
+          <td>37.08</td>
+          <td>37.83</td>
+          <td>15.13</td>
+          <td>39.07</td>
+          <td>37.80</td>
+          <td>28.65</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>WikiLSHTC-325K</td>
+          <td>nDCG@1</td>
+          <td>54.83</td>
+          <td>19.82</td>
+          <td>56.05</td>
+          <td>49.75</td>
+          <td>27.44</td>
+          <td>65.04</td>
+          <td>64.40</td>
+          <td>61.26</td>
+          <td>63.8</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>47.25</td>
+          <td>14.52</td>
+          <td>50.59 </td>
+          <td>45.23</td>
+          <td>23.04</td>
+          <td>59.15</td>
+          <td>58.50</td>
+          <td>55.08</td>
+          <td>57.4</td>
+
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>46.16</td>
+          <td>13.73</td>
+          <td>50.13</td>
+          <td>44.75</td>
+          <td>22.55</td>
+          <td>58.93</td>
+          <td>58.40</td>
+          <td>54.67</td>
+          <td>57.1</td>
+
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-670K</td>
+          <td>nDCG@1</td>
+          <td>34.77</td>
+          <td>8.13</td>
+          <td>39.46</td>
+          <td>36.99</td>
+          <td>28.65</td>
+          <td>44.89</td>
+          <td>44.70</td>
+          <td>-</td>
+          <td>43.5</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>32.74</td>
+          <td>7.30</td>
+          <td>37.78</td>
+          <td>35.11</td>
+          <td>26.40</td>
+          <td>42.14</td>
+          <td>42.10</td>
+          <td>-</td>
+          <td>41.1</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>31.53</td>
+          <td>6.85</td>
+          <td>36.69</td>
+          <td>33.86</td>
+          <td>25.03</td>
+          <td>40.36</td>
+          <td>40.50</td>
+          <td>-</td>
+          <td>39.7</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-1M</td>
+          <td>nDCG@1</td>
+          <td>22.03</td>
+          <td>-</td>
+          <td>21.70</td>
+          <td>24.03</td>
+          <td>17.95</td>
+          <td>23.23</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>24.32</td>
+          <td>-</td>
+          <td>24.09</td>
+          <td>25.02</td>
+          <td>19.50</td>
+          <td>26.13</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>25.80</td>
+          <td>-</td>
+          <td>25.68</td>
+          <td>25.82</td>
+          <td>20.65</td>
+          <td>28.04</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Amazon-3M</td>
+          <td>nDCG@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>43.83</td>
+          <td>44.24</td>
+          <td>-</td>
+          <td>47.48</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>42.68</td>
+          <td>41.92</td>
+          <td>-</td>
+          <td>45.73</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>41.75</td>
+          <td>40.47</td>
+          <td>-</td>
+          <td>44.53</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td colspan=12>
+            <hr>
+          </td>
+        </tr>
+
+        <tr align=center>
+          <td align=right>Ads-9M</td>
+          <td>nDCG@1</td>
+          <td>-</td>
+          <td>-</td>
+          <td>15.57</td>
+          <td>15.11</td>
+          <td>-</td>
+          <td>17.10</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@3</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.24</td>
+          <td>15.58</td>
+          <td>-</td>
+          <td>19.89</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr align=center>
+          <td align=right> </td>
+          <td>nDCG@5</td>
+          <td>-</td>
+          <td>-</td>
+          <td>18.29</td>
+          <td>16.01</td>
+          <td>-</td>
+          <td>21.79</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+
+        <tr align=center>
+          <td colspan=12 align=left>
+            <hr>
+          </td>
+        </tr>
+        <caption>
+          Table 9: nDCG@k on the large scale datasets
+        </caption>
+      </table>
+    </center>
+  </p>
+  </p>
+
+  <!-- 
 
 <h3> Variation of Precision@1 with varying Model Size on large scale benchmark datasets</h3>
 <center>
@@ -3228,7 +3451,7 @@ Table 9: nDCG@k on the large scale datasets
 </tr>
 </table>
 </center> -->
-<!-- <p>
+  <!-- <p>
 	<h2>Usage</h2>
 </p>
 
@@ -3282,7 +3505,7 @@ SLEEC Parameters
 	result.test_KNN : kNN Matrix for the test points
 </pre>
 </p> -->
-<!-- <p>
+  <!-- <p>
 	<h2> Citing xClass</h2>
 </p>
 
@@ -3317,183 +3540,306 @@ SLEEC Parameters
 </p>
  -->
 
- <p>
-<h2> References </h2>
-</p>
-<DL COMPACT><DD>
-<P></P><DT><A NAME="Bhatia15">[01]</A>
-&nbsp; &nbsp;
-K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma, and P.&nbsp;Jain, <a href="../../pubs/bhatia15.pdf" target="_blank">Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em> NIPS,</em> 2015.
+  <p>
+    <h2> References </h2>
+  </p>
+  <DL COMPACT>
+    <DD>
+      <P></P>
+    <DT><A NAME="Bhatia15">[01]</A>
+      &nbsp; &nbsp;
+      K.&nbsp;Bhatia, H.&nbsp;Jain, P.&nbsp;Kar, M.&nbsp;Varma, and P.&nbsp;Jain, <a href="../../pubs/bhatia15.pdf"
+        target="_blank">Sparse Local Embeddings for Extreme Multi-label Classification</a>, in <em> NIPS,</em> 2015.
 
-<P></P><DT><A NAME="Prabhu14">[02]</A>
-&nbsp; &nbsp;
-Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/prabhu14.pdf" target="_blank">FastXML: A Fast, Accurate and Stable Tree-classifier for
-eXtreme Multi-label Learning</a>, in <em> KDD, </em> 2014.
+      <P></P>
+    <DT><A NAME="Prabhu14">[02]</A>
+      &nbsp; &nbsp;
+      Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/prabhu14.pdf" target="_blank">FastXML: A Fast, Accurate and
+        Stable Tree-classifier for
+        eXtreme Multi-label Learning</a>, in <em> KDD, </em> 2014.
 
 
-<P></P><DT><A NAME="Agrawal13">[03]</A>
-&nbsp; &nbsp;
-R.&nbsp;Agrawal, A.&nbsp;Gupta , Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/agrawal13.pdf" target="_blank">Multi-Label Learning with Millions of Labels: Recommending Advertiser Bid Phrases for Web Pages</a>, in <em> WWW,</em> 2013.
+      <P></P>
+    <DT><A NAME="Agrawal13">[03]</A>
+      &nbsp; &nbsp;
+      R.&nbsp;Agrawal, A.&nbsp;Gupta , Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/agrawal13.pdf"
+        target="_blank">Multi-Label Learning with Millions of Labels: Recommending Advertiser Bid Phrases for Web
+        Pages</a>, in <em> WWW,</em> 2013.
 
-<P></P><DT><A NAME="Weston13">[04]</A>
-&nbsp; &nbsp;
-J.&nbsp;Weston, A.&nbsp;Makadia, and H.&nbsp;Yee, <a href = "http://www.thespermwhale.com/jaseweston/papers/label_partitioner.pdf" target="_blank">Label Partitioning For Sublinear Ranking</a>, in <em> ICML,</em> 2013.
+      <P></P>
+    <DT><A NAME="Weston13">[04]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;Weston, A.&nbsp;Makadia, and H.&nbsp;Yee, <a
+        href="http://www.thespermwhale.com/jaseweston/papers/label_partitioner.pdf" target="_blank">Label Partitioning
+        For Sublinear Ranking</a>, in <em> ICML,</em> 2013.
 
-<P></P><DT><A NAME="Yu14">[05]</A>
-&nbsp; &nbsp;
-H.&nbsp;Yu, P.&nbsp;Jain, P.&nbsp;Kar, and I.&nbsp;Dhillon, <a href="http://jmlr.org/proceedings/papers/v32/yu14.pdf" target="_blank">Large-scale Multi-label Learning with Missing Labels</a>, in <em> ICML,</em> 2014.
+      <P></P>
+    <DT><A NAME="Yu14">[05]</A>
+      &nbsp; &nbsp;
+      H.&nbsp;Yu, P.&nbsp;Jain, P.&nbsp;Kar, and I.&nbsp;Dhillon, <a
+        href="http://jmlr.org/proceedings/papers/v32/yu14.pdf" target="_blank">Large-scale Multi-label Learning with
+        Missing Labels</a>, in <em> ICML,</em> 2014.
 
-<P></P><DT><A NAME="Hsu09">[06]</A>
-&nbsp; &nbsp;
-D.&nbsp;Hsu, S.&nbsp;Kakade, J.&nbsp;Langford, and T.&nbsp;Zhang, <a href = "http://www.cs.columbia.edu/~djhsu/papers/mlcs.pdf" target="_blank">Multi-Label Prediction via Compressed Sensing </a>, in <em> NIPS,</em> 2009.
+      <P></P>
+    <DT><A NAME="Hsu09">[06]</A>
+      &nbsp; &nbsp;
+      D.&nbsp;Hsu, S.&nbsp;Kakade, J.&nbsp;Langford, and T.&nbsp;Zhang, <a
+        href="http://www.cs.columbia.edu/~djhsu/papers/mlcs.pdf" target="_blank">Multi-Label Prediction via Compressed
+        Sensing </a>, in <em> NIPS,</em> 2009.
 
-<P></P><DT><A NAME="Tai12">[07]</A>
-&nbsp; &nbsp;
-F.&nbsp;Tai, and H.&nbsp;Lin, <a href = "http://ntur.lib.ntu.edu.tw/retrieve/188514/18.pdf" target="_blank"> Multi-label Classification with Principle Label Space Transformation </a>, in <em> Neural Computation,</em> 2012.
+      <P></P>
+    <DT><A NAME="Tai12">[07]</A>
+      &nbsp; &nbsp;
+      F.&nbsp;Tai, and H.&nbsp;Lin, <a href="http://ntur.lib.ntu.edu.tw/retrieve/188514/18.pdf" target="_blank">
+        Multi-label Classification with Principle Label Space Transformation </a>, in <em> Neural Computation,</em>
+      2012.
 
-<P></P><DT><A NAME="Bi13">[08]</A>
-&nbsp; &nbsp;
-W.&nbsp;Bi, and J.&nbsp;Kwok, <a href = "http://jmlr.csail.mit.edu/proceedings/papers/v28/bi13.pdf" target="_blank">Efficient Multi-label Classification with Many Labels </a>, in <em> ICML,</em> 2013.
+      <P></P>
+    <DT><A NAME="Bi13">[08]</A>
+      &nbsp; &nbsp;
+      W.&nbsp;Bi, and J.&nbsp;Kwok, <a href="http://jmlr.csail.mit.edu/proceedings/papers/v28/bi13.pdf"
+        target="_blank">Efficient Multi-label Classification with Many Labels </a>, in <em> ICML,</em> 2013.
 
-<P></P><DT><A NAME="Chen12">[09]</A>
-&nbsp; &nbsp;
-Y.&nbsp;Chen, and H.&nbsp;Lin, <a href = "http://ntur.lib.ntu.edu.tw/retrieve/188489/02.pdf" target="_blank">Feature-aware Label Space Dimension Reduction for Multi-label Classification </a>, in <em> NIPS,</em> 2012.
+      <P></P>
+    <DT><A NAME="Chen12">[09]</A>
+      &nbsp; &nbsp;
+      Y.&nbsp;Chen, and H.&nbsp;Lin, <a href="http://ntur.lib.ntu.edu.tw/retrieve/188489/02.pdf"
+        target="_blank">Feature-aware Label Space Dimension Reduction for Multi-label Classification </a>, in <em>
+        NIPS,</em> 2012.
 
-<P></P><DT><A NAME="Ferng11">[10]</A>
-&nbsp; &nbsp;
-C.&nbsp;Ferng, and H.&nbsp;Lin, <a href = "http://jmlr.org/proceedings/papers/v20/ferng11/ferng11.pdf" target="_blank">Multi-label Classification with Error-correcting Codes</a>, in <em> ACML,</em> 2011.
+      <P></P>
+    <DT><A NAME="Ferng11">[10]</A>
+      &nbsp; &nbsp;
+      C.&nbsp;Ferng, and H.&nbsp;Lin, <a href="http://jmlr.org/proceedings/papers/v20/ferng11/ferng11.pdf"
+        target="_blank">Multi-label Classification with Error-correcting Codes</a>, in <em> ACML,</em> 2011.
 
-<P></P><DT><A NAME="Weston11">[11]</A>
-&nbsp; &nbsp;
-J.&nbsp;Weston, S.&nbsp;Bengio, and N.&nbsp;Usunier, <a href = "http://www.thespermwhale.com/jaseweston/papers/wsabie-ijcai.pdf" target="_blank"> WSABIE: Scaling Up To Large Vocabulary Image Annotation </a>, in <em> IJCAI,</em> 2011.
+      <P></P>
+    <DT><A NAME="Weston11">[11]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;Weston, S.&nbsp;Bengio, and N.&nbsp;Usunier, <a
+        href="http://www.thespermwhale.com/jaseweston/papers/wsabie-ijcai.pdf" target="_blank"> WSABIE: Scaling Up To
+        Large Vocabulary Image Annotation </a>, in <em> IJCAI,</em> 2011.
 
-<P></P><DT><A NAME="Ji08">[12]</A>
-&nbsp; &nbsp;
-S.&nbsp;Ji, L.&nbsp;Tang, S.&nbsp;Yu, and J.&nbsp;Ye, <a href = "http://www.cs.odu.edu/~sji/resources/multilabel/paper/JiTangYuYe-KDD08.pdf" target="_blank"> Extracting Shared Subspaces for Multi-label Classification </a>, in <em> KDD,</em> 2008.
+      <P></P>
+    <DT><A NAME="Ji08">[12]</A>
+      &nbsp; &nbsp;
+      S.&nbsp;Ji, L.&nbsp;Tang, S.&nbsp;Yu, and J.&nbsp;Ye, <a
+        href="http://www.cs.odu.edu/~sji/resources/multilabel/paper/JiTangYuYe-KDD08.pdf" target="_blank"> Extracting
+        Shared Subspaces for Multi-label Classification </a>, in <em> KDD,</em> 2008.
 
-<P></P><DT><A NAME="Lin14">[13]</A>
-&nbsp; &nbsp;
-Z.&nbsp;Lin, G.&nbsp;Ding, M.&nbsp;Hu, and J.&nbsp;Wang, <a href = "http://jmlr.org/proceedings/papers/v32/linc14.pdf" target="_blank"> Multi-label Classification via Feature-aware Implicit Label Space Encoding </a>, in <em> ICML,</em> 2014.
+      <P></P>
+    <DT><A NAME="Lin14">[13]</A>
+      &nbsp; &nbsp;
+      Z.&nbsp;Lin, G.&nbsp;Ding, M.&nbsp;Hu, and J.&nbsp;Wang, <a
+        href="http://jmlr.org/proceedings/papers/v32/linc14.pdf" target="_blank"> Multi-label Classification via
+        Feature-aware Implicit Label Space Encoding </a>, in <em> ICML,</em> 2014.
 
-<P></P><DT><A NAME="Mineiro15">[14]</A>
-&nbsp; &nbsp;
-P.&nbsp;Mineiro, and N.&nbsp;Karampatziakis, <a href = "http://arxiv.org/pdf/1412.6547v7.pdf" target="_blank">Fast Label Embeddings via Randomized Linear Algebra</a>, <em> Preprint,</em> 2015.
+      <P></P>
+    <DT><A NAME="Mineiro15">[14]</A>
+      &nbsp; &nbsp;
+      P.&nbsp;Mineiro, and N.&nbsp;Karampatziakis, <a href="http://arxiv.org/pdf/1412.6547v7.pdf" target="_blank">Fast
+        Label Embeddings via Randomized Linear Algebra</a>, <em> Preprint,</em> 2015.
 
-<P></P><DT><A NAME="Karampatziakis15">[15]</A>
-&nbsp; &nbsp;
-N.&nbsp;Karampatziakis, and P.&nbsp;Mineiro, <a href = "http://arxiv.org/pdf/1502.02710v2.pdf" target="_blank">Scalable Multilabel Prediction via Randomized Methods</a>, <em> Preprint,</em> 2015.
+      <P></P>
+    <DT><A NAME="Karampatziakis15">[15]</A>
+      &nbsp; &nbsp;
+      N.&nbsp;Karampatziakis, and P.&nbsp;Mineiro, <a href="http://arxiv.org/pdf/1502.02710v2.pdf"
+        target="_blank">Scalable Multilabel Prediction via Randomized Methods</a>, <em> Preprint,</em> 2015.
 
-<P></P><DT><A NAME="Balasubramanian12">[16]</A>
-&nbsp; &nbsp;
-K.&nbsp;Balasubramanian, and G.&nbsp;Lebanon, <a href = "http://theanalysisofdata.com/gl/moplms.pdf" target="_blank">The Landmark Selection Method for Multiple Output Prediction </a>, <em> Preprint,</em> 2012.
+      <P></P>
+    <DT><A NAME="Balasubramanian12">[16]</A>
+      &nbsp; &nbsp;
+      K.&nbsp;Balasubramanian, and G.&nbsp;Lebanon, <a href="http://theanalysisofdata.com/gl/moplms.pdf"
+        target="_blank">The Landmark Selection Method for Multiple Output Prediction </a>, <em> Preprint,</em> 2012.
 
-<P></P><DT><A NAME="Cisse13">[17]</A>
-&nbsp; &nbsp;
-M.&nbsp;Cisse, N.&nbsp;Usunier, T.&nbsp;Artieres, and P.&nbsp;Gallinari, <a href = "http://papers.nips.cc/paper/5083-robust-bloom-filters-for-large-multilabel-classification-tasks.pdf" target="_blank">Robust Bloom Filters for Large Multilabel Classification Tasks </a>, in <em> NIPS,</em> 2013.
+      <P></P>
+    <DT><A NAME="Cisse13">[17]</A>
+      &nbsp; &nbsp;
+      M.&nbsp;Cisse, N.&nbsp;Usunier, T.&nbsp;Artieres, and P.&nbsp;Gallinari, <a
+        href="http://papers.nips.cc/paper/5083-robust-bloom-filters-for-large-multilabel-classification-tasks.pdf"
+        target="_blank">Robust Bloom Filters for Large Multilabel Classification Tasks </a>, in <em> NIPS,</em> 2013.
 
-<P></P><DT><A NAME="Hariharan12">[18]</A>
-&nbsp; &nbsp;
- B.&nbsp;Hariharan, S.&nbsp;Vishwanathan, and M.&nbsp;Varma, <a href="../../pubs/hariharan12.pdf" target="_blank">Efficient max-margin multi-label classification with applications to zero-shot learning</a>, in <em> Machine Learning Journal,</em> 2012.
+      <P></P>
+    <DT><A NAME="Hariharan12">[18]</A>
+      &nbsp; &nbsp;
+      B.&nbsp;Hariharan, S.&nbsp;Vishwanathan, and M.&nbsp;Varma, <a href="../../pubs/hariharan12.pdf"
+        target="_blank">Efficient max-margin multi-label classification with applications to zero-shot learning</a>, in
+      <em> Machine Learning Journal,</em> 2012.
 
-<P></P><DT><A NAME="Snoek06">[19]</A>
-&nbsp; &nbsp;
-C.&nbsp;Snoek, M.&nbsp;Worring, J.&nbsp;van&nbsp;Gemert, J.-M.&nbsp;Geusebroek, and A.&nbsp;Smeulders, <a href="https://ivi.fnwi.uva.nl/isis/mediamill/pub/snoek-challenge-acm2006.pdf" target="_blank">The challenge problem for automated detection of 101 semantic concepts in multimedia</a>, in <em> ACM Multimedia,</em> 2006.
+      <P></P>
+    <DT><A NAME="Snoek06">[19]</A>
+      &nbsp; &nbsp;
+      C.&nbsp;Snoek, M.&nbsp;Worring, J.&nbsp;van&nbsp;Gemert, J.-M.&nbsp;Geusebroek, and A.&nbsp;Smeulders, <a
+        href="https://ivi.fnwi.uva.nl/isis/mediamill/pub/snoek-challenge-acm2006.pdf" target="_blank">The challenge
+        problem for automated detection of 101 semantic concepts in multimedia</a>, in <em> ACM Multimedia,</em> 2006.
 
-<P></P><DT><A NAME="Katakis08">[20]</A>
-&nbsp; &nbsp;
-I.&nbsp;Katakis, G.&nbsp;Tsoumakas, and I.&nbsp;Vlahavas, <a href = "http://lpis.csd.auth.gr/publications/katakis_ecmlpkdd08_challenge.pdf" target="_blank">Multilabel text classification for automated tag suggestion</a>, in <em> ECML/PKDD Discovery Challenge,</em> 2008.
+      <P></P>
+    <DT><A NAME="Katakis08">[20]</A>
+      &nbsp; &nbsp;
+      I.&nbsp;Katakis, G.&nbsp;Tsoumakas, and I.&nbsp;Vlahavas, <a
+        href="http://lpis.csd.auth.gr/publications/katakis_ecmlpkdd08_challenge.pdf" target="_blank">Multilabel text
+        classification for automated tag suggestion</a>, in <em> ECML/PKDD Discovery Challenge,</em> 2008.
 
-<P></P><DT><A NAME="Tsoumakas08">[21]</A>
-&nbsp; &nbsp;
-G.&nbsp;Tsoumakas, I.&nbsp;Katakis, and I.&nbsp;Vlahavas, <a href = "http://lpis.csd.auth.gr/publications/tsoumakas-mmd08.pdf" target="_blank">Effective and efficient multilabel classification in domains with large number of labels</a>, in <em> ECML/PKDD 2008 Workshop on Mining Multidimensional Data</em>, 2008.
+      <P></P>
+    <DT><A NAME="Tsoumakas08">[21]</A>
+      &nbsp; &nbsp;
+      G.&nbsp;Tsoumakas, I.&nbsp;Katakis, and I.&nbsp;Vlahavas, <a
+        href="http://lpis.csd.auth.gr/publications/tsoumakas-mmd08.pdf" target="_blank">Effective and efficient
+        multilabel classification in domains with large number of labels</a>, in <em> ECML/PKDD 2008 Workshop on Mining
+        Multidimensional Data</em>, 2008.
 
-<P></P><DT><A NAME="Leskovec14">[22]</A>
-&nbsp; &nbsp;
-J.&nbsp;Leskovec and A.&nbsp;Krevl, <a href = "http://snap.stanford.edu/data/" target="_blank">SNAP Datasets: Stanford large network dataset collection</a>, 2014.
+      <P></P>
+    <DT><A NAME="Leskovec14">[22]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;Leskovec and A.&nbsp;Krevl, <a href="http://snap.stanford.edu/data/" target="_blank">SNAP Datasets:
+        Stanford large network dataset collection</a>, 2014.
 
-<P></P><DT><A NAME="Zubiaga09">[23]</A>
-&nbsp; &nbsp;
-A.&nbsp;Zubiaga, <a href = "http://arxiv.org/ftp/arxiv/papers/1202/1202.5469.pdf" target="_blank">Enhancing navigation on wikipedia with social tags</a>, <em>Preprint</em>, 2009.
+      <P></P>
+    <DT><A NAME="Zubiaga09">[23]</A>
+      &nbsp; &nbsp;
+      A.&nbsp;Zubiaga, <a href="http://arxiv.org/ftp/arxiv/papers/1202/1202.5469.pdf" target="_blank">Enhancing
+        navigation on wikipedia with social tags</a>, <em>Preprint</em>, 2009.
 
-<P></P><DT><A NAME="Wetzker08">[24]</A>
-&nbsp; &nbsp;
-R.&nbsp;Wetzker, C.&nbsp;Zimmermann, and C.&nbsp;Bauckhage, <a href = "http://www.aot.tu-berlin.de/fileadmin/files/publications/wetzker_delicious_ecai2008_final.pdf" target="_blank">Analyzing social bookmarking systems: A del.icio.us cookbook</a>, in <em> Mining Social Data (MSoDa) Workshop Proceedings, ECAI</em>, 2008.
+      <P></P>
+    <DT><A NAME="Wetzker08">[24]</A>
+      &nbsp; &nbsp;
+      R.&nbsp;Wetzker, C.&nbsp;Zimmermann, and C.&nbsp;Bauckhage, <a
+        href="http://www.aot.tu-berlin.de/fileadmin/files/publications/wetzker_delicious_ecai2008_final.pdf"
+        target="_blank">Analyzing social bookmarking systems: A del.icio.us cookbook</a>, in <em> Mining Social Data
+        (MSoDa) Workshop Proceedings, ECAI</em>, 2008.
 
-<P></P><DT><A NAME="WikiLSHTC">[25]</A>
-&nbsp; &nbsp;
-I.&nbsp;Partalas, A&nbsp;Kosmopoulos, N&nbsp;Baskiotis, T&nbsp;Artieres, G&nbsp;Paliouras, E&nbsp;Gaussier, I&nbsp;Androutsopoulos, M.-R.&nbsp;Amini and P&nbsp;Galinari, <a href="http://arxiv.org/pdf/1503.08581v1.pdf" target="_blank">LSHTC: A Benchmark for Large-Scale Text Classification</a>, <em> Preprint </em>, 2015
+      <P></P>
+    <DT><A NAME="WikiLSHTC">[25]</A>
+      &nbsp; &nbsp;
+      I.&nbsp;Partalas, A&nbsp;Kosmopoulos, N&nbsp;Baskiotis, T&nbsp;Artieres, G&nbsp;Paliouras, E&nbsp;Gaussier,
+      I&nbsp;Androutsopoulos, M.-R.&nbsp;Amini and P&nbsp;Galinari, <a href="http://arxiv.org/pdf/1503.08581v1.pdf"
+        target="_blank">LSHTC: A Benchmark for Large-Scale Text Classification</a>, <em> Preprint </em>, 2015
 
-<P></P><DT><A NAME="RCV1">[26]</A>
-&nbsp; &nbsp;
-D.&nbsp;D.&nbsp;Lewis, Y.&nbsp;Yang, T.&nbsp;Rose, and F.&nbsp;Li, <a href = "http://www.jmlr.org/papers/volume5/lewis04a/lewis04a.pdf" target="_blank">RCV1: A New Benchmark Collection for Text Categorization Research</a> in <em> Journal of Machine Learning Research</em>, 2004.
+      <P></P>
+    <DT><A NAME="RCV1">[26]</A>
+      &nbsp; &nbsp;
+      D.&nbsp;D.&nbsp;Lewis, Y.&nbsp;Yang, T.&nbsp;Rose, and F.&nbsp;Li, <a
+        href="http://www.jmlr.org/papers/volume5/lewis04a/lewis04a.pdf" target="_blank">RCV1: A New Benchmark Collection
+        for Text Categorization Research</a> in <em> Journal of Machine Learning Research</em>, 2004.
 
-<P></P><DT><A NAME="Eurlex">[27]</A>
-&nbsp; &nbsp;
-E.&nbsp;L.&nbsp;Mencia, and J.&nbsp;Furnkranz, <a href = "https://pdfs.semanticscholar.org/07f0/bb4c4ce5ac6f65383c742e54c892a18e8555.pdf" target="_blank">Efficient pairwise multilabel classification for large-scale problems in the legal domain</a> in <em> ECML/PKDD</em>, 2008.
+      <P></P>
+    <DT><A NAME="Eurlex">[27]</A>
+      &nbsp; &nbsp;
+      E.&nbsp;L.&nbsp;Mencia, and J.&nbsp;Furnkranz, <a
+        href="https://pdfs.semanticscholar.org/07f0/bb4c4ce5ac6f65383c742e54c892a18e8555.pdf" target="_blank">Efficient
+        pairwise multilabel classification for large-scale problems in the legal domain</a> in <em> ECML/PKDD</em>,
+      2008.
 
-<P></P><DT><A NAME="Julian13">[28]</A>
-&nbsp; &nbsp;
-J.&nbsp;McAuley, and J.&nbsp;Leskovec, <a href="http://i.stanford.edu/~julian/pdfs/recsys_extended.pdf" target="_blank"> Hidden factors and hidden topics: understanding rating dimensions with review text </a> in <em> Proceedings of the 7th ACM conference on Recommender systems ACM</em>, 2013.
+      <P></P>
+    <DT><A NAME="Julian13">[28]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;McAuley, and J.&nbsp;Leskovec, <a href="http://i.stanford.edu/~julian/pdfs/recsys_extended.pdf"
+        target="_blank"> Hidden factors and hidden topics: understanding rating dimensions with review text </a> in <em>
+        Proceedings of the 7th ACM conference on Recommender systems ACM</em>, 2013.
 
-<P></P><DT><A NAME="Julian15a">[29]</A>
-&nbsp; &nbsp;
-J.&nbsp;McAuley, C.&nbsp;Targett, Q.&nbsp;Shi, and A.&nbsp;v.&nbsp;d.&nbsp;Hengel, <a href="http://cseweb.ucsd.edu/~jmcauley/pdfs/sigir15.pdf" target="_blank"> Image-based Recommendations on Styles and Substitutes</a> in <em> International ACM SIGIR Conference on Research and Development in Information Retrieval</em>, 2015.
+      <P></P>
+    <DT><A NAME="Julian15a">[29]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;McAuley, C.&nbsp;Targett, Q.&nbsp;Shi, and A.&nbsp;v.&nbsp;d.&nbsp;Hengel, <a
+        href="http://cseweb.ucsd.edu/~jmcauley/pdfs/sigir15.pdf" target="_blank"> Image-based Recommendations on Styles
+        and Substitutes</a> in <em> International ACM SIGIR Conference on Research and Development in Information
+        Retrieval</em>, 2015.
 
-<P></P><DT><A NAME="Julian15b">[30]</A>
-&nbsp; &nbsp;
-J.&nbsp;McAuley, R.&nbsp;Pandey, and J.&nbsp;Leskovec, <a href="http://arxiv.org/pdf/1506.08839v1.pdf" target="_blank"> Inferring networks of substitutable and complementary products</a> in <em> KDD</em>, 2015.
+      <P></P>
+    <DT><A NAME="Julian15b">[30]</A>
+      &nbsp; &nbsp;
+      J.&nbsp;McAuley, R.&nbsp;Pandey, and J.&nbsp;Leskovec, <a href="http://arxiv.org/pdf/1506.08839v1.pdf"
+        target="_blank"> Inferring networks of substitutable and complementary products</a> in <em> KDD</em>, 2015.
 
-<P></P><DT><A NAME="Jain16">[31]</A>
-&nbsp; &nbsp;
-H.&nbsp;Jain, Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/jain16.pdf" target="_blank"> Extreme Multi-label Loss Functions for Recommendation, Tagging, Ranking &amp; Other Missing Label Applications</a> in <em> KDD</em>, 2016.
+      <P></P>
+    <DT><A NAME="Jain16">[31]</A>
+      &nbsp; &nbsp;
+      H.&nbsp;Jain, Y.&nbsp;Prabhu, and M.&nbsp;Varma, <a href="../../pubs/jain16.pdf" target="_blank"> Extreme
+        Multi-label Loss Functions for Recommendation, Tagging, Ranking &amp; Other Missing Label Applications</a> in
+      <em> KDD</em>, 2016.
 
-<P></P><DT><A NAME="Babbar16">[32]</A>
-&nbsp; &nbsp;
-R.&nbsp;Babbar, and B.&nbsp;Sch&ouml;lkopf, <a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxyb2hpdGJhYmJhcnxneDoyMTU5YWY1NTE1OTQ3Yzli" target="_blank"> DiSMEC - Distributed Sparse Machines for Extreme Multi-label Classification</a> in <em> WSDM</em>, 2017.
+      <P></P>
+    <DT><A NAME="Babbar16">[32]</A>
+      &nbsp; &nbsp;
+      R.&nbsp;Babbar, and B.&nbsp;Sch&ouml;lkopf, <a
+        href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxyb2hpdGJhYmJhcnxneDoyMTU5YWY1NTE1OTQ3Yzli"
+        target="_blank"> DiSMEC - Distributed Sparse Machines for Extreme Multi-label Classification</a> in <em>
+        WSDM</em>, 2017.
 
-<P></P><DT><A NAME="Yen16">[33]</A>
-    &nbsp; &nbsp;
-    I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, K.&nbsp;Zhong, P.&nbsp;Ravikumar and I.&nbsp;S.&nbsp;Dhillon, <a href="http://www.cs.cmu.edu/~eyan/publication/ExtremeClassification.pdf" target="_blank"> PD-Sparse: A Primal and Dual Sparse Approach to Extreme Multiclass and Multilabel Classification</a> in <em> ICML</em>, 2016.
-    
-<P></P><DT><A NAME="Yen17">[34]</A>
-        &nbsp; &nbsp;
-        I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, W.&nbsp;Dai, P.&nbsp;Ravikumar I.&nbsp;S.&nbsp;Dhillon and E.&nbspP.&nbsp;Xing, <a href="https://www.cs.cmu.edu/~eyan/publication/ParallelPDSparse.pdf" target="_blank"> PPDSparse: A Parallel Primal-Dual Sparse Method for Extreme Classification</a> in <em> KDD</em>, 2017.
+      <P></P>
+    <DT><A NAME="Yen16">[33]</A>
+      &nbsp; &nbsp;
+      I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, K.&nbsp;Zhong, P.&nbsp;Ravikumar and I.&nbsp;S.&nbsp;Dhillon, <a
+        href="http://www.cs.cmu.edu/~eyan/publication/ExtremeClassification.pdf" target="_blank"> PD-Sparse: A Primal
+        and Dual Sparse Approach to Extreme Multiclass and Multilabel Classification</a> in <em> ICML</em>, 2016.
 
-<P></P><DT><A NAME="Jasinska17">[35]</A>
-        &nbsp; &nbsp;
-        K.&nbsp;Jasinska, K.&nbsp;Dembczynski, R.&nbsp;Busa-Fekete, K.&nbsp;Pfannschmidt, T.&nbsp;Klerx and E.&nbsp;Hullermeier, <a href="http://proceedings.mlr.press/v48/jasinska16.pdf" target="_blank"> Extreme F-Measure Maximization using Sparse Probability Estimates</a> in <em> Proceedings of The 33rd International Conference on Machine Learning, PMLR 48:1435-1444</em>, 2017.
+      <P></P>
+    <DT><A NAME="Yen17">[34]</A>
+      &nbsp; &nbsp;
+      I.&nbsp;E.&nbsp;H.&nbsp;Yen, X.&nbsp;Huang, W.&nbsp;Dai, P.&nbsp;Ravikumar I.&nbsp;S.&nbsp;Dhillon and
+      E.&nbspP.&nbsp;Xing, <a href="https://www.cs.cmu.edu/~eyan/publication/ParallelPDSparse.pdf" target="_blank">
+        PPDSparse: A Parallel Primal-Dual Sparse Method for Extreme Classification</a> in <em> KDD</em>, 2017.
 
-<P></P><DT><A NAME="Prabhu18b">[36]</A>
-        &nbsp; &nbsp;
-        Y.&nbsp;Prabhu, A.&nbsp;Kag, S.&nbsp;Harsola, R.&nbsp;Agrawal and M.&nbsp;Varma, <a href="http://manikvarma.org/pubs/prabhu18b.pdf" target="_blank"> Parabel: Partitioned Label Trees for Extreme Classification with Application to Dynamic Search Advertising</a> in <em> WWW</em>, 2018.
+      <P></P>
+    <DT><A NAME="Jasinska17">[35]</A>
+      &nbsp; &nbsp;
+      K.&nbsp;Jasinska, K.&nbsp;Dembczynski, R.&nbsp;Busa-Fekete, K.&nbsp;Pfannschmidt, T.&nbsp;Klerx and
+      E.&nbsp;Hullermeier, <a href="http://proceedings.mlr.press/v48/jasinska16.pdf" target="_blank"> Extreme F-Measure
+        Maximization using Sparse Probability Estimates</a> in <em> Proceedings of The 33rd International Conference on
+        Machine Learning, PMLR 48:1435-1444</em>, 2017.
 
-<P></P><DT><A NAME="Mizil17">[37]</A>
-            &nbsp; &nbsp;
-            A.&nbsp;Niculescu-Mizil and E.&nbsp;Abbasnejad, <a href="http://www.niculescu-mizil.org/papers/mcfilter.pdf" target="_blank"> Label Filters for Large Scale Multilabel Classification</a> in <em> AISTATS</em>, 2017.
+      <P></P>
+    <DT><A NAME="Prabhu18b">[36]</A>
+      &nbsp; &nbsp;
+      Y.&nbsp;Prabhu, A.&nbsp;Kag, S.&nbsp;Harsola, R.&nbsp;Agrawal and M.&nbsp;Varma, <a
+        href="http://manikvarma.org/pubs/prabhu18b.pdf" target="_blank"> Parabel: Partitioned Label Trees for Extreme
+        Classification with Application to Dynamic Search Advertising</a> in <em> WWW</em>, 2018.
 
-<P></P><DT><A NAME="Jain19" id="Jain19">[38]</A> 
-			&nbsp;&nbsp;
-			H.&nbsp;Jain, &nbsp;V.&nbsp;Balasubramanian, &nbsp;B.&nbsp;Chunduri and M.&nbsp;Varma, <a href="../../pubs/jain19.pdf">Slice: Scalable linear extreme classifiers trained on 100 million labels for related searches</a>, in <em> WSDM</em> 2019.
-	
-<BR><HR>
+      <P></P>
+    <DT><A NAME="Mizil17">[37]</A>
+      &nbsp; &nbsp;
+      A.&nbsp;Niculescu-Mizil and E.&nbsp;Abbasnejad, <a href="http://www.niculescu-mizil.org/papers/mcfilter.pdf"
+        target="_blank"> Label Filters for Large Scale Multilabel Classification</a> in <em> AISTATS</em>, 2017.
 
-<!-- Start of StatCounter Code for Default Guide -->
-<script type="text/javascript">
-var sc_project=10786705; 
-var sc_invisible=0; 
-var sc_security="84e8c309"; 
-var scJsHost = (("https:" == document.location.protocol) ?
-"https://secure." : "http://www.");
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="web counter"
-href="http://statcounter.com/free-hit-counter/"
-target="_blank"><img class="statcounter"
-src="http://c.statcounter.com/10786705/0/84e8c309/0/"
-alt="web counter"></a></div></noscript>
-<!-- End of StatCounter Code for Default Guide -->
+      <P></P>
+    <DT><A NAME="Jain19" id="Jain19">[38]</A>
+      &nbsp;&nbsp;
+      H.&nbsp;Jain, &nbsp;V.&nbsp;Balasubramanian, &nbsp;B.&nbsp;Chunduri and M.&nbsp;Varma, <a
+        href="../../pubs/jain19.pdf">Slice: Scalable linear extreme classifiers trained on 100 million labels for
+        related searches</a>, in <em> WSDM</em> 2019.
+
+      <P></P>
+    <DT><A NAME="Babbar19">[39]</A>
+      &nbsp; &nbsp;
+      R.&nbsp;Babbar, and B.&nbsp;Sch&ouml;lkopf, <a href="https://link.springer.com/content/pdf/10.1007%2Fs10994-019-05791-5.pdf"
+        target="_blank"> Data Scarcity, Robustness and Extreme Multi-label Classification</a> in <em> Machine Learning Journal and European Conference on Machine Learning</em>, 2017.
+
+      <P></P>
+    <DT><A NAME="Khandagale19">[40]</A>
+      &nbsp;&nbsp;
+      S.&nbsp;Khandagale, &nbsp;H.&nbsp;Xiao and &nbsp;R.&nbsp;Babbar, <a
+        href="https://arxiv.org/abs/1904.08249">Bonsai - Diverse and Shallow Trees for Extreme Multi-label Classification</a>, in <em> ArXiv</em> 2019.
+
+      <BR>
+      <HR>
+
+      <!-- Start of StatCounter Code for Default Guide -->
+      <script type="text/javascript">
+        var sc_project = 10786705;
+        var sc_invisible = 0;
+        var sc_security = "84e8c309";
+        var scJsHost = (("https:" == document.location.protocol) ?
+          "https://secure." : "http://www.");
+        document.write("<sc" + "ript type='text/javascript' src='" +
+          scJsHost +
+          "statcounter.com/counter/counter.js'></" + "script>");
+      </script>
+      <noscript>
+        <div class="statcounter"><a title="web counter" href="http://statcounter.com/free-hit-counter/"
+            target="_blank"><img class="statcounter" src="http://c.statcounter.com/10786705/0/84e8c309/0/"
+              alt="web counter"></a></div>
+      </noscript>
+      <!-- End of StatCounter Code for Default Guide -->
 
 </body>
 
