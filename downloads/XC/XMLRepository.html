@@ -20,23 +20,31 @@
 
     <a href="mailto:kushbhatia03@gmail.com">Kush Bhatia</a> &bull; <a href="https://kunaldahiya.github.io/"
       target="_blank">Kunal Dahiya</a> &bull; <a href="http://www.cse.iitd.ernet.in/~hjain/" target="_blank">Himanshu
-      Jain</a> &bull; <a href="http://anshulmittal.org/" target="_blank">Anshul Mittal </a> &bull; 
-      <a href="http://www.cse.iitd.ernet.in/~yashoteja/" target="_blank">Yashoteja Prabhu </a> &bull; <a
+      Jain</a> &bull; <a href="http://anshulmittal.org/" target="_blank">Anshul Mittal </a> &bull;
+    <a href="http://www.cse.iitd.ernet.in/~yashoteja/" target="_blank">Yashoteja Prabhu </a> &bull; <a
       href="../../index.html" target="_blank">Manik Varma</a>
     <hr width=600>
   </center>
 
   <p>
-    The objective in extreme multi-label learning is to learn a classifier that can automatically tag a datapoint with
-    the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets and code
-    that can be used for evaluating the performance of extreme multi-label algorithms.
+The objective in extreme multi-label learning is to learn features and classifiers that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets, metrics, results and code that can be used for evaluating the performance of extreme multi-label algorithms. 
   </p>
 
+<p><h2>
+Citing the Repository
+</h2></p>
 
-  <p>
-    <h2><a name="tools"></a>Extreme Multi-label Classification Tools</h2>
-    Tools for extreme multi-label classification are available for <a href="https://github.com/kunaldahiya/pyxclib">Python</a> and <a href="https://drive.google.com/file/d/1NzoP5Ec_1AdYNa4fNVbNoUxx2oMb5Trc/view?usp=sharing"> Matlab</a>.     
-  </p>
+<p>
+If you use any of the datasets or results provided on this repository, then please cite
+
+<pre xml:space="preserve">        @Misc{Bhatia16,
+          author    = {Bhatia, K. and Dahiya, K. and Jain, H. and Mittal, A. and Prabhu, Y. and Varma, M.},
+          title     = {The extreme classification repository: Multi-label datasets and code},
+          url       = {http://manikvarma.org/downloads/XC/XMLRepository.html},
+          year      = {2016}
+        }
+        </pre>
+</p>
 
   <p>
     <h2>Download Datasets</h2>
@@ -48,13 +56,12 @@
     set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to
     classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been
     dropped from our test set. Results computed on the train/test splits provided on this page are therefore not
-    comparable to results computed on the original sources or through uniform sampling. Please cite both the original
-    source as well as the reference mentioned in the citation column in Table1 to avoid any ambiguity about which
-    train/test split was used.
+    comparable to results computed on the original sources or through uniform sampling. 
     Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download.
   </p>
   <p>
-    <a href="https://drive.google.com/file/d/1u7YibXAC_Wz1RDehN1KjB5vu21zUnapV/view?usp=sharing">README for the dataset file format.</a>
+    <a href="https://drive.google.com/file/d/1u7YibXAC_Wz1RDehN1KjB5vu21zUnapV/view?usp=sharing">README for the dataset
+      file format.</a>
   </p>
 
   <p>
@@ -74,7 +81,7 @@
           <th rowspan="1" style="width: 100px;">Number of</th>
           <th rowspan="1" style="width: 100px;">Avg. Points </th>
           <th rowspan="1" style="width: 100px;">Avg. Labels </th>
-          <th rowspan="2" style="width: 100px;">Citations</th>
+          <th rowspan="1" style="width: 100px;">Original</th>
         </tr>
 
         <tr align=center>
@@ -84,6 +91,7 @@
           <th rowspan="1">Test Points</th>
           <th rowspan="1">per Label</th>
           <th rowspan="1">per Point</th>
+          <th rowspan="1">Source</th>
         </tr>
 
         <tr align=center>
@@ -107,7 +115,7 @@
           <td>12914</td>
           <td>1902.15</td>
           <td>4.38</td>
-          <td><a href="#Prabhu14">[2]</a> + <a href="#Snoek06">[19]</a></td>
+          <td><a href="#Snoek06">[19]</a></td>
         </tr>
 
         <tr align=center>
@@ -119,7 +127,7 @@
           <td>2515</td>
           <td>111.71</td>
           <td>2.40</td>
-          <td><a href="#Prabhu14">[2]</a> + <a href="#Katakis08">[20]</a></td>
+          <td><a href="#Katakis08">[20]</a></td>
         </tr>
 
         <tr align=center>
@@ -131,7 +139,7 @@
           <td>3185</td>
           <td>311.61</td>
           <td>19.03</td>
-          <td><a href="#Prabhu14">[2]</a> + <a href="#Tsoumakas08">[21]</a></td>
+          <td><a href="#Tsoumakas08">[21]</a></td>
         </tr>
 
         <tr align=center>
@@ -143,7 +151,7 @@
           <td>155962</td>
           <td>1218.56</td>
           <td>4.79</td>
-          <td><a href="#Prabhu14">[2]</a> + <a href="#RCV1">[26]</a></td>
+          <td><a href="#RCV1">[26]</a></td>
         </tr>
 
         <tr align=center>
@@ -155,7 +163,7 @@
           <td>3809</td>
           <td>25.73</td>
           <td>5.31</td>
-          <td><a href="#Bhatia15">[1]</a> + <a href="#Eurlex">[27]</a> + <a href="#Tsoumakas11">[44]</a></td>
+          <td><a href="#Eurlex">[27]</a> + <a href="#Tsoumakas11">[45]</a></td>
         </tr>
 
         <tr align=center>
@@ -217,7 +225,7 @@
           <td>6616</td>
           <td>8.52</td>
           <td>18.64</td>
-          <td><a href="#Bhatia15">[1]</a> + <a href="#Zubiaga09">[23]</a></td>
+          <td><a href="#Zubiaga09">[23]</a></td>
         </tr>
 
         <tr align=center>
@@ -229,7 +237,7 @@
           <td>100095</td>
           <td>72.29</td>
           <td>75.54 </td>
-          <td><a href="#Bhatia15">[1]</a> + <a href="#Wetzker08">[24]</a></td>
+          <td><a href="#Wetzker08">[24]</a></td>
         </tr>
 
         <tr align=center>
@@ -241,12 +249,13 @@
           <td>587084</td>
           <td>17.46</td>
           <td>3.19</td>
-          <td><a href="#Prabhu14">[2]</a> + <a href="#WikiLSHTC">[25]</a></td>
+          <td><a href="#WikiLSHTC">[25]</a></td>
         </tr>
 
         <tr align=center>
           <td align=right>WikiSeeAlsoTitles-350K</td>
-          <td><a href="https://drive.google.com/file/d/1bHtiLVF5EFsVL3qyU7y5e3M-fYHvXsG9" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/file/d/1bHtiLVF5EFsVL3qyU7y5e3M-fYHvXsG9" target="_blank">Download</a>
+          </td>
           <td>91414</td>
           <td>352072</td>
           <td>629418</td>
@@ -258,7 +267,8 @@
 
         <tr align=center>
           <td align=right>WikiTitles-500K</td>
-          <td><a href="https://drive.google.com/file/d/11U4qDWKvsR6pCzLvY3APckx-R_ihyMih" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/file/d/11U4qDWKvsR6pCzLvY3APckx-R_ihyMih" target="_blank">Download</a>
+          </td>
           <td>185479</td>
           <td>501070</td>
           <td>1699722</td>
@@ -284,7 +294,8 @@
 
         <tr align=center>
           <td align=right>AmazonTitles-670K</td>
-          <td><a href="https://drive.google.com/file/d/1OKnaLu4SDMOQ69rHdwF8ExKkeF2SZw7z" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/file/d/1OKnaLu4SDMOQ69rHdwF8ExKkeF2SZw7z" target="_blank">Download</a>
+          </td>
           <td>66666</td>
           <td>670091</td>
           <td>485176</td>
@@ -292,7 +303,7 @@
           <td>5.11</td>
           <td>5.39</td>
           <td>-</a></td>
-        </tr>        
+        </tr>
 
         <tr align=center>
           <td align=right>Amazon-670K</td>
@@ -307,7 +318,7 @@
           <td>153025</td>
           <td>3.99</td>
           <td>5.45</td>
-          <td><a href="#Bhatia15">[1]</a> + <a href="#Julian13">[28]</a></td>
+          <td><a href="#Julian13">[28]</a></td>
         </tr>
 
         <tr align=center>
@@ -319,20 +330,21 @@
           <td>1563137</td>
           <td>7.07</td>
           <td>1.95</td>
-          <td><a href="#Prabhu14">[2]</a></td>
+          <td>-</td>
         </tr>
 
         <tr align=center>
           <td align=right>AmazonTitles-3M</td>
-          <td><a href="https://drive.google.com/file/d/1PGzippnzIcgVNYZ8qQKVb0GNiARjQxvV" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/file/d/1PGzippnzIcgVNYZ8qQKVb0GNiARjQxvV" target="_blank">Download</a>
+          </td>
           <td>165431</td>
           <td>2812281</td>
           <td>1712536</td>
           <td>739665</td>
           <td>31.55</td>
           <td>36.18</td>
-          <td>-</a></td>
-        </tr>        
+          <td><a href="#Julian15a">[29]</a> + <a href="#Julian15b">[30]</a></td>
+        </tr>
 
         <tr align=center>
           <td align=right>Amazon-3M</td>
@@ -347,7 +359,7 @@
           <td>742507</td>
           <td>31.64</td>
           <td>36.17</td>
-          <td><a href="#Julian15a">[29]</a> + <a href="#Julian15b">[30]<a /></td>
+          <td><a href="#Julian15a">[29]</a> + <a href="#Julian15b">[30]</a></td>
         </tr>
 
         <tr align=center>
@@ -359,7 +371,7 @@
           <td>22629136</td>
           <td>14.32</td>
           <td>1.79</td>
-          <td><a href="#Prabhu14">[2]</a></td>
+          <td>-</td>
         </tr>
 
 
@@ -385,6 +397,19 @@
   <p>
     Please contact <a href="mailto:manik@microsoft.com">Manik Varma</a> if you would like to contribute a dataset.
   </p>
+
+  <p>
+    <h2>Download Tools</h2></p>
+
+<p>
+The following wrappers can be helpful for reading and writing the datasets in the given file format, evaluating various performance measures such as precision, nDCG, <i>etc</i>. and pre-processing the raw text for deep learning as well as extracting bag-of-words features.
+
+    <ul type="circle">
+      <li> <a href="https://github.com/kunaldahiya/pyxclib">PyXCLib in Python</a>
+      <li> <a href="https://drive.google.com/file/d/1NzoP5Ec_1AdYNa4fNVbNoUxx2oMb5Trc/view?usp=sharing"> Wrappers in Matlab</a>
+    </ul>
+  </p>
+
   <p>
     <h2>Download Code</h2>
 
@@ -394,7 +419,7 @@
     <li>1-vs-All classifiers
       <ul type="circle">
         <li>Slice (Jain et al., WSDM 2019): <a href="../../code/Slice/download.html">source code in C++ as well as
-            precompiled Widows/Linux binaries</a></li>
+            precompiled Windows/Linux binaries</a></li>
         <li>Parabel (Prabhu et al., WWW 2018): <a href="../../code/Parabel/download.html">source code in C and Matlab as
             well as precompiled Windows/Linux binaries</a></li>
         <li>DiSMEC (Babbar & Sch&ouml;lkopf, WSDM 2017): <a href="https://sites.google.com/site/rohitbabbar/code/dismec"
@@ -3975,6 +4000,17 @@ SLEEC Parameters
 
       <HR>
 
+      <!-- Toggle bibtext entry. -->
+      <script>
+        function displayCitation() {
+          var x = document.getElementById("repoBibtex");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        }
+      </script>
 
       <!-- Start of StatCounter Code for Default Guide -->
       <script type="text/javascript">
