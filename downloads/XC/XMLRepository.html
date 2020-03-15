@@ -27,41 +27,40 @@
   </center>
 
   <p>
-The objective in extreme multi-label learning is to learn features and classifiers that can automatically tag a datapoint with the most relevant subset of labels from an extremely large label set. This page provides benchmark datasets, metrics, results and code that can be used for evaluating the performance of extreme multi-label algorithms. 
+    The objective in extreme multi-label learning is to learn features and classifiers that can automatically tag a
+    datapoint with the most relevant subset of labels from an extremely large label set. This page provides benchmark
+    datasets, metrics, results and code that can be used for evaluating the performance of extreme multi-label
+    algorithms.
   </p>
 
-<p><h2>
-Citing the Repository
-</h2></p>
+  <p>
+    <h2>
+      Citing the Repository
+    </h2>
+  </p>
 
-<p>
+  <p>
 If you use any of the datasets or results provided on this repository, then please cite
 
-<pre xml:space="preserve">        @Misc{Bhatia16,
+    <pre xml:space="preserve">        @Misc{Bhatia16,
           author    = {Bhatia, K. and Dahiya, K. and Jain, H. and Mittal, A. and Prabhu, Y. and Varma, M.},
           title     = {The extreme classification repository: Multi-label datasets and code},
           url       = {http://manikvarma.org/downloads/XC/XMLRepository.html},
           year      = {2016}
         }
         </pre>
-</p>
+  </p>
 
   <p>
     <h2>Download Datasets</h2>
   </p>
   <p>
-    These multi-label datasets have been processed from their original source to create train/test splits ensuring that
-    the test set contains as many training labels as possible. This yields more realistic train/test splits as compared
-    to uniform sampling which can drop many of the infrequently occurring, and hard to classify, labels from the test
-    set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to
-    classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been
-    dropped from our test set. Results computed on the train/test splits provided on this page are therefore not
-    comparable to results computed on the original sources or through uniform sampling. 
-    Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download.
+    These multi-label datasets have been processed from their original source to create train/test splits ensuring that the test set contains as many training labels as possible. This yields more realistic train/test splits as compared to uniform sampling which can drop many of the infrequently occurring, and hard to classify, labels from the test set. For example, on the WikiLSHTC-325K dataset, uniform sampling might loose ninety thousand of the hardest to classify labels from the test set whereas according to our sampling procedure, only forty thousand labels have been dropped from our test set. Results computed on the train/test splits provided on this page are therefore not comparable to results computed on the original sources or through uniform sampling. Please also note that the Ads-1M and Ads-9M datasets are proprietary and not available for download. Bag-of-words (BoW) features have been provided for all other datasets. The raw text of some of the datasets has also been provided for deep learning.
   </p>
+
   <p>
-    <a href="https://drive.google.com/file/d/1u7YibXAC_Wz1RDehN1KjB5vu21zUnapV/view?usp=sharing">README for the dataset
-      file format.</a>
+The dataset file format information can be found in the following
+    <a href="https://drive.google.com/file/d/1u7YibXAC_Wz1RDehN1KjB5vu21zUnapV/view?usp=sharing">README file and Python and Matlab scripts for reading the datasets have been provided below.</a>
   </p>
 
   <p>
@@ -75,7 +74,7 @@ If you use any of the datasets or results provided on this repository, then plea
         <tr align=center>
           <th rowspan="2" align="right" style="width: 150px;">Dataset</th>
           <th rowspan="2" style="width: 250px;">Download</th>
-          <th rowspan="1" style="width: 130px;">Feature</th>
+          <th rowspan="1" style="width: 130px;">BoW Feature</th>
           <th rowspan="1" style="width: 130px;">Label</th>
           <th rowspan="1" style="width: 100px;">Number of</th>
           <th rowspan="1" style="width: 100px;">Number of</th>
@@ -108,7 +107,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Mediamill</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGY3B4TXRmZnZBTkk" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGY3B4TXRmZnZBTkk" target="_blank">BoW Features</a></td>
           <td>120</td>
           <td>101</td>
           <td>30993</td>
@@ -120,7 +119,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Bibtex</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM" target="_blank">BoW Features</a></td>
           <td>1836</td>
           <td>159</td>
           <td>4880</td>
@@ -132,7 +131,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Delicious</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU" target="_blank">BoW Features</a></td>
           <td>500</td>
           <td>983</td>
           <td>12920</td>
@@ -144,7 +143,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>RCV1-2K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdnEzRWZWQWJMRnc" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdnEzRWZWQWJMRnc" target="_blank">BoW Features</a></td>
           <td>47236</td>
           <td>2456</td>
           <td>623847</td>
@@ -156,7 +155,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>EURLex-4K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGU0VTR1pCejFpWjg" target="_blank"> Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGU0VTR1pCejFpWjg" target="_blank"> BoW Features</a></td>
           <td>5000</td>
           <td>3993</td>
           <td>15539</td>
@@ -169,24 +168,20 @@ If you use any of the datasets or results provided on this repository, then plea
         <tr align=center>
           <td align=right>EURLex-4.3K</td>
           <td><a href="https://drive.google.com/file/d/1b3mWgaKIAmc9Ae3E0QrokiIFA9Qj1K9r/view?usp=sharing"
-              target="_blank"> Download</a></td>
+              target="_blank"> BoW Features</a></td>
           <td>200000</td>
           <td>4271</td>
           <td>45000</td>
           <td>6000</td>
           <td>60.57</td>
           <td>5.07</td>
-          <td><a href="#Chalkidis19">[43]</a> + <a href="#Chalkidis19b">[43b] </a> + <a href="#Chalkidis19c">[44]</a>
+          <td><a href="#Chalkidis19">[43]</a> + <a href="#Chalkidis19c">[44]</a>
           </td>
         </tr>
 
         <tr align=center>
           <td align=right>AmazonCat-13K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGa2tMbVJGdDNSMGc" target="_blank">Download
-              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGYjBBREJ2MEViYXM"
-              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
-              href="https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for
-              Deep Learning</a></td>
+          <td> <a href="https://drive.google.com/file/d/1X9CzbgyB-x1dFbPSWUpkbKvKG9TrAU0y/view?usp=sharing" target="_blank">BoW Features</a> <a href="https://drive.google.com/file/d/1gsabsx8KR2N9jJz16jTcA0QASXsNuKnN/view?usp=sharing" target="_blank">Raw text</a> </td>
           <td>203882</td>
           <td>13330</td>
           <td>1186239</td>
@@ -198,11 +193,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>AmazonCat-14K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGaDFqU2E5U0dxS00" target="_blank">Download
-              Dataset</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGSG5tZ2hVc29NZzg"
-              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
-              href="https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for
-              Deep Learning</a></td>
+          <td> <a href="https://drive.google.com/file/d/1z_idl5Tw83kH4_j5Qp0kVk9TXBWXCjb8/view?usp=sharing" target="_blank">BoW Features</a> <a href="https://drive.google.com/file/d/1vy1N-lDdDfuoo0CNwFE11hb3INCpJHFx/view?usp=sharing" target="_blank">Raw text</a> </td>
           <td>597540</td>
           <td>14588</td>
           <td>4398050</td>
@@ -214,11 +205,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Wiki10-31K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGaDdOeGliWF9EOTA" target="_blank">Download
-              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGQ21SX2llNnJldUE"
-              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
-              href="https://drive.google.com/open?id=0B3lPMIHmG6vGMDZSalQ3MWh5UFU" target="_blank">Download Raw Text for
-              Deep Learning</a></td>
+          <td> <a href=# target="_blank">BoW Features</a> <a href=# target="_blank">Raw text</a> </td>
           <td>101938</td>
           <td>30938</td>
           <td>14146</td>
@@ -230,7 +217,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Delicious-200K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGR3lBWWYyVlhDLWM" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGR3lBWWYyVlhDLWM" target="_blank">BoW Features</a></td>
           <td>782585</td>
           <td>205443</td>
           <td>196606</td>
@@ -242,7 +229,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>WikiLSHTC-325K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGSHE1SWx4TVRva3c" target="_blank">Download</a></td>
+          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGSHE1SWx4TVRva3c" target="_blank">BoW Features</a></td>
           <td>1617899</td>
           <td>325056</td>
           <td>1778351</td>
@@ -254,7 +241,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>WikiSeeAlsoTitles-350K</td>
-          <td><a href="https://drive.google.com/file/d/1bHtiLVF5EFsVL3qyU7y5e3M-fYHvXsG9" target="_blank">Download</a>
+          <td><a href="https://drive.google.com/file/d/1bHtiLVF5EFsVL3qyU7y5e3M-fYHvXsG9" target="_blank">BoW Features</a>
           </td>
           <td>91414</td>
           <td>352072</td>
@@ -267,7 +254,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>WikiTitles-500K</td>
-          <td><a href="https://drive.google.com/file/d/11U4qDWKvsR6pCzLvY3APckx-R_ihyMih" target="_blank">Download</a>
+          <td><a href="https://drive.google.com/file/d/11U4qDWKvsR6pCzLvY3APckx-R_ihyMih" target="_blank">BoW Features</a>
           </td>
           <td>185479</td>
           <td>501070</td>
@@ -280,9 +267,10 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Wikipedia-500K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c" target="_blank">Download
+          <td> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c" target="_blank">BoW Features</a> <a href="#" target="_blank">Raw text</a> </td>
+          <!-- <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGRmEzVDVkNjBMR3c" target="_blank">Download
               Dataest</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGd2pFcTRDQVh5bDg"
-              target="_blank">Download Feature &amp; Label Meta-data</a></td>
+              target="_blank">Download Feature &amp; Label Meta-data</a></td> -->
           <td>2381304</td>
           <td>501070</td>
           <td>1813391</td>
@@ -294,7 +282,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>AmazonTitles-670K</td>
-          <td><a href="https://drive.google.com/file/d/1OKnaLu4SDMOQ69rHdwF8ExKkeF2SZw7z" target="_blank">Download</a>
+          <td><a href="https://drive.google.com/file/d/1OKnaLu4SDMOQ69rHdwF8ExKkeF2SZw7z" target="_blank">BoW Features</a>
           </td>
           <td>66666</td>
           <td>670091</td>
@@ -307,11 +295,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Amazon-670K</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGdUJwRzltS1dvUVk" target="_blank">Download
-              Dataset</a><br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGZ0xsNTFhazNLS28"
-              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
-              href="https://drive.google.com/open?id=0B3lPMIHmG6vGYm9abnAzTU1XaTQ" target="_blank">Download Raw Text for
-              Deep Learning</a></td>
+          <td> <a href="https://drive.google.com/file/d/1TLaXCNB_IDtLhk4ycOnyud0PswWAW6hR/view?usp=sharing" target="_blank">BoW Features</a> <a href="https://drive.google.com/file/d/16FIzX3TnlsqbrwSJJ2gDih69laezfZWR/view?usp=sharing" target="_blank">Raw text</a> </td>
           <td>135909</td>
           <td>670091</td>
           <td>490449</td>
@@ -335,7 +319,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>AmazonTitles-3M</td>
-          <td><a href="https://drive.google.com/file/d/1PGzippnzIcgVNYZ8qQKVb0GNiARjQxvV" target="_blank">Download</a>
+          <td><a href="https://drive.google.com/file/d/1PGzippnzIcgVNYZ8qQKVb0GNiARjQxvV" target="_blank">BoW Features</a>
           </td>
           <td>165431</td>
           <td>2812281</td>
@@ -348,11 +332,7 @@ If you use any of the datasets or results provided on this repository, then plea
 
         <tr align=center>
           <td align=right>Amazon-3M</td>
-          <td><a href="https://drive.google.com/open?id=0B3lPMIHmG6vGUEd4eTRxaWl3YkE" target="_blank">Download
-              Dataset</a> <br> <a href="https://drive.google.com/open?id=0B3lPMIHmG6vGd2U3VHB0Wkk4cGM"
-              target="_blank">Download Feature &amp; Label Meta-data</a><br> <a
-              href="https://drive.google.com/open?id=0B2jJQxNRDl_rVVZCdWVnYmUyRDg" target="_blank">Download Raw Text for
-              Deep Learning</a></td>
+          <td> <a href="https://drive.google.com/file/d/1X9CzbgyB-x1dFbPSWUpkbKvKG9TrAU0y/view?usp=sharing" target="_blank">BoW Features</a> <a href="https://drive.google.com/file/d/1gsabsx8KR2N9jJz16jTcA0QASXsNuKnN/view?usp=sharing" target="_blank">Raw text</a> </td>
           <td>337067</td>
           <td>2812281</td>
           <td>1717899</td>
@@ -399,14 +379,17 @@ If you use any of the datasets or results provided on this repository, then plea
   </p>
 
   <p>
-    <h2>Download Tools</h2></p>
+    <h2 id="tools">Download Tools</h2>
+  </p>
 
-<p>
-The following wrappers can be helpful for reading and writing the datasets in the given file format, evaluating various performance measures such as precision, nDCG, <i>etc</i>. and pre-processing the raw text for deep learning as well as extracting bag-of-words features.
+  <p>
+    The following scripts can be helpful for reading and writing the datasets in the given file format, evaluating
+    various performance measures such as precision, nDCG, <i>etc</i>. and pre-processing the raw text for deep learning
+    as well as extracting bag-of-words features.
 
     <ul type="circle">
       <li> <a href="https://github.com/kunaldahiya/pyxclib">PyXCLib in Python</a>
-      <li> <a href="https://drive.google.com/file/d/1NzoP5Ec_1AdYNa4fNVbNoUxx2oMb5Trc/view?usp=sharing"> Wrappers in Matlab</a>
+      <li> <a href="https://drive.google.com/file/d/1NzoP5Ec_1AdYNa4fNVbNoUxx2oMb5Trc/view?usp=sharing"> Scripts in Matlab</a>
     </ul>
   </p>
 
@@ -3985,7 +3968,7 @@ SLEEC Parameters
     <DT><A NAME="Chalkidis19c">[44]</A>
       &nbsp;&nbsp;
       I.&nbsp;Chalkidis, &nbsp;E.&nbsp;Fergadiotis, &nbsp;P.&nbsp;Malakasiotis, and &nbsp;I.&nbsp;Androutsopoulos,
-      <a href="hhttps://www.aclweb.org/anthology/P19-1636/">Large-Scale Multi-Label Text Classification on EU
+      <a href="https://www.aclweb.org/anthology/P19-1636/">Large-Scale Multi-Label Text Classification on EU
         Legislation</a>, in <em> ACL</em> 2019.
       <BR>
 
@@ -4000,7 +3983,7 @@ SLEEC Parameters
 
       <HR>
 
-      <!-- Toggle bibtext entry. -->
+      <!-- Toggle bibtext entry.
       <script>
         function displayCitation() {
           var x = document.getElementById("repoBibtex");
@@ -4010,7 +3993,7 @@ SLEEC Parameters
             x.style.display = "none";
           }
         }
-      </script>
+      </script> -->
 
       <!-- Start of StatCounter Code for Default Guide -->
       <script type="text/javascript">
